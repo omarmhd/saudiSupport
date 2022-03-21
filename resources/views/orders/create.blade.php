@@ -39,61 +39,78 @@
 
 
                         <div class="row row-sm mg-b-20">
-                            <div class="col-lg-4">
-                                <p class="mg-b-10">order number</p>
-
-                                <input type="text"
-                                       id="order_no"
-                                       name="order_no"
-                                       class="form-control"
-                                       value="{{old('order_no')}}"
-                                       placeholder="order number">
-                            </div><!-- col-4 -->
-                            <div class="col-lg-4 mg-t-20 mg-lg-t-0">
-                                <p class="mg-b-10">phone number</p>
-
-                                <input type="text"
-                                       id="phone_no"
-                                       name="phone_no"
-                                       class="form-control"
-                                       value="{{old('phone_no')}}"
-                                       placeholder="phone number">
-                            </div>
-
-                            <div class="col-lg-4 mg-t-20 mg-lg-t-0">
-                                <p class="mg-b-10">Product Name</p>
-                                <input type="text"
-                                       id="product_name"
-                                       name="product_name"
-                                       class="form-control"
-                                       value="{{old('product_name')}}"
-                                       placeholder="product name">
-                            </div>
-
-
-
-                            <!-- col-4 -->
-                        </div>
-                        <div class="row row-sm mg-b-20">
                             <div class="col-lg-4 mg-t-20 mg-lg-t-0">
 
-                                <p class="mg-b-10">order type</p>
-                                <select class="form-control select2-no-search" name="order_type" >
-
-                                    <option value="refund"  {{ old('order_type') == 'refund' ? "selected" : "" }}>
-                                        refund
+                                <p class="mg-b-10">Order type</p>
+                                <select class="form-control select2-no-search" name="type_order" >
+                                    <option selected disabled value=""> Please Select option</option>
+                                    <option value="Exchange"  {{ old('order_type') == 'exchange' ? "selected" : "" }}>
+                                        Exchange
                                     </option>
-                                    <option value="exchange"  {{ old('order_type') == 'exchange' ? "selected" : "" }}>
-                                        exchange
+                                    <option value="Refund"   {{ old('order_type') == 'refund' ? "selected" : "" }}>
+                                        Refund
                                     </option>
-                                    <option value="another" {{ old('order_type') == 'another' ? "selected" : "" }}>
-                                        another
+                                    <option value="Cancel" {{ old('order_type') == 'Cancel' ? "selected" : "" }}>
+                                        Cancel
+                                    </option>
+
+                                    <option value="Edit" {{ old('order_type') == 'another' ? "selected" : "" }}>
+                                        Edit
                                     </option>
 
 
                                 </select>
                             </div>
 
+
+                            <!-- col-4 -->
+                        </div>
+
+                        <div class="row row-sm mg-b-20">
+                        <div class="col-lg-4">
+                            <p class="mg-b-10">Order number</p>
+
+                            <input type="text"
+                                   id="order_no"
+                                   name="order_no"
+                                   class="form-control"
+                                   value="{{old('order_no')}}"
+                                   placeholder="Please enter  order number">
+                        </div><!-- col-4 -->
+                        <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                            <p class="mg-b-10">Phone number</p>
+
+                            <input type="text"
+                                   id="phone_no"
+                                   name="phone_no"
+                                   class="form-control"
+                                   value="{{old('phone_no')}}"
+                                   placeholder="Please enter  phone number   ">
+                        </div>
+
+                        <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                            <p class="mg-b-10">Product Name</p>
+                            <input type="text"
+                                   id="product_name"
+                                   name="product_name"
+                                   class="form-control"
+                                   value="{{old('product_name')}}"
+                                   placeholder="Please enter the product name ">
+                        </div>
+                        </div>
+
+                        <div class="row row-sm mg-b-20">
+
+                            <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                                <p class="mg-b-10">Alternative product</p>
+                                <input type="text"
+                                       id="alternative_product"
+                                       name="alternative_product"
+                                       class="form-control"
+                                       value="{{old('alternative_product')}}"
+                                       placeholder="Please enter the alternative product
+ ">
+                            </div>
                             <div class="col-lg-4 mg-t-20 mg-lg-t-0">
                                 <p class="mg-b-10">Attachments</p>
                                 <input type="url"
@@ -109,7 +126,7 @@
                                        name="track"
                                        class="form-control"
                                        value="{{old('track')}}"
-                                       placeholder="track">                                </div>
+                                       placeholder="Please enter the track number">                                </div>
 
 
 
@@ -117,35 +134,41 @@
                         </div>
                         <div class="row row-sm mg-b-20">
 
-
-
                             <div class="col-lg-4 mg-t-20 mg-lg-t-0">
-                                <p class="mg-b-10">The Detials</p>
-
-                                <textarea class="form-control" name="details" placeholder="Detials" rows="3" spellcheck="false"></textarea>
-                            </div>
-                            <div class="col-lg-4 mg-t-20 mg-lg-t-0">
-                                <p class="mg-b-10">Note</p>
-                                <textarea class="form-control" name="note_tech"  placeholder="Note" rows="3" spellcheck="false"></textarea>
+                                <p class="mg-b-10">Problem Or Note</p>
+                                <textarea class="form-control" name="note_tech"  placeholder="Please enter the problem   " rows="3" spellcheck="false"></textarea>
 
                             </div>
+
+                            <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                                <p class="mg-b-10">Bank accounts</p>
+                                <textarea class="form-control" name="bank_accounts"  placeholder="Please enter the bank accounts" rows="3" spellcheck="false"></textarea>
+
+                            </div>
+
+{{--                            <div class="col-lg-4 mg-t-20 mg-lg-t-0">--}}
+{{--                                <p class="mg-b-10">The Detials</p>--}}
+
+{{--                                <textarea class="form-control" name="details" placeholder="Detials" rows="3" spellcheck="false"></textarea>--}}
+{{--                            </div>--}}
+
                             <div class="col-lg-4">
                                 <p class="mg-b-10">order journey</p>
                                 <select class="form-control select2-no-search" name="order_journey">
                                     <option value="0" selected>
-                                        new
+                                        New Order
                                     </option>
                                     <option value="1">
                                         Tracking
                                     </option>
                                     <option value="2">
-                                        preview
+                                        Preview
                                     </option>
                                     <option value="3">
-                                        completed
+                                        Completed
                                     </option>
                                     <option value="4">
-                                        canceled
+                                        Canceled
                                     </option>
 
                                 </select>
@@ -159,28 +182,7 @@
 
                     <div class="card-body pt-0">
 
-                        {{--    <div class="row row-sm mg-b-20 mg-t-10">--}}
 
-
-
-
-                        {{--        <div class="col-lg-3 mg-t-20 mg-lg-t-3">--}}
-                        {{--            <label class="ckbox">--}}
-                        {{--                <input checked="" type="checkbox">--}}
-                        {{--                <span>order arrived </span>--}}
-                        {{--            </label>--}}
-                        {{--        </div>--}}
-                        {{--        <div class="col-lg-3 mg-t-20 mg-lg-t-0">--}}
-                        {{--            <label class="ckbox"><input checked="" type="checkbox"><span>Checkbox Checked</span>--}}
-                        {{--            </label>--}}
-                        {{--        </div>--}}
-
-                        {{--        <div class="col-lg-3" data-select2-id="21">--}}
-
-                        {{--            <select class="form-control select2-no-search select2-hidden-accessible" data-select2-id="13" tabindex="-1" aria-hidden="true"><option label="Choose one" data-select2-id="15"> </option> <option value="Firefox" data-select2-id="28"> Firefox </option> <option value="Chrome" data-select2-id="29"> Chrome </option> <option value="Safari" data-select2-id="30"> Safari </option> <option value="Opera" data-select2-id="31"> Opera </option> <option value="Internet Explorer" data-select2-id="32"> Internet Explorer </option> </select><span class="select2 select2-container select2-container--default select2-container--above" dir="ltr" data-select2-id="14" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-qkfq-container"><span class="select2-selection__rendered" id="select2-qkfq-container" role="textbox" aria-readonly="true"><span class="select2-selection__placeholder">Choose one</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> </div>--}}
-
-
-                        {{--    </div>--}}
 
                         <div class="form-group mb-0 mt-3 justify-content-end">
                             <div>

@@ -1,0 +1,195 @@
+
+<div class="modal show-order fade bd-example-modal-lg" id="show-order" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">order # <span class="order_number">3232</span></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row row-sm mg-b-20 ">
+                    <div id="wizard1" role="application" class="wizard" style="margin: auto;" >
+                        <div class="steps">
+                            <ul role="tablist" style="font-size: 10px">
+                                <li role="tab" class="first current" aria-disabled="false" aria-selected="true">
+                                    <a id="wizard1-t-0" href="#wizard1-h-0" aria-controls="wizard1-p-0">
+                                        <span class="current-info audible">current step: </span>
+                                        <span class="order_type"></span>
+                                        <span class="title">Order type :</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+             <h5 class="" style="color: #0a7ffb">Order Data</h5>
+                <br>
+                <div class="row row-sm mg-b-20">
+
+                    <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                        <p class="mg-b-10">Product Name</p>
+                        <input type="text"
+                               id="product_name"
+                               name="product_name"
+                               class="form-control"
+                               placeholder="product name">
+                    </div>
+                    <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                        <p class="mg-b-10">phone number</p>
+
+                        <input type="text"
+                               id="phone_no"
+                               name="phone_no"
+                               class="form-control"
+                               placeholder="phone number">
+                    </div>
+
+                </div>
+                <div class="row row-sm mg-b-20">
+
+                    <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                        <p class="mg-b-10">Alternative product</p>
+                        <input type="text"
+                               id="alternative_product"
+                               name="alternative_product"
+                               class="form-control"
+                             >                            </div>
+
+                    <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                        <p class="mg-b-10">Attachments</p>
+                        <input type="text"
+                               id="attachments"
+                               name="attachments"
+                               class="form-control"
+                        >
+                    </div>
+                    <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                        <p class="mg-b-10"> Tracking ID</p>
+                        <input type="text"
+                               id="track"
+                               name="track"
+                               class="form-control"
+                             >
+                    </div>
+
+
+
+                    <!-- col-4 -->
+                </div>
+                <div class="row row-sm mg-b-20">
+
+
+
+
+                    <div class="col-lg-6 mg-t-20 mg-lg-t-0">
+                        <p class="mg-b-10">Problem Or Note</p>
+                        <textarea class="form-control" name="note_tech"   rows="3" spellcheck="false"></textarea>
+
+                    </div>
+                    <div class="col-lg-6 mg-t-20 mg-lg-t-0">
+                        <p class="mg-b-10">Bank accounts</p>
+                        <textarea class="form-control" name="bank_accounts" rows="3" spellcheck="false"></textarea>
+
+                    </div>
+
+
+
+
+
+
+                </div>
+
+                <div class="order-tracking">
+
+                    <hr>
+                <h5 class="" style="color: #0a7ffb">Order Tracking</h5>
+
+                    <br>
+
+                    <div class="row row-sm mg-b-20">
+                        <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                            <p class="mg-b-10"> Order arrived <span> <i class="fa fa-check-circle"></i> <i class="fa fa-times-circle"></i></span></p>
+
+                        </div>
+                        <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                            <p class="mg-b-10"> Send alternative <span> <i class="fa fa-check-circle"></i> <i class="fa fa-times-circle"></i></span></p>
+
+
+                        </div>
+                        <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+
+                            <p class="mg-b-10" style="display: inline">Policy  download  </p>
+                            <a href=""  class="btn btn-primary btn-sm" > <i class="fa fa-download"></i></a>
+
+                        </div>
+                        <!-- col-4 -->
+                    </div>
+
+
+                    <div class="row row-sm mg-b-20">
+
+                        <div class="col-lg-7 mg-t-20 mg-lg-t-0">
+
+                            <p class="mg-b-10"> The difference in the value of the product has been sent ? <span> <i class="fa fa-check-circle"></i> <i class="fa fa-times-circle"></i></span></p>
+                        </div>
+
+
+                        <!-- col-4 -->
+                    </div>
+
+                    <div class="row row-sm mg-b-20">
+                        <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                            <p class="mg-b-10">Has the Order been cancelled? <span> <i class="fa fa-check-circle"></i> <i class="fa fa-times-circle"></i></span></p>
+
+                        </div>
+                        <div class="col-lg-5 mg-t-20 mg-lg-t-0">
+                            <p class="mg-b-10">Has the amount been transferred?<span> <i class="fa fa-check-circle"></i> <i class="fa fa-times-circle"></i></span></p>
+
+
+                        </div>
+
+
+                        <!-- col-4 -->
+                    </div>
+
+                </div>
+                    <h5> Order Reviewed    <i class="fa fa-"></i></h5>
+                    <br>
+                    <div class="row row-sm mg-b-20">
+                        <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                            <p class="mg-b-10"> Note Warehouse Team</p>
+
+                            <textarea class="form-control" name="note_warehouse" placeholder="note_warehouse" rows="3" spellcheck="false"></textarea>
+
+                        </div>
+
+                        <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                            <p class="mg-b-10"> Note saleh</p>
+
+                            <textarea class="form-control" name="note_salah" placeholder="note_salah" rows="3" spellcheck="false"></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- col-4 -->
+
+
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+<!-- Small modal -->
+

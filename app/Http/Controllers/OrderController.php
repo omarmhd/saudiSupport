@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
-use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Yajra\DataTables\Facades\DataTables;
 
 class OrderController extends Controller
@@ -12,9 +12,10 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function index(Request  $request)
+    public $typesOrder =['Exchange', 'Refund', 'Cancel', 'Edit', 'All','Preview'];
+    public function index(Request $request)
     {
 
         $data = Order::all();
@@ -25,35 +26,55 @@ class OrderController extends Controller
                 ->addIndexColumn()
                 ->addColumn('date', function ($data) {
                     return date($data->created_at->toDateString());
-                }) ->addColumn('order_journey', function ($data) {
+                })->addColumn('order_journey', function ($data) {
 
-                 return Order::color_journey($data);
+                    return Order::color_journey($data);
+                })->addColumn('attachments', function ($data) {
 
-
-
-
-                      }) ->addColumn('attachments', function ($data) {
-
-                          return "<a href='$data->attachments'  target='_blank' class='btn btn-outline-dark'> <i class='fa fa-link'></i> </a>";
+                    return "<a href='$data->attachments'  target='_blank' class='btn btn-outline-dark'> <i class='fa fa-link'></i> </a>";
                 })
-
                 ->addColumn('action', function ($data) {
 
-                    return "<a  class='btn btn-primary' href=".route('users.edit',$data->id)." > <i class='fa fa-pen' ></i></a>
-                                   <a href='' class='btn btn-danger'> <i class='fa fa-trash' ></i></a> ";
+
+                    return "<a  class='btn btn-primary' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'All']) . " > <i class='fa fa-pen' ></i></a>
+
+                                    <a href='' class='btn btn-info' data-toggle='modal'
+                                        data-target='#show-order'
+                                        data-order_no='$data->order_no'
+                                        data-phone_no='$data->phone_no'
+                                        data-product_name='$data->product_name'
+                                           data-details='$data->details'
+                                        data-type_order='$data->type_order'
+
+                                        data-order_journey='$data->order_journey'
+                                        data-note_tech='$data->note_tech'
+                                        data-attachments='$data->attachments'
+                                        data-track='$data->track'
+                                        data-extracting_policy='$data->extracting_policy'
+                                        data-policy_attachment='$data->policy_attachment'
+                                        data-order_arrived='$data->order_arrived'
+                                        data-decision_taken='$data->decision_taken'
+                                        data-note_warehouse='$data->note_warehouse'
+                                        data-note_salah='$data->note_salah'
+
+                                    > <i class='fa fa-eye' ></i></a>
+
+                                    <button type='button' data-id='$data->id' class='btn btn-warning archive'
+                                  > <i class='fa fa-archive' ></i></button>
+
+                                    ";
                 })
-                ->rawColumns(['attachments','date','order_journey', 'action'])
+                ->rawColumns(['attachments', 'date', 'order_journey', 'action'])
                 ->make(true);
 
         }
-
-
         return view('orders.index');
 
     }
 
-    public function  indexTracking(Request  $request){
-        $data = Order::where('order_journey','1')->get();
+    public function indexTracking(Request $request)
+    {
+        $data = Order::where('order_journey', '1')->get();
 
         if ($request->ajax()) {
 
@@ -61,34 +82,47 @@ class OrderController extends Controller
                 ->addIndexColumn()
                 ->addColumn('date', function ($data) {
                     return date($data->created_at->toDateString());
-                }) ->addColumn('order_journey', function ($data) {
+                })->addColumn('extracting_policy', function ($data) {
+                    return $data->extracting_policy;
 
-                    return Order::color_journey($data);
+                })->addColumn('order_arrived', function ($data) {
+                    return $data->order_arrived;
+                })->addColumn('action', function ($data) {
 
+                    return "<a  class='btn btn-primary' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => $data->type_order]) . " > <i class='fa fa-pen' ></i></a>
+                                          <a href='' class='btn btn-info' data-toggle='modal'
+                                        data-target='#show-order'
+                                        data-order_no='$data->order_no'
+                                        data-phone_no='$data->phone_no'
+                                        data-product_name='$data->product_name'
+                                           data-details='$data->details'
+                                        data-type_order='$data->type_order'
 
+                                        data-order_journey='$data->order_journey'
+                                        data-note_tech='$data->note_tech'
+                                        data-attachments='$data->attachments'
+                                        data-track='$data->track'
+                                        data-extracting_policy='$data->extracting_policy'
+                                        data-policy_attachment='$data->policy_attachment'
+                                        data-order_arrived='$data->order_arrived'
+                                        data-decision_taken='$data->decision_taken'
+                                        data-note_warehouse='$data->note_warehouse'
+                                        data-note_salah='$data->note_salah'
 
-
-                }) ->addColumn('attachments', function ($data) {
-
-                    return "<a href='$data->attachments'  target='_blank' class='btn btn-outline-dark'> <i class='fa fa-link'></i> </a>";
+                                    > <i class='fa fa-eye' ></i></a> ";
                 })
-
-                ->addColumn('action', function ($data) {
-
-                    return "<a  class='btn btn-primary' href=".route('users.edit',$data->id)." > <i class='fa fa-pen' ></i></a>
-                                   <a href='' class='btn btn-danger'> <i class='fa fa-trash' ></i></a> ";
-                })
-                ->rawColumns(['attachments','date','order_journey', 'action'])
+                ->rawColumns(['extracting_policy', 'order_arrived', 'action'])
                 ->make(true);
 
         }
 
 
-        return view('orders.index');
+        return view('orders.order_journey.indexTracking');
     }
 
-    public function  indexPreview(Request  $request){
-        $data = Order::where('order_journey','2')->get();
+    public function indexPreview(Request $request)
+    {
+        $data = Order::where('order_journey', '2')->get();
 
         if ($request->ajax()) {
 
@@ -96,33 +130,32 @@ class OrderController extends Controller
                 ->addIndexColumn()
                 ->addColumn('date', function ($data) {
                     return date($data->created_at->toDateString());
-                }) ->addColumn('order_journey', function ($data) {
+                })->addColumn('order_journey', function ($data) {
 
                     return Order::color_journey($data);
 
 
-
-
-                }) ->addColumn('attachments', function ($data) {
+                })->addColumn('attachments', function ($data) {
 
                     return "<a href='$data->attachments'  target='_blank' class='btn btn-outline-dark'> <i class='fa fa-link'></i> </a>";
                 })
-
                 ->addColumn('action', function ($data) {
 
-                    return "<a  class='btn btn-primary' href=".route('users.edit',$data->id)." > <i class='fa fa-pen' ></i></a>
+                    return "<a  class='btn btn-primary' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'Preview']) . " > <i class='fa fa-pen' ></i></a>
                                    <a href='' class='btn btn-danger'> <i class='fa fa-trash' ></i></a> ";
                 })
-                ->rawColumns(['attachments','date','order_journey', 'action'])
+                ->rawColumns(['attachments', 'date', 'order_journey', 'action'])
                 ->make(true);
 
         }
 
 
-        return view('orders.index');
+        return view('orders.order_journey.indexPreview');
     }
-    public function  indexCompleted(Request  $request){
-        $data = Order::where('order_journey','3')->get();
+
+    public function indexCompleted(Request $request)
+    {
+        $data = Order::where('order_journey', '3')->get();
 
         if ($request->ajax()) {
 
@@ -130,33 +163,17 @@ class OrderController extends Controller
                 ->addIndexColumn()
                 ->addColumn('date', function ($data) {
                     return date($data->created_at->toDateString());
-                }) ->addColumn('order_journey', function ($data) {
-
-                    return Order::color_journey($data);
-
-
-
-
-                }) ->addColumn('attachments', function ($data) {
-
-                    return "<a href='$data->attachments'  target='_blank' class='btn btn-outline-dark'> <i class='fa fa-link'></i> </a>";
-                })
-
-                ->addColumn('action', function ($data) {
-
-                    return "<a  class='btn btn-primary' href=".route('users.edit',$data->id)." > <i class='fa fa-pen' ></i></a>
-                                   <a href='' class='btn btn-danger'> <i class='fa fa-trash' ></i></a> ";
-                })
-                ->rawColumns(['attachments','date','order_journey', 'action'])
-                ->make(true);
+                })->make(true);
 
         }
 
 
-        return view('orders.index');
+        return view('orders.order_journey.indexCompleted');
     }
-    public function  indexCanceled(Request  $request){
-        $data = Order::where('order_journey','4')->get();
+
+    public function indexCanceled(Request $request)
+    {
+        $data = Order::where('order_journey', '4')->get();
 
         if ($request->ajax()) {
 
@@ -164,24 +181,21 @@ class OrderController extends Controller
                 ->addIndexColumn()
                 ->addColumn('date', function ($data) {
                     return date($data->created_at->toDateString());
-                }) ->addColumn('order_journey', function ($data) {
+                })->addColumn('order_journey', function ($data) {
 
                     return Order::color_journey($data);
 
 
-
-
-                }) ->addColumn('attachments', function ($data) {
+                })->addColumn('attachments', function ($data) {
 
                     return "<a href='$data->attachments'  target='_blank' class='btn btn-outline-dark'> <i class='fa fa-link'></i> </a>";
                 })
-
                 ->addColumn('action', function ($data) {
 
-                    return "<a  class='btn btn-primary' href=".route('users.edit',$data->id)." > <i class='fa fa-pen' ></i></a>
+                    return "<a  class='btn btn-primary' href=" . route('users.edit', $data->id) . " > <i class='fa fa-pen' ></i></a>
                                    <a href='' class='btn btn-danger'> <i class='fa fa-trash' ></i></a> ";
                 })
-                ->rawColumns(['attachments','date','order_journey', 'action'])
+                ->rawColumns(['attachments', 'date', 'order_journey', 'action'])
                 ->make(true);
 
         }
@@ -190,21 +204,72 @@ class OrderController extends Controller
         return view('orders.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function indexArchive(Request $request)
+    {
+
+
+        $data = Order::withTrashed()->get();
+        if ($request->ajax()) {
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('date', function ($data) {
+                    return date($data->created_at->toDateString());
+                })->addColumn('order_journey', function ($data) {
+                    return Order::color_journey($data);
+                })->addColumn('attachments', function ($data) {
+
+                    return "<a href='$data->attachments'  target='_blank' class='btn btn-outline-dark'> <i class='fa fa-link'></i> </a>";
+                })
+                ->addColumn('action', function ($data) {
+
+                    return "<a  class='btn btn-primary' href=" . route('users.edit', $data->id) . " > <i class='fa fa-pen' ></i></a>
+
+                                    <a href='' class='btn btn-info' data-toggle='modal'
+                                        data-target='#show-order'
+
+                                        data-order_no='$data->order_no'
+                                        data-phone_no='$data->phone_no'
+                                        data-product_name='$data->product_name'
+                                        data-details='$data->details'
+                                        data-type_order='$data->type_order'
+                                        data-order_journey='$data->order_journey'
+                                        data-note_tech='$data->note_tech'
+                                        data-attachments='$data->attachments'
+                                        data-track='$data->track'
+                                        data-extracting_policy='$data->extracting_policy'
+                                        data-policy_attachment='$data->policy_attachment'
+                                        data-order_arrived='$data->order_arrived'
+                                        data-decision_taken='$data->decision_taken'
+                                        data-note_warehouse='$data->note_warehouse'
+                                        data-note_salah='$data->note_salah'
+
+                                    > <i class='fa fa-eye' ></i></a>
+
+                                    <button type='button' data-id='$data->id' class='btn btn-warning archive'
+                                  > <i class='fa fa-archive' ></i></button>
+
+                                    ";
+                })
+                ->rawColumns(['attachments', 'date', 'order_journey', 'action'])
+                ->make(true);
+
+        }
+
+        return view('orders.indexArchive');
+
+    }
+
     public function create()
     {
-        return  view('orders.create');
+        return view('orders.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -221,14 +286,14 @@ class OrderController extends Controller
 //        ]);
 
         Order::create($request->all());
-        return redirect()->route('orders.index')->with('success','dsad');
+        return redirect()->route('orders.index')->with('success', 'The order has been successfully added');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
+     * @param Order $order
+     * @return Response
      */
     public function show(Order $order)
     {
@@ -238,34 +303,62 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
+     * @param Order $order
+     * @return Response
      */
-    public function edit(Order $order)
+    public function edit($id, $typeOrder)
     {
-        //
+
+        $check_type = in_array($typeOrder, $this->typesOrder);
+        $order = Order::findOrFail($id);
+
+
+        if ($order and $check_type) {
+            $check_type = $typeOrder . "_Page";
+
+            return view('orders.edit', compact('order', 'check_type'));
+
+        }
+        return redirect()->back()->with('error','error');
+
+
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Order $order
+     * @return Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, $id)
     {
-        //
+
+
+        $check_type = in_array($request->typeOrder, $this->typesOrder);
+        $order = Order::findOrFail($id);
+
+        if ($order and $check_type) {
+            $order->update($request->except(['typeOrder']));
+            return redirect()->route('orders.index')->with('success', 'The order has been successfully updated');
+
+        }
+
+        return redirect()->back()->with('error', 'error');
+
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
+     * @param Order $order
+     * @return Response
      */
     public function destroy(Order $order)
     {
-        //
+
+        $order->deleteOrFail();
+
     }
 }

@@ -16,18 +16,43 @@ class CreateOrdersTable extends Migration
         Schema::create('orders',
             function (Blueprint $table) {
                 $table->id();
-                $table->string('phone_no');
-                $table->string('order_no');
-                $table->string('product_name');
-                $table->enum('type_order', ['refund', 'exchange', 'another']);
-                $table->text('details');
-                $table->enum('order_journey',['0','1','2','3','4']);
-                $table->text('note_tech');
-                $table->text('attachments');
-                $table->string('track');
-                $table->string('management_note')->nullable();
+                //start new order data
+                $table->string('phone_no')->nullable();
+                $table->string('order_no')->nullable();
+                $table->string('product_name')->nullable();
+                $table->enum('type_order', ['Refund', 'Exchange','Cancel','Edit'])->nullable();
+                $table->enum('order_journey',['0','1','2','3','4'])->nullable();
+                $table->text('note_tech')->nullable();
+                $table->string('track')->nullable();
+                $table->string('added_by')->nullable();
+
+                $table->text('attachments')->nullable();
+
+                //:end new order data!
 
 
+                //start-tracking
+                //exchange order
+                $table->string('alternative_product')->nullable();
+                $table->enum('order_arrived',['yes','no'])->nullable();
+                $table->enum('send_alternative',['yes','no'])->nullable();
+                //refund
+                $table->text('bank_accounts')->nullable();
+                $table->string('policy_attachment')->nullable();
+                $table->enum('amount_transferred',['yes','no'])->nullable();
+                //cancel
+                $table->enum('done_cancel',['yes','no'])->nullable();
+                //Edit
+                $table->enum('done_valdiff',['yes','no'])->nullable();
+
+                //:end Tracking!
+
+                //start preview
+                $table->string('decision_taken')->nullable();
+                $table->text('note_warehouse')->nullable();
+                $table->text('note_salah')->nullable();
+                //end preview
+                $table->softDeletes();
                 $table->timestamps();
             });
     }

@@ -28,5 +28,7 @@
 {{--    </div>--}}
     <!-- Footer closed -->
 @include('layouts.inc._script')
+
+@include('layouts.inc._messages')
 </body>
 </html>

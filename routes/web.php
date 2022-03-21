@@ -23,14 +23,32 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
     Route::resource('/users',UserController::class);
     Route::resource('/orders',OrderController::class);
-    Route::prefix('orders')->name('orders.')->group(function (){
-        Route::get('indexTracking',[OrderController::class,'indexTracking'])->name('indexTracking');
-        Route::get('indexPreview',[OrderController::class,'indexPreview'])->name('indexPreview');
-        Route::get('indexCompleted',[OrderController::class,'indexCompleted'])->name('indexCompleted');
-        Route::get('indexCanceled',[OrderController::class,'indexCanceled'])->name('indexCanceled');
+    Route::prefix('order')->name('orders.')->group(function (){
+
+        Route::get('edit/{id}/{typeOrder?}',[OrderController::class,'edit'])->name('edit');
+
+        //Tracking
+        Route::get('/indexTracking',[OrderController::class,'indexTracking'])->name('indexTracking');
+        Route::get('/editTracking/{id}',[OrderController::class,'edit'])->name('editTracking');
+        //end Tracking
+
+        //Preview
+        Route::get('/indexPreview',[OrderController::class,'indexPreview'])->name('indexPreview');
+        Route::get('/editPreview/{id}',[OrderController::class,'edit'])->name('editPreview');
+        //endPreview
+
+        //completed
+        Route::get('/indexCompleted',[OrderController::class,'indexCompleted'])->name('indexCompleted');
+        Route::get('/indexCanceled',[OrderController::class,'indexCanceled'])->name('indexCanceled');
+        //endCompleted
+
+
+        //archive
+        Route::get('/indexArchive',[OrderController::class,'indexArchive'])->name('indexArchive');
+        //endArchive
+
     });
 
-    Route::resource('/orders',OrderController::class);
 
 
 });

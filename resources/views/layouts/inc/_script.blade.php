@@ -12,6 +12,7 @@
 <script src="{{URL::asset('assets/plugins/ionicons/ionicons.js')}}"></script>
 <!-- Moment js -->
 <script src="{{URL::asset('assets/plugins/moment/moment.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <!-- Rating js-->
 <script src="{{URL::asset('assets/plugins/rating/jquery.rating-stars.js')}}"></script>
@@ -35,34 +36,35 @@
 <!-- custom js -->
 <script src="{{URL::asset('assets/js/custom.js')}}"></script><!-- Left-menu js-->
 <script src="{{URL::asset('assets/plugins/side-menu/sidemenu.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
-    bs4Toast.show('Toast with Button', 'This is toast with buttons example.',
-        {
-            delay : 5000,
-            buttons: [
-                {
-                    text : 'Button 1',
-                    class : 'btn btn-success btn-sm mr-2 ',
-                    callback : () => {
-                        alert('Button 1 clicked');
-                    }
-                },
-                {
-                    text : 'Button 2',
-                    class : 'btn btn-primary btn-sm',
-                    callback : () => {
-                        alert('Button 2 clicked');
-                    }
-                }
-            ],
-            icon : {
-                type : 'fontawesome',
-                src : 'https://via.placeholder.com/150',
-                class : 'fa-bell'
+<script >
+
+    $(function() {
+
+
+        $('select[name=type_order]').change(function(){
+
+            let selected_value=$(this).val()
+            if (selected_value=="Exchange" || selected_value=="Edit"){
+                alert('qq')
+
+                $('input[name=alternative_product]').parent().fadeIn()
+                $('textarea[name=bank_accounts]').parent().fadeOut()
+
+            }else{
+                $('input[name=alternative_product]').parent().fadeOut()
+                $('textarea[name=bank_accounts]').parent().fadeIn()
+
             }
 
-        }
 
-    );
+        })
+
+    })
+
+
+
 </script>
+
+
