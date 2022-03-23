@@ -32,11 +32,11 @@
                     <h4 class="card-title mb-1">@lang('site.add_order')</h4>
                     <p class="mb-2"></p>
                 </div>
-                <form class="form-horizontal" action="{{route('orders.update',$order->id)}}" method="post" >
+                <form class="form-horizontal" action="{{route('orders.update',$order->id)}}" method="post"  enctype="multipart/form-data">
                     @csrf
                     @method('put')
 
-                    <input type="hidden" name="typeOrder" value="{{$order->type_order}}">
+                    <input type="hidden" name="typeOrder" value="{{$check_type}}">
 
                     @if($check_type=="Exchange_Page")
 
@@ -115,64 +115,6 @@
                         <div class="card-body pt-0">
 
 
-                            <div class="row row-sm mg-b-20">
-                                <div class="col-lg-4 mg-t-20 mg-lg-t-0">
-
-                                    <p class="mg-b-10"> Order arrived</p>
-                                    <select class="form-control select2-no-search" name="order_arrived" >
-                                        <option selected disabled value=""> Please Select option</option>
-                                        <option value="yes" {{ old('order_arrived',$order->order_arrived) == 'yes' ? "selected" : "" }}>
-                                            Yes
-                                        </option>
-                                        <option value="no"    {{ old('order_arrived',$order->order_arrived) == 'no' ? "selected" : "" }}>
-                                            No
-                                        </option>
-
-
-
-                                    </select>
-                                </div>
-                                <div class="col-lg-4 mg-t-20 mg-lg-t-0">
-
-                                    <p class="mg-b-10"> Has the amount been transferred?</p>
-                                    <select class="form-control select2-no-search" name="amount_transferred" >
-                                        <option selected disabled value=""> Please Select option</option>
-                                        <option value="yes" {{ old('amount_transferred',$order->amount_transferred) == 'yes' ? "selected" : "" }}>
-                                            Yes
-                                        </option>
-                                        <option value="no"    {{ old('amount_transferred',$order->amount_transferred) == 'no' ? "selected" : "" }}>
-                                            No
-                                        </option>
-
-
-
-                                    </select>
-                                </div>
-                                <div class="col-lg-2 mg-t-20 mg-lg-t-0">
-                                    <p class="mg-b-10">order journey</p>
-                                    <select class="form-control select2-no-search" name="order_journey">
-                                        <option value="0"   {{ old('order_journey',$order->order_journey) == '0' ? "selected" : "" }}  >
-                                            New Order
-                                        </option>
-                                        <option value="1"  {{ old('order_journey',$order->order_journey) == '1' ? "selected" : "" }}>
-                                            Tracking
-                                        </option>
-                                        <option value="2" {{ old('order_journey',$order->order_journey) == '2' ? "selected" : "" }}>
-                                            Preview
-                                        </option>
-                                        <option value="3" {{ old('order_journey',$order->order_journey) == '3' ? "selected" : "" }}>
-                                            Completed
-                                        </option>
-                                        <option value="4" {{ old('order_journey',$order->order_journey) == '4' ? "selected" : "" }}>
-                                            Canceled
-                                        </option>
-
-                                    </select>
-                                </div>
-
-
-                                <!-- col-4 -->
-                            </div>
 
                             <div class="row row-sm mg-b-20">
                                 <div class="col-lg-4 mg-t-20 mg-lg-t-0">
@@ -367,10 +309,32 @@
 
                                 </div>
                                 <div class="col-lg-4 mg-t-20 mg-lg-t-0">
-                                    <p class="mg-b-10">Warehouse Note</p>
+                                    <p class="mg-b-10">Manegment Note</p>
                                     <textarea class="form-control" name="note_salah"  placeholder="Please enter the Note   " rows="3" spellcheck="false"> {{old('note_salah',$order->note_salah)}}</textarea>
 ء
                                 </div>
+                                <div class="col-lg-2 mg-t-20 mg-lg-t-0">
+                                    <p class="mg-b-10">order journey</p>
+                                    <select class="form-control select2-no-search" name="order_journey">
+                                        <option value="0"   {{ old('order_journey',$order->order_journey) == '0' ? "selected" : "" }}  >
+                                            New Order
+                                        </option>
+                                        <option value="1"  {{ old('order_journey',$order->order_journey) == '1' ? "selected" : "" }}>
+                                            Tracking
+                                        </option>
+                                        <option value="2" {{ old('order_journey',$order->order_journey) == '2' ? "selected" : "" }}>
+                                            Preview
+                                        </option>
+                                        <option value="3" {{ old('order_journey',$order->order_journey) == '3' ? "selected" : "" }}>
+                                            Completed
+                                        </option>
+                                        <option value="4" {{ old('order_journey',$order->order_journey) == '4' ? "selected" : "" }}>
+                                            Canceled
+                                        </option>
+
+                                    </select>
+                                </div>
+
 
 
 

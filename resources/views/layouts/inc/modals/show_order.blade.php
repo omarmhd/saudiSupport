@@ -3,7 +3,7 @@
     <div class="modal-dialog  modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">order # <span class="order_number">3232</span></h5>
+                <h5 class="modal-title" id="exampleModalLabel">order # <span class="order_no"></span></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -17,8 +17,8 @@
                                 <li role="tab" class="first current" aria-disabled="false" aria-selected="true">
                                     <a id="wizard1-t-0" href="#wizard1-h-0" aria-controls="wizard1-p-0">
                                         <span class="current-info audible">current step: </span>
-                                        <span class="order_type"></span>
                                         <span class="title">Order type :</span>
+                                        <span class="order_type"></span>
                                     </a>
                                 </li>
 
@@ -105,52 +105,68 @@
 
                 </div>
 
-                <div class="order-tracking">
+                <div class="tracking-section" style="display: none">
 
                     <hr>
                 <h5 class="" style="color: #0a7ffb">Order Tracking</h5>
 
                     <br>
 
-                    <div class="row row-sm mg-b-20">
+                    <div class="row row-sm mg-b-20 Exchange" style="display: none">
                         <div class="col-lg-4 mg-t-20 mg-lg-t-0">
-                            <p class="mg-b-10"> Order arrived <span> <i class="fa fa-check-circle"></i> <i class="fa fa-times-circle"></i></span></p>
+                            <p class="mg-b-10"> Order arrived <span class="order_arrived ml-3 text-danger"></span></p>
 
                         </div>
                         <div class="col-lg-4 mg-t-20 mg-lg-t-0">
-                            <p class="mg-b-10"> Send alternative <span> <i class="fa fa-check-circle"></i> <i class="fa fa-times-circle"></i></span></p>
+                            <p class="mg-b-10"> Send alternative <span class="send_alternative ml-3 text-danger"> </span></p>
 
 
                         </div>
                         <div class="col-lg-4 mg-t-20 mg-lg-t-0">
 
                             <p class="mg-b-10" style="display: inline">Policy  download  </p>
-                            <a href=""  class="btn btn-primary btn-sm" > <i class="fa fa-download"></i></a>
+                            <a href=""  class="btn btn-primary btn-sm policy_attch" > <i class="fa fa-download"></i></a>
 
                         </div>
                         <!-- col-4 -->
                     </div>
 
-
-                    <div class="row row-sm mg-b-20">
-
-                        <div class="col-lg-7 mg-t-20 mg-lg-t-0">
-
-                            <p class="mg-b-10"> The difference in the value of the product has been sent ? <span> <i class="fa fa-check-circle"></i> <i class="fa fa-times-circle"></i></span></p>
-                        </div>
-
-
-                        <!-- col-4 -->
-                    </div>
-
-                    <div class="row row-sm mg-b-20">
+                    <div class="row row-sm mg-b-20 Refund" style="display: none">
                         <div class="col-lg-4 mg-t-20 mg-lg-t-0">
-                            <p class="mg-b-10">Has the Order been cancelled? <span> <i class="fa fa-check-circle"></i> <i class="fa fa-times-circle"></i></span></p>
+                            <p class="mg-b-10"> Order arrived <span class="order_arrived ml-3 text-danger"></span></p>
 
                         </div>
                         <div class="col-lg-5 mg-t-20 mg-lg-t-0">
-                            <p class="mg-b-10">Has the amount been transferred?<span> <i class="fa fa-check-circle"></i> <i class="fa fa-times-circle"></i></span></p>
+                            <p class="mg-b-10">Has the amount been transferred?<span class="amount_transferred  ml-3 text-danger"> <i class="fa fa-check-circle"></i> <i class="fa fa-times-circle"></i></span></p>
 
+                        </div>
+                        <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+
+                            <p class="mg-b-10" style="display: inline">Policy  download  </p>
+                            <a href=""  class="btn btn-primary btn-sm policy_attch" > <i class="fa fa-download"></i></a>
+
+                        </div>
+                        <!-- col-4 -->
+                    </div>
+
+                    <div class="row row-sm mg-b-20 Edit" style="display: none">
+
+                        <div class="col-lg-7 mg-t-20 mg-lg-t-0">
+
+                            <p class="mg-b-10"> The difference in the value of the product has been sent ? <span class="done_valdiff ml-3 text-danger"> </span></p>
+                        </div>
+
+
+                        <!-- col-4 -->
+                    </div>
+
+                    <div class="row row-sm mg-b-20 Cancel" style="display: none">
+                        <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                            <p class="mg-b-10">Has the Order been cancelled? <span class="alternative_product ml-3 text-danger"> </span></p>
+
+                        </div>
+                        <div class="col-lg-5 mg-t-20 mg-lg-t-0">
+                            <p class="mg-b-10">Has the amount been transferred?<span class="done_cancel ml-3 text-danger" > </span></p>
 
                         </div>
 
@@ -159,17 +175,19 @@
                     </div>
 
                 </div>
-                    <h5> Order Reviewed    <i class="fa fa-"></i></h5>
+                <div class="preview-section" style="display: none" >
+                <hr>
+                <h5 class="" style="color: #0a7ffb" >Order Reviewed    <i class="fa fa-"></i></h5>
                     <br>
                     <div class="row row-sm mg-b-20">
-                        <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                        <div class="col-lg-6 mg-t-20 mg-lg-t-0">
                             <p class="mg-b-10"> Note Warehouse Team</p>
 
                             <textarea class="form-control" name="note_warehouse" placeholder="note_warehouse" rows="3" spellcheck="false"></textarea>
 
                         </div>
 
-                        <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                        <div class="col-lg-6 mg-t-20 mg-lg-t-0">
                             <p class="mg-b-10"> Note saleh</p>
 
                             <textarea class="form-control" name="note_salah" placeholder="note_salah" rows="3" spellcheck="false"></textarea>
@@ -177,6 +195,7 @@
                         </div>
 
                     </div>
+                </div>
 
 
                     <!-- col-4 -->

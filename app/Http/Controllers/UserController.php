@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
@@ -63,13 +64,14 @@ class UserController extends Controller
             'password' => 'required',
         ]);
 
-        $data=$request->except(['permissions']);
+        $data=$request->except(['permissions','password']);
+        $data['password']=Hash::make($request->password);
         $user=User::create($data);
         $user_role=$user->attachRole('admin');
         $user->syncPermissions($request->permissions);
 
 
-        return redirect(route('users.index'))->with('success',"".__('site.success'));
+        return redirect(route('users.index'))->with('success',"A new user has been added successfully");
 
 
     }
@@ -114,16 +116,18 @@ class UserController extends Controller
             'email' => 'required|unique:users,id,'.$id,
 
         ]);
-        $data=$request->except(['permissions']);
+        $data=$request->except(['permissions','password']);
         if (!$request->input('password')){
             unset($data['password']);
+        }else{
+            $data['password']=Hash::make($request->password);
         }
 
          $user=User::find($id);
         $user->update($data);
         $user->syncPermissions($request->permissions);
 
-        return redirect()->route('users.index')->with('success',"".__('site.success'));
+        return redirect()->route('users.index')->with('success',"User data has been updated successfully");
 
     }
 

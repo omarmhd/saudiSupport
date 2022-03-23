@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Services\FileService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Yajra\DataTables\Facades\DataTables;
@@ -15,10 +16,48 @@ class OrderController extends Controller
      * @return Response
      */
     public $typesOrder =['Exchange', 'Refund', 'Cancel', 'Edit', 'All','Preview'];
+
+   public function show_button($data){
+       $path=asset('upload_center')."/";
+
+       return "
+
+                                    <a href='' class='btn btn-info' data-toggle='modal'
+                                        data-target='#show-order'
+                                        data-order_no='$data->order_no'
+                                        data-phone_no='$data->phone_no'
+                                        data-product_name='$data->product_name'
+                                           data-details='$data->details'
+                                        data-type_order='$data->type_order'
+
+                                        data-order_journey='$data->order_journey'
+                                        data-note_tech='$data->note_tech'
+                                        data-attachments='$data->attachments'
+                                        data-track='$data->track'
+                                        data-extracting_policy='$data->extracting_policy'
+                                        data-policy_attachment=\"$path$data->policy_attachment\"
+                                        data-order_arrived='$data->order_arrived'
+                                        data-decision_taken='$data->decision_taken'
+                                        data-note_warehouse='$data->note_warehouse'
+                                        data-note_salah='$data->note_salah'
+                                        data-alternative_product='$data->alternative_product'
+                                        data-order_arrived='$data->order_arrived'
+                                        data-send_alternative='$data->send_alternative'
+                                        data-bank_accounts='$data->bank_accounts'
+                                        data-policy_attachment='$data->policy_attachment'
+                                        data-amount_transferred='$data->amount_transferred'
+                                        data-done_cancel='$data->done_cancel'
+                                        data-done_valdiff='$data->done_valdiff'
+                                    > <i class='fa fa-eye' ></i></a>
+
+
+
+                                    ";
+   }
     public function index(Request $request)
     {
 
-        $data = Order::all();
+        $data = Order::latest()->get();
 
         if ($request->ajax()) {
 
@@ -35,34 +74,8 @@ class OrderController extends Controller
                 })
                 ->addColumn('action', function ($data) {
 
-
-                    return "<a  class='btn btn-primary' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'All']) . " > <i class='fa fa-pen' ></i></a>
-
-                                    <a href='' class='btn btn-info' data-toggle='modal'
-                                        data-target='#show-order'
-                                        data-order_no='$data->order_no'
-                                        data-phone_no='$data->phone_no'
-                                        data-product_name='$data->product_name'
-                                           data-details='$data->details'
-                                        data-type_order='$data->type_order'
-
-                                        data-order_journey='$data->order_journey'
-                                        data-note_tech='$data->note_tech'
-                                        data-attachments='$data->attachments'
-                                        data-track='$data->track'
-                                        data-extracting_policy='$data->extracting_policy'
-                                        data-policy_attachment='$data->policy_attachment'
-                                        data-order_arrived='$data->order_arrived'
-                                        data-decision_taken='$data->decision_taken'
-                                        data-note_warehouse='$data->note_warehouse'
-                                        data-note_salah='$data->note_salah'
-
-                                    > <i class='fa fa-eye' ></i></a>
-
-                                    <button type='button' data-id='$data->id' class='btn btn-warning archive'
-                                  > <i class='fa fa-archive' ></i></button>
-
-                                    ";
+                    return "<a  class='btn btn-primary' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'All']) . " > <i class='fa fa-pen' ></i></a>".$this->show_button($data)."  <button type='button' data-id='$data->id' class='btn btn-warning archive'
+                                  > <i class='fa fa-archive' ></i></button>";
                 })
                 ->rawColumns(['attachments', 'date', 'order_journey', 'action'])
                 ->make(true);
@@ -74,7 +87,7 @@ class OrderController extends Controller
 
     public function indexTracking(Request $request)
     {
-        $data = Order::where('order_journey', '1')->get();
+        $data = Order::where('order_journey', '1')->latest()->get();;
 
         if ($request->ajax()) {
 
@@ -89,27 +102,7 @@ class OrderController extends Controller
                     return $data->order_arrived;
                 })->addColumn('action', function ($data) {
 
-                    return "<a  class='btn btn-primary' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => $data->type_order]) . " > <i class='fa fa-pen' ></i></a>
-                                          <a href='' class='btn btn-info' data-toggle='modal'
-                                        data-target='#show-order'
-                                        data-order_no='$data->order_no'
-                                        data-phone_no='$data->phone_no'
-                                        data-product_name='$data->product_name'
-                                           data-details='$data->details'
-                                        data-type_order='$data->type_order'
-
-                                        data-order_journey='$data->order_journey'
-                                        data-note_tech='$data->note_tech'
-                                        data-attachments='$data->attachments'
-                                        data-track='$data->track'
-                                        data-extracting_policy='$data->extracting_policy'
-                                        data-policy_attachment='$data->policy_attachment'
-                                        data-order_arrived='$data->order_arrived'
-                                        data-decision_taken='$data->decision_taken'
-                                        data-note_warehouse='$data->note_warehouse'
-                                        data-note_salah='$data->note_salah'
-
-                                    > <i class='fa fa-eye' ></i></a> ";
+                    return "<a  class='btn btn-primary' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => $data->type_order]) . " > <i class='fa fa-pen' ></i></a> ".$this->show_button($data);
                 })
                 ->rawColumns(['extracting_policy', 'order_arrived', 'action'])
                 ->make(true);
@@ -141,8 +134,8 @@ class OrderController extends Controller
                 })
                 ->addColumn('action', function ($data) {
 
-                    return "<a  class='btn btn-primary' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'Preview']) . " > <i class='fa fa-pen' ></i></a>
-                                   <a href='' class='btn btn-danger'> <i class='fa fa-trash' ></i></a> ";
+                    return "<a  class='btn btn-primary' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'Preview']) . " > <i class='fa fa-pen' ></i></a> ".
+                        $this->show_button($data);
                 })
                 ->rawColumns(['attachments', 'date', 'order_journey', 'action'])
                 ->make(true);
@@ -223,33 +216,7 @@ class OrderController extends Controller
                 })
                 ->addColumn('action', function ($data) {
 
-                    return "<a  class='btn btn-primary' href=" . route('users.edit', $data->id) . " > <i class='fa fa-pen' ></i></a>
-
-                                    <a href='' class='btn btn-info' data-toggle='modal'
-                                        data-target='#show-order'
-
-                                        data-order_no='$data->order_no'
-                                        data-phone_no='$data->phone_no'
-                                        data-product_name='$data->product_name'
-                                        data-details='$data->details'
-                                        data-type_order='$data->type_order'
-                                        data-order_journey='$data->order_journey'
-                                        data-note_tech='$data->note_tech'
-                                        data-attachments='$data->attachments'
-                                        data-track='$data->track'
-                                        data-extracting_policy='$data->extracting_policy'
-                                        data-policy_attachment='$data->policy_attachment'
-                                        data-order_arrived='$data->order_arrived'
-                                        data-decision_taken='$data->decision_taken'
-                                        data-note_warehouse='$data->note_warehouse'
-                                        data-note_salah='$data->note_salah'
-
-                                    > <i class='fa fa-eye' ></i></a>
-
-                                    <button type='button' data-id='$data->id' class='btn btn-warning archive'
-                                  > <i class='fa fa-archive' ></i></button>
-
-                                    ";
+                    return $this->show_button($data);
                 })
                 ->rawColumns(['attachments', 'date', 'order_journey', 'action'])
                 ->make(true);
@@ -271,7 +238,7 @@ class OrderController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request,FileService $file)
     {
 //        $this->validate($request,[
 //            'phone_no'=>'required',
@@ -284,6 +251,8 @@ class OrderController extends Controller
 //            'attachments'=>'required',
 //            'track'=>'required',
 //        ]);
+       $request->merge(['added_by'=>auth()->user()->name]);
+
 
         Order::create($request->all());
         return redirect()->route('orders.index')->with('success', 'The order has been successfully added');
@@ -331,18 +300,37 @@ class OrderController extends Controller
      * @param Order $order
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id,FileService $fileService)
     {
 
 
         $check_type = in_array($request->typeOrder, $this->typesOrder);
         $order = Order::findOrFail($id);
+        $data=$request->except(['typeOrder','policy_attachment']);
+        if ($request->hasFile('policy_attachment')) {
+            $data['policy_attachment'] = $fileService->upload_file($request->file('policy_attachment'), 'upload_center');
 
-        if ($order and $check_type) {
-            $order->update($request->except(['typeOrder']));
-            return redirect()->route('orders.index')->with('success', 'The order has been successfully updated');
 
         }
+
+
+
+
+        if ($order ) {
+            $order->update($data);
+
+            if ($request->typeOrder=="All_Page"){
+                return redirect()->route('orders.index')->with('success', 'The order has been successfully updated');
+
+            }else if ($request->typeOrder=="Preview_Page"){
+                return redirect()->route('orders.indexPreview')->with('success', 'Preview journey in progress');
+
+            }else{
+                return redirect()->route('orders.indexTracking')->with('success', 'Tracking journey in progress');
+
+            }
+        }
+
 
         return redirect()->back()->with('error', 'error');
 

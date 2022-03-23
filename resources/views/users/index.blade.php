@@ -54,7 +54,7 @@
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title mg-b-0">@lang('site.users')</h4>
-                        <button class="btn btn-info"> <i class="fa fa-plus"></i> @lang('site.add_user') </button>
+                        <a href="{{route('users.create')}}" class="btn btn-info"> <i class="fa fa-plus"></i> @lang('site.add_user') </a>
 
                     </div>
                     <p class="tx-12 tx-gray-500 mb-2"> <a href=""></a></p>

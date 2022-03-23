@@ -18,8 +18,9 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
 
 
-Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+Route::group([ 'prefix' => LaravelLocalization::setLocale(),'middleware'=>'auth'], function()
 {
+    Route::redirect('/','/orders');
     /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
     Route::resource('/users',UserController::class);
     Route::resource('/orders',OrderController::class);

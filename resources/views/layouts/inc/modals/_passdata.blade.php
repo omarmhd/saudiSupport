@@ -12,31 +12,72 @@
         var note_tech =  button.data('note_tech')
         var attachments = button.data('attachments')
         var track = button.data('track')
-        var extracting_policy =  button.data('extracting_policy')
-        var policy_attachment =  button.data('policy_attachment')
-        var order_arrived =   button.data('order_arrived')
         var decision_taken = button.data(' decision_taken')
         var note_warehouse =  button.data('note_warehouse')
         var note_salah =  button.data('note_salah')
 
+        //exchange order
+        var alternative_product =  button.data('alternative_product')
+        var order_arrived =  button.data('order_arrived')
+        var send_alternative =  button.data('send_alternative')
+
+        //refund
+        var bank_accounts =  button.data('bank_accounts')
+        var policy_attachment =  button.data('policy_attachment')
+        var amount_transferred =  button.data('amount_transferred')
+
+
+        var done_cancel =  button.data('done_cancel')
+
+        var done_valdiff =  button.data('done_valdiff')
+
+
         var modal = $(this)
 
+        if(order_journey==1){
+            modal.find('div .tracking-section').show()
+        }
+        if(order_journey==2){
+            modal.find('div .tracking-section').show()
+            modal.find('div .preview-section').show()
+        }
+
+        $('.'+type_order).show()
+
          modal.find('input[name="phone_no"]').val(phone_no)
-         modal.find('input[name="order_no"]').val(order_no)
+         modal.find('.order_no').text(order_no)
          modal.find('input[name="product_name"]').val(product_name)
-         modal.find('input[name="type_order"]').val(type_order)
+         modal.find('.order_type').text(type_order)
          modal.find('textarea[name="details"]').val(details)
          modal.find('textarea[name="note_tech"]').val(note_tech)
          modal.find('input[name="order_journey"]').val(order_journey)
          modal.find('input[name="attachments"]').val(attachments)
          modal.find('input[name="track"]').val(track)
-         modal.find('input[name="extracting_policy"]').val(extracting_policy)
-         modal.find('input[name="policy_attachment"]').val(policy_attachment)
-         modal.find('input[name="order_arrived"]').val(order_arrived)
-         modal.find('input[name="decision_taken"]').val(decision_taken)
+      //
+
+        modal.find('.alternative_product').text(alternative_product)
+        modal.find('.order_arrived').text(order_arrived)
+        modal.find('.send_alternative').text(send_alternative)
+        modal.find('textarea[name=bank_accounts]').val(bank_accounts)
+        modal.find('.amount_transferred').text(amount_transferred)
+        modal.find('.done_cancel').text(done_cancel)
+        modal.find('.done_valdiff').text(done_valdiff)
+        modal.find('.policy_attch').attr('href',policy_attachment)
+
+
+        modal.find('input[name="decision_taken"]').val(decision_taken)
          modal.find('textarea[name="note_warehouse"]').val(note_warehouse)
          modal.find('textarea[name="note_salah"]').val(note_salah)
     })
 
+    $('#show-order').on('hide.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var modal = $(this)
+        var type_order =  button.data('type_order')
+        $('.Exchange ,.Refund, .Edit, .Cancel').hide()
 
+        modal.find('div .tracking-section').hide()
+        modal.find('div .preview-section').hide()
+
+    })
 </script>

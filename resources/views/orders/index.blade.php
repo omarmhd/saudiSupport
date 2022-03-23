@@ -15,7 +15,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">Tables</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ Data Tables</span>
+                <h4 class="content-title mb-0 my-auto">Tables</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ All Orders Table</span>
             </div>
         </div>
         <div class="d-flex my-xl-auto right-content">
@@ -55,8 +55,8 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title mg-b-0">@lang('site.orders')</h4>
-                        <a href="{{route('orders.create')}}" class="btn btn-info" > <i class="fa fa-plus"></i> @lang('site.add_order') </a>
+                        <h4 class="card-title mg-b-0">Orders Management</h4>
+                        <a href="{{route('orders.create')}}" class="btn btn-info" > <i class="fa fa-plus"></i>  Add Order</a>
 
                     </div>
                     <p class="tx-12 tx-gray-500 mb-2"> <a href=""></a></p>
@@ -74,6 +74,7 @@
                                 <th class="wd-20p border-bottom-0" style="width: 10%">Track no</th>
                                 <th class="wd-20p border-bottom-0"style="width: 12%">order journey</th>
                                 <th class="wd-20p border-bottom-0"style="width: 10%">type order</th>
+                                <th class="wd-20p border-bottom-0"style="width: 10%">added by</th>
 
                                 <th class="wd-20p border-bottom-0" style="width: 30%">options</th>
                             </tr>
@@ -116,7 +117,6 @@
 
 
     @include('orders._datatable')
-    @include('layouts.inc.modals._passdata')
 
 
     <script>  $(function() {
@@ -140,7 +140,7 @@
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: 'Yes, Archived it!'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajaxSetup({
@@ -172,7 +172,6 @@
                 })
 
 
-            alert(url)
 
         })
 

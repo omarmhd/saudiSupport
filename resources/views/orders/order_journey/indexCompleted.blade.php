@@ -13,7 +13,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">Tables</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ Data Tables</span>
+                <h4 class="content-title mb-0 my-auto">Tables</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ Completed Orders</span>
             </div>
         </div>
         <div class="d-flex my-xl-auto right-content">
@@ -53,8 +53,8 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title mg-b-0">@lang('site.orders')</h4>
-                        <a href="{{route('orders.create')}}" class="btn btn-info" > <i class="fa fa-plus"></i> @lang('site.add_order') </a>
+                        <h4 class="card-title mg-b-0">Orders </h4>
+
 
                     </div>
                     <p class="tx-12 tx-gray-500 mb-2"> <a href=""></a></p>
@@ -68,6 +68,9 @@
                                 <th class="wd-15p border-bottom-0">order no </th>
                                 <th class="wd-15p border-bottom-0">phone</th>
                                 <th class="wd-20p border-bottom-0">date</th>
+                                <th class="wd-20p border-bottom-0">added by</th>
+                                <th class="wd-20p border-bottom-0">options</th>
+
 
                             </tr>
                             </thead>
@@ -110,7 +113,7 @@
                 processing: true,
                 serverSide: true,
                 responsive: true,
-
+                "order": [[ 0, 'DESC' ]],
 
 
 
@@ -119,8 +122,8 @@
                     { data: 'order_no', name: 'order_no' },
                     { data: 'phone_no' ,name:'phone_no'},
                     { data: 'date', name: 'date' },
-
-
+                    { data: 'added_by', name: 'added_by' },
+                    {data:'action'},
 
 
                 ]

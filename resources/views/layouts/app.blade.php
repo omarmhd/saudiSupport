@@ -5,6 +5,8 @@
 </head>
 
 <body class="main-body app sidebar-mini">
+@include('layouts.inc.modals.show_order')
+
 <!-- Loader -->
 <div id="global-loader">
     <img src="{{URL::asset('assets/img/loader.svg')}}" class="loader-img" alt="Loader">
@@ -30,5 +32,7 @@
 @include('layouts.inc._script')
 
 @include('layouts.inc._messages')
+@include('layouts.inc.modals._passdata')
+
 </body>
 </html>

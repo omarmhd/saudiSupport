@@ -5,7 +5,7 @@
             processing: true,
             serverSide: true,
             responsive: true,
-
+            "order": [[ 0, 'DESC' ]],
             ajax: '{{ route('orders.index') }}',
             columns: [
                 { data: 'order_no', name: 'order_no' },
@@ -15,6 +15,7 @@
                 {data:'track',name:'track'},
                 {data:'order_journey',name: 'order_journey' },
                 { data: 'type_order', name: 'type_order' },
+                { data: 'added_by', name: 'added_by' },
 
 
 

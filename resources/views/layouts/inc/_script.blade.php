@@ -47,7 +47,7 @@
 
             let selected_value=$(this).val()
             if (selected_value=="Exchange" || selected_value=="Edit"){
-                alert('qq')
+
 
                 $('input[name=alternative_product]').parent().fadeIn()
                 $('textarea[name=bank_accounts]').parent().fadeOut()

@@ -91,7 +91,7 @@
                             </div>
                         </div>
                         @php
-                            $models=['users' ,'orders'];
+                            $models=['users' ];
                             $maps=['create','update','read','delete']
 
                         @endphp
