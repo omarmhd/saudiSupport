@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewOrder;
 use App\Models\Order;
+use App\Models\User;
+use App\Notifications\NewNotify;
 use App\Services\FileService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+//use Illuminate\Notifications\Notification;
 use Yajra\DataTables\Facades\DataTables;
 
 class OrderController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -254,7 +259,14 @@ class OrderController extends Controller
        $request->merge(['added_by'=>auth()->user()->name]);
 
 
-        Order::create($request->all());
+        $order=Order::create($request->all());
+        $message="A order has been added of type ".$order->type_order."order number".$order->order_no;
+
+        event(new NewOrder($order,$message));
+        $users=User::where('id', '!=', auth()->id())->get();
+
+        \Notification::send($users,new NewNotify($order,$message));
+
         return redirect()->route('orders.index')->with('success', 'The order has been successfully added');
     }
 

@@ -66,5 +66,39 @@
 
 
 </script>
+@auth
+<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+<script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('07a46184a23cfd2e28e4', {
+        cluster: 'ap2',
+        authEndpoint:'/broadcasting/auth'
+    });
+
+    var channel = pusher.subscribe('private-App.Models.User.{{auth()->user()->id}}');
+    channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
+
+        alert('لديك إشعارات جديدة');
+
+        $('.main-notification-list').append(`
+            <a class="d-flex p-3 border-bottom" href="">
+                                    <div class="notifyimg bg-pink">
+
+                                    </div>
+                                    <div class="mr-3">
+                                        <h5 class="notification-label mb-1">`+data.message+`</h5>
+                                        <div class="notification-subtext">`+data.time+`</div>
+                                    </div>
+                                    <div class="mr-auto" >
+                                        <i class="las la-angle-left text-left text-muted"></i>
+                                    </div>
+                                </a>
+        `);
 
 
+    });
+</script>
+@endauth

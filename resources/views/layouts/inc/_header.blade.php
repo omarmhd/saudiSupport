@@ -62,32 +62,23 @@
                             </div>
                             <p class="dropdown-title-text subtext mb-0 text-white op-6 pb-0 tx-12 ">You have 4 unread Notifications</p>
                         </div>
-                        <div class="main-notification-list Notification-scroll">
-                            <a class="d-flex p-3 border-bottom" href="#">
-                                <div class="notifyimg bg-pink">
-                                    <i class="la la-file-alt text-white"></i>
-                                </div>
-                                <div class="mr-3">
-                                    <h5 class="notification-label mb-1">New files available</h5>
-                                    <div class="notification-subtext">10 hour ago</div>
-                                </div>
-                                <div class="mr-auto" >
-                                    <i class="las la-angle-left text-left text-muted"></i>
-                                </div>
-                            </a>
-                            <a class="d-flex p-3" href="#">
-                                <div class="notifyimg bg-purple">
-                                    <i class="la la-gem text-white"></i>
-                                </div>
-                                <div class="mr-3">
-                                    <h5 class="notification-label mb-1">Updates Available</h5>
-                                    <div class="notification-subtext">2 days ago</div>
-                                </div>
-                                <div class="mr-auto" >
-                                    <i class="las la-angle-left text-left text-muted"></i>
-                                </div>
-                            </a>
+                        <div class="main-notification-list Notification-scroll" style="overflow: scroll">
 
+                            @foreach(auth()->user()->notifications as $notification)
+
+                                <a class="d-flex p-3 border-bottom" href="{{route('notification',$notification->id)}}">
+                                    <div class="notifyimg bg-pink">
+
+                                    </div>
+                                    <div class="mr-3">
+                                        <h5 class="notification-label mb-1">{{$notification->data['message']}}</h5>
+                                        <div class="notification-subtext">{{$notification->created_at->diffForHumans()}}</div>
+                                    </div>
+                                    <div class="mr-auto" >
+                                        <i class="las la-angle-left text-left text-muted"></i>
+                                    </div>
+                                </a>
+                            @endforeach
                         </div>
 
                     </div>

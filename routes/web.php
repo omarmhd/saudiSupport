@@ -54,6 +54,7 @@ Route::group([ 'prefix' => LaravelLocalization::setLocale(),'middleware'=>'auth'
 
 });
 
+Route::get('/notifications/{id}',[\App\Http\Controllers\NotificationController::class,'read'])->name('notification');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
