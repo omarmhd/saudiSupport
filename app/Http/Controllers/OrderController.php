@@ -262,7 +262,6 @@ class OrderController extends Controller
         $order=Order::create($request->all());
         $message="A order has been added of type ".$order->type_order."order number".$order->order_no;
 
-        event(new NewOrder($order,$message));
         $users=User::where('id', '!=', auth()->id())->get();
 
         \Notification::send($users,new NewNotify($order,$message));
@@ -296,6 +295,12 @@ class OrderController extends Controller
 
         if ($order and $check_type) {
             $check_type = $typeOrder . "_Page";
+            $message="A order has been update of type ".$order->type_order."order number".$order->order_no;
+
+            $users=User::where('id', '!=', auth()->id())->get();
+
+            \Notification::send($users,new NewNotify($order,$message));
+
 
             return view('orders.edit', compact('order', 'check_type'));
 
