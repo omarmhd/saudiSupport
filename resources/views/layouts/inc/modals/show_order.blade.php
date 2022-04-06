@@ -63,11 +63,8 @@
 
                     <div class="col-lg-4 mg-t-20 mg-lg-t-0">
                         <p class="mg-b-10">Attachments</p>
-                        <input type="text"
-                               id="attachments"
-                               name="attachments"
-                               class="form-control"
-                        >
+                        <a href=""  class="btn btn-primary btn-sm attachments"> <i class="fa fa-download"></i></a>
+
                     </div>
                     <div class="col-lg-4 mg-t-20 mg-lg-t-0">
                         <p class="mg-b-10"> Tracking ID</p>
@@ -125,7 +122,7 @@
                         <div class="col-lg-4 mg-t-20 mg-lg-t-0">
 
                             <p class="mg-b-10" style="display: inline">Policy  download  </p>
-                            <a href=""  class="btn btn-primary btn-sm policy_attch" > <i class="fa fa-download"></i></a>
+                            <a href=""  class="btn btn-primary btn-sm policy_attch"  style="display: none"> <i class="fa fa-download"></i></a>
 
                         </div>
                         <!-- col-4 -->
@@ -143,7 +140,7 @@
                         <div class="col-lg-4 mg-t-20 mg-lg-t-0">
 
                             <p class="mg-b-10" style="display: inline">Policy  download  </p>
-                            <a href=""  class="btn btn-primary btn-sm policy_attch" > <i class="fa fa-download"></i></a>
+                            <a href=""  class="btn btn-primary btn-sm policy_attch"  style="display: none"> <i class="fa fa-download"></i></a>
 
                         </div>
                         <!-- col-4 -->

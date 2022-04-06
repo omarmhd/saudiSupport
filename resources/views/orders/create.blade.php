@@ -116,9 +116,7 @@
                                 <input type="file"
                                        id="attachments"
                                        name="attachments"
-                                       class="form-control"
-                                       value="{{old('attachments')}}"
-                                       placeholder="attachments">                            </div>
+                                       class="form-control">                            </div>
 {{--                            <div class="col-lg-4 mg-t-20 mg-lg-t-0">--}}
 {{--                                <p class="mg-b-10"> Tracking ID</p>--}}
 {{--                                <input type="text"--}}

@@ -33,6 +33,9 @@
 
 
         var modal = $(this)
+        modal.find('.attachments').show()
+
+        modal.find('.attachments').attr('href',attachments)
 
         if(order_journey==1){
             modal.find('div .tracking-section').show()
@@ -51,10 +54,11 @@
          modal.find('textarea[name="details"]').val(details)
          modal.find('textarea[name="note_tech"]').val(note_tech)
          modal.find('input[name="order_journey"]').val(order_journey)
-         modal.find('input[name="attachments"]').val(attachments)
-         modal.find('input[name="track"]').val(track)
-      //
 
+
+
+
+         modal.find('input[name="track"]').val(track)
         modal.find('.alternative_product').text(alternative_product)
         modal.find('.order_arrived').text(order_arrived)
         modal.find('.send_alternative').text(send_alternative)
@@ -62,10 +66,15 @@
         modal.find('.amount_transferred').text(amount_transferred)
         modal.find('.done_cancel').text(done_cancel)
         modal.find('.done_valdiff').text(done_valdiff)
-        modal.find('.policy_attch').attr('href',policy_attachment)
+
+        if(policy_attachment!=='null'){
+            $('.policy_attch').show()
+            modal.find('.policy_attch').attr('href',policy_attachment)
+        }
 
 
-        modal.find('input[name="decision_taken"]').val(decision_taken)
+
+         modal.find('input[name="decision_taken"]').val(decision_taken)
          modal.find('textarea[name="note_warehouse"]').val(note_warehouse)
          modal.find('textarea[name="note_salah"]').val(note_salah)
     })
@@ -74,7 +83,9 @@
         var button = $(event.relatedTarget)
         var modal = $(this)
         var type_order =  button.data('type_order')
-        $('.Exchange ,.Refund, .Edit, .Cancel').hide()
+        modal.find('.attachments').attr('href',"")
+
+        $('.Exchange ,.Refund, .Edit, .Cancel ,.attachments').hide()
 
         modal.find('div .tracking-section').hide()
         modal.find('div .preview-section').hide()

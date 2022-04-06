@@ -37,7 +37,7 @@ class OrderController extends Controller
 
                                         data-order_journey='$data->order_journey'
                                         data-note_tech='$data->note_tech'
-                                        data-attachments='$data->attachments'
+                                        data-attachments=\"$path$data->attachments\"
                                         data-track='$data->track'
                                         data-extracting_policy='$data->extracting_policy'
                                         data-policy_attachment=\"$path$data->policy_attachment\"
@@ -257,9 +257,11 @@ class OrderController extends Controller
 //            'track'=>'required',
 //        ]);
        $request->merge(['added_by'=>auth()->user()->name]);
-       $data=$request->except(['attachment']);
-        if ($request->hasFile('attachment')) {
-            $data['attachment'] = $file->upload_file($request->file('attachment'), 'upload_center');
+
+
+        $data=$request->except(['attachments']);
+        if ($request->hasFile('attachments')) {
+            $data['attachments'] = $file->upload_file($request->file('attachments'), 'upload_center');
         }
 
 
