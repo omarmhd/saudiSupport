@@ -257,9 +257,14 @@ class OrderController extends Controller
 //            'track'=>'required',
 //        ]);
        $request->merge(['added_by'=>auth()->user()->name]);
+       $data=$request->except(['attachment']);
+        if ($request->hasFile('attachment')) {
+            $data['attachment'] = $file->upload_file($request->file('attachment'), 'upload_center');
+        }
 
 
-        $order=Order::create($request->all());
+
+        $order=Order::create($data);
         $message="A order has been added of type ".$order->type_order."order number".$order->order_no;
 
         $users=User::where('id', '!=', auth()->id())->get();

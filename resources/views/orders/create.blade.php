@@ -31,7 +31,7 @@
                     <h4 class="card-title mb-1">@lang('site.add_order')</h4>
                     <p class="mb-2"></p>
                 </div>
-                <form class="form-horizontal" action="{{route('orders.store')}}" method="post" >
+                <form class="form-horizontal" action="{{route('orders.store')}}" method="post" enctype="multipart/form-data" >
                     @csrf
 
 
@@ -113,20 +113,20 @@
                             </div>
                             <div class="col-lg-4 mg-t-20 mg-lg-t-0">
                                 <p class="mg-b-10">Attachments</p>
-                                <input type="url"
+                                <input type="file"
                                        id="attachments"
                                        name="attachments"
                                        class="form-control"
                                        value="{{old('attachments')}}"
                                        placeholder="attachments">                            </div>
-                            <div class="col-lg-4 mg-t-20 mg-lg-t-0">
-                                <p class="mg-b-10"> Tracking ID</p>
-                                <input type="text"
-                                       id="track"
-                                       name="track"
-                                       class="form-control"
-                                       value="{{old('track')}}"
-                                       placeholder="Please enter the track number">                                </div>
+{{--                            <div class="col-lg-4 mg-t-20 mg-lg-t-0">--}}
+{{--                                <p class="mg-b-10"> Tracking ID</p>--}}
+{{--                                <input type="text"--}}
+{{--                                       id="track"--}}
+{{--                                       name="track"--}}
+{{--                                       class="form-control"--}}
+{{--                                       value="{{old('track')}}"--}}
+{{--                                       placeholder="Please enter the track number">                                </div>--}}
 
 
 
