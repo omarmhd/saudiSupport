@@ -245,17 +245,7 @@ class OrderController extends Controller
      */
     public function store(Request $request,FileService $file)
     {
-//        $this->validate($request,[
-//            'phone_no'=>'required',
-//            'order_no'=>'required',
-//            'product_name'=>'required',
-//            'type_order'=>'required',
-//            'details'=>'required',
-//            'order_journey'=>'required',
-//            'note_tech'=>'required',
-//            'attachments'=>'required',
-//            'track'=>'required',
-//        ]);
+
        $request->merge(['added_by'=>auth()->user()->name]);
 
 
@@ -267,7 +257,7 @@ class OrderController extends Controller
 
 
         $order=Order::create($data);
-        $message="A order has been added of type ".$order->type_order."order number".$order->order_no;
+        $message=$order->added_by."  added a new order number".$order->order_no." of type ".$order->typer_order;
 
         $users=User::where('id', '!=', auth()->id())->get();
 

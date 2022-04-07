@@ -38,7 +38,7 @@ class NewNotify extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail','database','broadcast'];
+        return ['database','broadcast'];
     }
 
     /**
@@ -68,7 +68,7 @@ class NewNotify extends Notification
          'action'=>route('orders.index'),
          'icon'=>'',
          'order'=>$this->order,
-         'time'=>Carbon::now(),
+         'time'=>Carbon::now()->diffForHumans(),
          'user'=>auth()->user()
      ];
  }

@@ -7,6 +7,9 @@
 <body class="main-body app sidebar-mini">
 @include('layouts.inc.modals.show_order')
 
+<audio id="audio" >
+    <source src="https://assets.mixkit.co/sfx/preview/mixkit-interface-option-select-2573.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+</audio>
 <!-- Loader -->
 <div id="global-loader">
     <img src="{{URL::asset('assets/img/loader.svg')}}" class="loader-img" alt="Loader">

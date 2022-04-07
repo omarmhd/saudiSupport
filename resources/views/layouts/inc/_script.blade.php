@@ -81,9 +81,15 @@
     var channel = pusher.subscribe('private-App.Models.User.{{auth()->user()->id}}');
     channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
 
-        alert('لديك إشعارات جديدة');
+        Swal.fire(
+            '',
+            'You have new notifications',
+            'info'
+        )
 
-        $('.main-notification-list').append(`
+
+
+        $('.main-notification-list').prepend(`
             <a class="d-flex p-3 border-bottom" href="">
                                     <div class="notifyimg bg-pink">
 
