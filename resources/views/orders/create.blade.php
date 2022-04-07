@@ -28,7 +28,7 @@
         <div class="col-lg-9 col-xl-9 col-md-12 col-sm-12">
             <div class="card  box-shadow-0">
                 <div class="card-header">
-                    <h4 class="card-title mb-1">@lang('site.add_order')</h4>
+                    <h4 class="card-title mb-1">Add order</h4>
                     <p class="mb-2"></p>
                 </div>
                 <form class="form-horizontal" action="{{route('orders.store')}}" method="post" enctype="multipart/form-data" >
