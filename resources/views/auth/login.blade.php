@@ -93,57 +93,57 @@
         <div class="container-login100">
             <div class="wrap-login100">
                 <div class="login100-pic js-tilt" data-tilt>
-                    <img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" alt="IMG">
+                    <img src="https://i0.wp.com/saudigamerz.com/wp-content/uploads/2021/07/logo-A-300x300-1.png" alt="IMG">
                 </div>
+    <form method="POST" class="login100-form validate-form" action="{{ route('login') }}">
+        @csrf
 
-                <form class="login100-form validate-form">
 					<span class="login100-form-title">
 						Member Login
 					</span>
 
                     <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="email" placeholder="Email">
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-                    </div>
+                        <input id="email" type="email" class="form-control input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                    <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                        <input class="input100" type="password" name="pass" placeholder="Password">
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-                    </div>
+                                        @error('email')
+                                            <span class="focus-input100 invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
+                        </div>
 
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            Login
-                        </button>
-                    </div>
+                        <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                            <input id="password" type="password" class="input100 form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                                                                                @error('password')
+                                                                                                                    <span class="invalid-feedback" role="alert">
+                                                                                                                        <strong>{{ $message }}</strong>
+                                                                                                                    </span>
+                                                                                                                @enderror
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                            </span>
+                        </div>
 
-                    <div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
-						</span>
-                        <a class="txt2" href="#">
-                            Username / Password?
-                        </a>
-                    </div>
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn">
+                                Login
+                            </button>
+                        </div>
 
-                    <div class="text-center p-t-136">
-                        <a class="txt2" href="#">
-                            Create your Account
-                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </form>
+
+
+
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
-    {{--    <div class="container-fluid">--}}
+        {{--    <div class="container-fluid">--}}
 {{--        <div class="row no-gutter">--}}
 {{--            <!-- The image half -->--}}
 {{--            <div class="col-md-12 col-lg-12 col-xl-7 d-none d-md-flex bg-primary-transparent">--}}
