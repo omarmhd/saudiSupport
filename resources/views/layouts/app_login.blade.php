@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('layouts.inc._head')
+    <link href="{{URL::asset('assets/login.css')}}" rel="stylesheet">
 </head>
 
 <body class="main-body app sidebar-mini">
@@ -14,9 +14,7 @@
 
 </div>
 
-@include('layouts.inc._script')
-
-@include('layouts.inc._messages')
+<script src="{{URL::asset('assets/login.js')}}"> </script>
 
 </body>
 
