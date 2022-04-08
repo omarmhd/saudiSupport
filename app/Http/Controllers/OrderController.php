@@ -23,7 +23,6 @@ class OrderController extends Controller
     public $typesOrder =['Exchange', 'Refund', 'Cancel', 'Edit', 'All','Preview'];
 
    public function show_button($data){
-       $path=asset('upload_center')."/";
 
        return "
 
@@ -37,7 +36,9 @@ class OrderController extends Controller
 
                                         data-order_journey='$data->order_journey'
                                         data-note_tech='$data->note_tech'
+
                                         data-attachments=\"$path$data->attachments\"
+
                                         data-track='$data->track'
                                         data-extracting_policy='$data->extracting_policy'
                                         data-policy_attachment=\"$path$data->policy_attachment\"
@@ -237,12 +238,7 @@ class OrderController extends Controller
         return view('orders.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     * @return Response
-     */
+
     public function store(Request $request,FileService $file)
     {
 
@@ -253,10 +249,7 @@ class OrderController extends Controller
         if ($request->hasFile('attachments')) {
             $data['attachments'] = $file->upload_file($request->file('attachments'), 'upload_center');
         }
-
-
-
-        $order=Order::create($data);
+     $order=Order::create($data);
         $message=$order->added_by."  added a new order number".$order->order_no." of type ".$order->typer_order;
 
         $users=User::where('id', '!=', auth()->id())->get();

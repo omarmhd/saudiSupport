@@ -88,50 +88,38 @@
 @section('content')
 
 
+<div  style=" width:100%; background:#000 center/cover url(http://127.0.0.1:8000/assets/img/backgrounds/login.png) no-repeat !important; ;background-size:auto ">
 
-    <div class="limiter">
-        <div class="container-login100">
-            <div class="wrap-login100">
-                <div class="login100-pic js-tilt" data-tilt>
-                    <img src="https://i0.wp.com/saudigamerz.com/wp-content/uploads/2021/07/logo-A-300x300-1.png" alt="IMG">
-                </div>
-    <form method="POST" class="login100-form validate-form" action="{{ route('login') }}">
-        @csrf
+        <div class="container" dir="rtl" >
+            <div class="row no-gutter" style="position: fixed; bottom: 0;">
 
+                <div class="col-md-6">
+
+
+                    <form class="login100-form validate-form rounded-10 p-5" style="background: #ffff "  dir="ltr">
 					<span class="login100-form-title">
-						Member Login
+						Sign in
 					</span>
 
-                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                        <input id="email" type="email" class="form-control input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                        @error('email')
-                                            <span class="focus-input100 invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                        <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                            <input class="input100" type="text" name="email" placeholder="Email">
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
                         </div>
 
                         <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                            <input id="password" type="password" class="input100 form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                                                                                                @error('password')
-                                                                                                                    <span class="invalid-feedback" role="alert">
-                                                                                                                        <strong>{{ $message }}</strong>
-                                                                                                                    </span>
-                                                                                                                @enderror
+                            <input class="input100" type="password" name="pass" placeholder="Password">
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
-                                <i class="fa fa-lock" aria-hidden="true"></i>
-                            </span>
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
                         </div>
 
                         <div class="container-login100-form-btn">
-                            <button class="login100-form-btn">
-                                Login
+                            <button class="login100-form-btn" style="background:  #00582c" >
+                                sign in
                             </button>
                         </div>
 
@@ -139,10 +127,26 @@
 
 
                     </form>
-                </div>
-            </div>
-        </div>
 
+                </div>
+                <div class="col-md-6">
+                    <img style="    border-style: none;
+     position: relative;
+     bottom: 0px;
+     float: right;
+
+   " src="{{asset('assets/img/photos/2.png')}}" width="50%" alt="">
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+@endsection
+@section('js')
+@endsection
         {{--    <div class="container-fluid">--}}
 {{--        <div class="row no-gutter">--}}
 {{--            <!-- The image half -->--}}
@@ -206,6 +210,4 @@
 {{--            </div><!-- End -->--}}
 {{--        </div>--}}
 {{--    </div>--}}
-@endsection
-@section('js')
-@endsection
+

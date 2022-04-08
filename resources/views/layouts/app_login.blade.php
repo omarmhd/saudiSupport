@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
     <link href="{{URL::asset('assets/login.css')}}" rel="stylesheet">
+    @include('layouts.inc._head')
+
 </head>
 
-<body class="main-body app sidebar-mini">
+<body  style="  ;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;">
 <!-- Loader -->
 
 
