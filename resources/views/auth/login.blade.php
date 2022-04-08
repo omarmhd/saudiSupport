@@ -72,9 +72,6 @@
 {{--</div>--}}
 
 
-
-
-
 {{--@endsection--}}
 
 
@@ -88,29 +85,39 @@
 @section('content')
 
 
-<div  style=" width:100%; background:#000 center/cover url(http://127.0.0.1:8000/assets/img/backgrounds/login.png) no-repeat !important; ;background-size:auto ">
+    <div
+        style=" width:100%; background:#000 center/cover url(http://127.0.0.1:8000/assets/img/backgrounds/login.png) no-repeat !important; ;background-size:auto ">
 
-        <div class="container" dir="rtl" >
-            <div class="row no-gutter" style="position: fixed; bottom: 0;">
+        <div class="container">
+            <div class="row" style="margin-top:14%">
 
+
+                <div class="col-md-6">
+                    <img style="border-style: none;" src="{{asset('assets/img/photos/2.png')}}" width="500px" alt="">
+
+                </div>
                 <div class="col-md-6">
 
 
-                    <form class="login100-form validate-form rounded-10 p-5" style="background: #ffff "  dir="ltr">
-					<span class="login100-form-title">
+                    <form class="login100-form validate-form rounded-10  p-3"
+                          method="POST" action="{{ route('login') }}"
+                          style="width: 50%; position: relative; background: #ffff; margin:78px  auto ; bottom: 0px" dir="ltr">
+                        @csrf
+                        <span class="login100-form-title">
 						Sign in
 					</span>
 
-                        <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                            <input class="input100" type="text" name="email" placeholder="Email">
+                        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                              <input id="email" type="email" class="input100  @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
                         </div>
 
-                        <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                            <input class="input100" type="password" name="pass" placeholder="Password">
+                        <div class="wrap-input100 validate-input" data-validate="Password is required">
+                              <input id="password" type="password" class="input100  @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -118,36 +125,24 @@
                         </div>
 
                         <div class="container-login100-form-btn">
-                            <button class="login100-form-btn" style="background:  #00582c" >
+                            <button class="login100-form-btn" style="background:  #00582c">
                                 sign in
                             </button>
                         </div>
 
 
-
-
                     </form>
 
                 </div>
-                <div class="col-md-6">
-                    <img style="    border-style: none;
-     position: relative;
-     bottom: 0px;
-     float: right;
-
-   " src="{{asset('assets/img/photos/2.png')}}" width="50%" alt="">
-
-
-                </div>
-
 
             </div>
 
         </div>
+    </div>
 @endsection
 @section('js')
 @endsection
-        {{--    <div class="container-fluid">--}}
+{{--    <div class="container-fluid">--}}
 {{--        <div class="row no-gutter">--}}
 {{--            <!-- The image half -->--}}
 {{--            <div class="col-md-12 col-lg-12 col-xl-7 d-none d-md-flex bg-primary-transparent">--}}
