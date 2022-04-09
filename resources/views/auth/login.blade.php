@@ -86,7 +86,7 @@
 
 
     <div
-        style=" width:100%; background:#000 center/cover url(http://127.0.0.1:8000/assets/img/backgrounds/login.png) no-repeat !important; ;background-size:auto ">
+        style=" width:100%; background:#000 center/cover url({{asset('/assets/img/backgrounds/login.png')}}) no-repeat !important; ;background-size:auto ">
 
         <div class="container">
             <div class="row" style="margin-top:14%">
