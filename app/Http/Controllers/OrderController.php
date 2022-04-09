@@ -23,6 +23,7 @@ class OrderController extends Controller
     public $typesOrder =['Exchange', 'Refund', 'Cancel', 'Edit', 'All','Preview'];
 
    public function show_button($data){
+       $path=asset('/upload_center').'/';
 
        return "
 
@@ -31,12 +32,11 @@ class OrderController extends Controller
                                         data-order_no='$data->order_no'
                                         data-phone_no='$data->phone_no'
                                         data-product_name='$data->product_name'
-                                           data-details='$data->details'
+                                        data-details='$data->details'
                                         data-type_order='$data->type_order'
 
                                         data-order_journey='$data->order_journey'
                                         data-note_tech='$data->note_tech'
-
                                         data-attachments=\"$path$data->attachments\"
 
                                         data-track='$data->track'
@@ -51,6 +51,7 @@ class OrderController extends Controller
                                         data-send_alternative='$data->send_alternative'
                                         data-bank_accounts='$data->bank_accounts'
                                         data-policy_attachment='$data->policy_attachment'
+
                                         data-amount_transferred='$data->amount_transferred'
                                         data-done_cancel='$data->done_cancel'
                                         data-done_valdiff='$data->done_valdiff'
@@ -247,7 +248,7 @@ class OrderController extends Controller
 
         $data=$request->except(['attachments']);
         if ($request->hasFile('attachments')) {
-            $data['attachments'] = $file->upload_file($request->file('attachments'), 'upload_center');
+            $data['attachments'] = asset('upload_center/').$file->upload_file($request->file('attachments'), 'upload_center');
         }
      $order=Order::create($data);
         $message=$order->added_by."  added a new order number".$order->order_no." of type ".$order->typer_order;
@@ -315,7 +316,7 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         $data=$request->except(['typeOrder','policy_attachment']);
         if ($request->hasFile('policy_attachment')) {
-            $data['policy_attachment'] = $fileService->upload_file($request->file('policy_attachment'), 'upload_center');
+            $data['policy_attachment'] =  asset('upload_center/').$fileService->upload_file($request->file('policy_attachment'), 'upload_center');
 
 
         }
