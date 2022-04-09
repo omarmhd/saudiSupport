@@ -89,11 +89,11 @@
         style=" width:100%; background:#000 center/cover url({{asset('/assets/img/backgrounds/login.png')}}) no-repeat !important; ;background-size:auto ">
 
         <div class="container">
-            <div class="row" style="margin-top:14%">
+            <div class="row mx-2" style="margin-top:19%">
 
 
                 <div class="col-md-6">
-                    <img style="border-style: none;" src="{{asset('assets/img/photos/2.png')}}" width="500px" alt="">
+                    <img style="    float: right;border-style: none;" src="{{asset('assets/img/photos/2.png')}}" width="300px" alt="">
 
                 </div>
                 <div class="col-md-6">
@@ -101,7 +101,7 @@
 
                     <form class="login100-form validate-form rounded-10  p-3"
                           method="POST" action="{{ route('login') }}"
-                          style="width: 50%; position: relative; background: #ffff; margin:78px  auto ; bottom: 0px" dir="ltr">
+                          style="width: 50%; position: relative; background: #ffff; margin:78px  auto ;float: right; bottom: 0px" dir="ltr">
                         @csrf
                         <span class="login100-form-title">
 						Sign in

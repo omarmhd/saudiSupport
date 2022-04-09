@@ -24,7 +24,7 @@
         //refund
         var bank_accounts =  button.data('bank_accounts')
         var policy_attachment =  button.data('policy_attachment')
-        var amount_transferred =  button.data('amount_transferred')
+        var amount_transferred =  button.data('amount_transferred')??'nothing'
 
 
         var done_cancel =  button.data('done_cancel')
@@ -34,6 +34,7 @@
 
         var modal = $(this)
         modal.find('.attachments').show()
+
 
         modal.find('.attachments').attr('href',attachments)
 
@@ -47,7 +48,8 @@
 
         $('.'+type_order).show()
 
-         modal.find('input[name="phone_no"]').val(phone_no)
+
+        $('input[name="phone_no"]').val(phone_no)
          modal.find('.order_no').text(order_no)
          modal.find('input[name="product_name"]').val(product_name)
          modal.find('.order_type').text(type_order)
@@ -83,9 +85,9 @@
         var button = $(event.relatedTarget)
         var modal = $(this)
         var type_order =  button.data('type_order')
-        modal.find('.attachments').attr('href',"")
+        // modal.find('.attachments').attr('href',"")
 
-        $('.Exchange ,.Refund, .Edit, .Cancel ,.attachments').hide()
+        // $('.Exchange ,.Refund, .Edit, .Cancel ,.attachments').hide()
 
         modal.find('div .tracking-section').hide()
         modal.find('div .preview-section').hide()
