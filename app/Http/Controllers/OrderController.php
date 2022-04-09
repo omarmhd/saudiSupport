@@ -25,6 +25,7 @@ class OrderController extends Controller
    public function show_button($data){
        $path=asset('/upload_center').'/';
 
+
        return "
 
                                     <a href='' class='btn btn-info' data-toggle='modal'

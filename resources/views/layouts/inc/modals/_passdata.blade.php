@@ -4,10 +4,12 @@
         var button = $(event.relatedTarget)
 
         var phone_no =  button.data('phone_no')
+
+
         var order_no =  button.data('order_no')
         var product_name =  button.data('product_name')
         var type_order =  button.data('type_order')
-        var details =  button.data('details')
+        var details =  button.data('details')??'null'
         var order_journey =  button.data('order_journey')
         var note_tech =  button.data('note_tech')
         var attachments = button.data('attachments')
@@ -24,7 +26,7 @@
         //refund
         var bank_accounts =  button.data('bank_accounts')
         var policy_attachment =  button.data('policy_attachment')
-        var amount_transferred =  button.data('amount_transferred')??'nothing'
+        var amount_transferred =  button.data('amount_transferred')
 
 
         var done_cancel =  button.data('done_cancel')
@@ -34,8 +36,6 @@
 
         var modal = $(this)
         modal.find('.attachments').show()
-
-
         modal.find('.attachments').attr('href',attachments)
 
         if(order_journey==1){
@@ -56,11 +56,7 @@
          modal.find('textarea[name="details"]').val(details)
          modal.find('textarea[name="note_tech"]').val(note_tech)
          modal.find('input[name="order_journey"]').val(order_journey)
-
-
-
-
-         modal.find('input[name="track"]').val(track)
+        modal.find('input[name="track"]').val(track)
         modal.find('.alternative_product').text(alternative_product)
         modal.find('.order_arrived').text(order_arrived)
         modal.find('.send_alternative').text(send_alternative)
@@ -83,6 +79,7 @@
 
     $('#show-order').on('hide.bs.modal', function (event) {
         var button = $(event.relatedTarget)
+
         var modal = $(this)
         var type_order =  button.data('type_order')
         // modal.find('.attachments').attr('href',"")

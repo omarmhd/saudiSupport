@@ -89,7 +89,7 @@
         style=" width:100%; background:#000 center/cover url({{asset('/assets/img/backgrounds/login.png')}}) no-repeat !important; ;background-size:auto ">
 
         <div class="container">
-            <div class="row mx-2" style="margin-top:19%">
+            <div class="row mx-2" style="margin-top:14%">
 
 
                 <div class="col-md-6">
