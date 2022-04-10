@@ -6,6 +6,16 @@
 /*[ FONT SIZE ]
 ///////////////////////////////////////////////////////////
 */
+@font-face {
+    font-family: "Aeonik-Regular";
+    src: url("Aeonik-Regular.otf");
+
+}
+
+body{
+    font-family: "Aeonik-Regular" !important;
+}
+
 .fs-1 {font-size: 1px;}
 .fs-2 {font-size: 2px;}
 .fs-3 {font-size: 3px;}
@@ -3206,7 +3216,8 @@ iframe {
 }
 
 .login100-form-title {
-    font-family: Poppins-Bold;
+    font-family: "Aeonik-Regular" !important;
+
     font-size: 24px;
     color: #333333;
     line-height: 1.2;
@@ -3227,7 +3238,7 @@ iframe {
 }
 
 .input100 {
-    font-family: Poppins-Medium;
+    font-family: "Aeonik-Regular" !important;
     font-size: 15px;
     line-height: 1.5;
     color: #666666;
@@ -3320,7 +3331,7 @@ iframe {
 }
 
 .login100-form-btn {
-    font-family: Montserrat-Bold;
+    font-family: "Aeonik-Regular" !important;
     font-size: 15px;
     line-height: 1.5;
     color: #fff;

@@ -375,9 +375,13 @@ a.close.disabled {
 
 /* ###### 6.3 Global  ###### */
 
-body {
-  font-family: "Roboto", sans-serif;
+@font-face {
+    font-family: "Aeonik-Regular";
+    src: url("../Aeonik-Regular.otf");
+
 }
+body {
+    font-family: "Aeonik-Regular", BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important ;}
 
 .main-body, .main-dashboard {
   min-height: 100vh;
@@ -2899,7 +2903,7 @@ body {
 	border:1px solid #23241f;
 	border-radius: 0px;
 	border-bottom-left-radius: 7px;
-	border-bottom-right-radius: 7px;  
+	border-bottom-right-radius: 7px;
 	font-size: 0.9375rem;
 	background: #edeff7;
 	border-top-right-radius: 8px;
@@ -2950,7 +2954,7 @@ pre {
     width: 35px;
     text-align: center;
     line-height: 33px;
-    
+
 }
 *::-webkit-scrollbar {
   width: 4px;

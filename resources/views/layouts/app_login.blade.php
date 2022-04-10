@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link href="{{URL::asset('assets/login.css')}}" rel="stylesheet">
+
     @include('layouts.inc._head')
 
 </head>
