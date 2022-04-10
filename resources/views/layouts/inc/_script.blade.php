@@ -77,10 +77,15 @@
         cluster: 'ap2',
         authEndpoint:'/broadcasting/auth'
     });
+    function audio(){
+        new Audio('https://assets.mixkit.co/sfx/preview/mixkit-interface-option-select-2573.mp3').play();;
+    }
 
     var channel = pusher.subscribe('private-App.Models.User.{{auth()->user()->id}}');
     channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
 
+
+        audio()
         Swal.fire(
             '',
             'You have new notifications',
