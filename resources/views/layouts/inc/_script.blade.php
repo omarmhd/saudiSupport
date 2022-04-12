@@ -78,7 +78,7 @@
         authEndpoint:'/broadcasting/auth'
     });
     function audio(){
-        new Audio({{asset('assets/soud-notification.mp3')}}).play();
+        new Audio("{{asset('assets/soud-notification.mp3')}}").play();
     }
 
     var channel = pusher.subscribe('private-App.Models.User.{{auth()->user()->id}}');

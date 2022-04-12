@@ -45,6 +45,9 @@
             modal.find('div .tracking-section').show()
             modal.find('div .preview-section').show()
         }
+        if (attachments==""){
+            $('.attachments').hide()
+        }
 
         $('.'+type_order).show()
 
