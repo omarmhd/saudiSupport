@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -28,8 +29,13 @@ class UserController extends Controller
                     return date($data->created_at->toDateString());
                 })
                 ->addColumn('action', function ($data) {
-                    return "<a  class='btn btn-primary' href=".route('users.edit',$data->id)." > <i class='fa fa-pen' ></i></a>
-                             <a href='' class='btn btn-danger'> <i class='fa fa-trash' ></i></a> ";
+
+                    if (Auth::user()->hasPermission('edit')) {
+                        return "<a  class='btn btn-primary btn-sm' href=" . route('users.edit', $data->id) . " > <i class='fa fa-pen' ></i></a>
+                             <a href='' class='btn btn-sm' style='background: #a9a9a9'> <i class='fa fa-trash' ></i></a> ";
+                    }else{
+                        return "<i class='fa-eye-slash'></i> hidden";
+                    }
                 })
                 ->rawColumns(['index','date', 'action'])
                 ->make(true);
