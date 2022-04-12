@@ -28,7 +28,7 @@ class OrderController extends Controller
 
        return "
 
-                                    <a href='' class='btn btn-info' data-toggle='modal'
+                                    <a href='' style='background: #007e48; color: #FFFFFF' class='btn btn-sm' data-toggle='modal'
                                         data-target='#show-order'
                                         data-order_no='$data->order_no'
                                         data-phone_no='$data->phone_no'
@@ -56,16 +56,27 @@ class OrderController extends Controller
                                         data-amount_transferred='$data->amount_transferred'
                                         data-done_cancel='$data->done_cancel'
                                         data-done_valdiff='$data->done_valdiff'
-                                    > <i class='fa fa-eye' ></i></a>
+                                    > <i class='fa fa-search' ></i></a>
 
 
 
                                     ";
    }
-    public function index(Request $request)
+    public function index(Request $request,$journey=null)
     {
 
-        $data = Order::latest()->get();
+
+
+        if($journey==="new")
+     {
+            $data = Order::where('order_journey',1)->latest()->get();
+
+
+        }else{
+            $data = Order::orderBy('created_at', 'DESC')->get();
+
+        }
+
 
         if ($request->ajax()) {
 
@@ -82,8 +93,8 @@ class OrderController extends Controller
                 })
                 ->addColumn('action', function ($data) {
 
-                    return "<a  class='btn btn-primary' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'All']) . " > <i class='fa fa-pen' ></i></a>".$this->show_button($data)."  <button type='button' data-id='$data->id' class='btn btn-warning archive'
-                                  > <i class='fa fa-archive' ></i></button>";
+                    return "<a  class='btn btn-sm' style='background:#a9a9a9 ; color: #FFFFFF' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'All']) . " > <i class='fa fa-pen' ></i></a>".$this->show_button($data)."  <button type='button' data-id='$data->id' style='background:#000 ; color: #FFFFFF' class='btn btn-sm  archive'
+                                  > <i class='fa fa-trash' ></i></button>";
                 })
                 ->rawColumns(['attachments', 'date', 'order_journey', 'action'])
                 ->make(true);
@@ -110,7 +121,7 @@ class OrderController extends Controller
                     return $data->order_arrived;
                 })->addColumn('action', function ($data) {
 
-                    return "<a  class='btn btn-primary' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => $data->type_order]) . " > <i class='fa fa-pen' ></i></a> ".$this->show_button($data);
+                    return "<a class='btn btn-sm' style='background:#a9a9a9 ; color: #FFFFFF'  href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => $data->type_order]) . " > <i class='fa fa-pen' ></i></a> ".$this->show_button($data);
                 })
                 ->rawColumns(['extracting_policy', 'order_arrived', 'action'])
                 ->make(true);
@@ -142,7 +153,7 @@ class OrderController extends Controller
                 })
                 ->addColumn('action', function ($data) {
 
-                    return "<a  class='btn btn-primary' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'Preview']) . " > <i class='fa fa-pen' ></i></a> ".
+                    return "<a  class='btn btn-sm' style='background:#a9a9a9 ; color: #FFFFFF'  href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'Preview']) . " > <i class='fa fa-pen' ></i></a> ".
                         $this->show_button($data);
                 })
                 ->rawColumns(['attachments', 'date', 'order_journey', 'action'])

@@ -202,13 +202,13 @@ table.dataTable {
       &.current {
         border: 0;
         background-image: none;
-        background-color: $primary;
+        background-color: #007e48;
         color: $white !important;
 
         &:hover, &:focus {
           border: 0;
           background-image: none;
-          background-color: $primary;
+          background-color: #007e48;
           color: $white !important;
         }
       }
@@ -277,13 +277,13 @@ table.dataTable thead {
   }
 
   .page-item.active .page-link {
-    background-color: $primary;
+    background-color: #007e48;
   }
 }
 
 .dataTables_wrapper .dataTables_paginate {
   .paginate_button.focus {
-    background: $primary;
+    background: #007e48;
   }
 
   .page-item.disabled .page-link {

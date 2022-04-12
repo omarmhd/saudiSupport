@@ -29,7 +29,7 @@
         <div class="col-lg-9 col-xl-9 col-md-12 col-sm-12">
             <div class="card  box-shadow-0">
                 <div class="card-header">
-                    <h4 class="card-title mb-1">@lang('site.add_order')</h4>
+                    <h4 class="card-title mb-1">Edit order</h4>
                     <p class="mb-2"></p>
                 </div>
                 <form class="form-horizontal" action="{{route('orders.update',$order->id)}}" method="post"  enctype="multipart/form-data">
@@ -89,7 +89,7 @@
                                             New Order
                                         </option>
                                         <option value="1"  {{ old('order_journey',$order->order_journey) == '1' ? "selected" : "" }}>
-                                            Tracking
+                                            Processing
                                         </option>
                                         <option value="2" {{ old('order_journey',$order->order_journey) == '2' ? "selected" : "" }}>
                                             Preview
@@ -425,20 +425,14 @@
                                 </div>
                                 <div class="col-lg-4 mg-t-20 mg-lg-t-0">
                                     <p class="mg-b-10">Attachments</p>
-                                    <input type="url"
+                                    <input type="file"
                                            id="attachments"
                                            name="attachments"
                                            class="form-control"
-                                           value="{{old('attachments',$order->attachments)}}"
-                                           placeholder="attachments">                            </div>
-                                <div class="col-lg-4 mg-t-20 mg-lg-t-0">
-                                    <p class="mg-b-10"> Tracking ID</p>
-                                    <input type="text"
-                                           id="track"
-                                           name="track"
-                                           class="form-control"
-                                           value="{{old('track',$order->track)}}"
-                                           placeholder="Please enter the track number">                                </div>
+
+                                           placeholder="attachments">
+                                </div>
+
 
 
 
@@ -498,7 +492,7 @@
 
                         <div class="form-group mb-0 mt-3 justify-content-end">
                             <div>
-                                <button type="submit" class="btn btn-primary">@lang('site.add')</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                                 <button type="submit" class="btn btn-secondary">@lang('site.cancel')</button>
                             </div>
                         </div>

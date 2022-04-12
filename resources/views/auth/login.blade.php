@@ -89,7 +89,7 @@
         style=" width:100%; background:#000 center/cover url({{asset('/assets/img/backgrounds/login.png')}}) no-repeat !important; ;background-size:auto ">
 
         <div class="container">
-            <div class="row mx-2" style="margin-top:14%">
+            <div class="row mx-2" style="margin-top:10%">
 
 
                 <div class="col-md-6">
@@ -104,7 +104,7 @@
                           style="width: 50%; position: relative; background: #ffff; margin:78px  auto ;float: right; bottom: 0px" dir="ltr">
                         @csrf
                         <span class="login100-form-title">
-						Sign in
+						 Login To  <br>  The System
 					</span>
 
                         <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
@@ -113,6 +113,7 @@
                             <span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
+
                         </div>
 
                         <div class="wrap-input100 validate-input" data-validate="Password is required">

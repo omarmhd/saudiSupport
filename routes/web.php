@@ -23,7 +23,12 @@ Route::group([ 'prefix' => LaravelLocalization::setLocale(),'middleware'=>'auth'
     Route::redirect('/','/orders');
     /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
     Route::resource('/users',UserController::class);
-    Route::resource('/orders',OrderController::class);
+
+    Route::resource('/orders',OrderController::class)->only([
+        'edit','store','update','create','destroy'
+    ]);;
+    Route::get('/orders/{journey?}', [OrderController::class,'index'])->name('orders.index');
+
     Route::prefix('order')->name('orders.')->group(function (){
 
         Route::get('edit/{id}/{typeOrder?}',[OrderController::class,'edit'])->name('edit');

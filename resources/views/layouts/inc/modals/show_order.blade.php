@@ -1,10 +1,10 @@
 
 <div class="modal show-order fade bd-example-modal-lg" id="show-order" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog  modal-lg" role="document">
+    <div class="modal-dialog  modal-md" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">order # <span class="order_no"></span></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div class="modal-header" style="background: #007e48;color: #FFFFFF">
+                <h5 class="modal-title" id="exampleModalLabel" style="color: #FFFFFF" >order # <span class="order_no"></span></h5>
+                <button type="button" class="close" style="color: #FFFFFF"  data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -63,17 +63,10 @@
 
                     <div class="col-lg-4 mg-t-20 mg-lg-t-0">
                         <p class="mg-b-10">Attachments</p>
-                        <a href=""  class="btn btn-primary btn-sm attachments"> <i class="fa fa-download"></i></a>
+                        <a href=""  class="btn btn-primary btn-bg attachments"> <i class="fa fa-download"></i></a>
 
                     </div>
-                    <div class="col-lg-4 mg-t-20 mg-lg-t-0">
-                        <p class="mg-b-10"> Tracking ID</p>
-                        <input type="text"
-                               id="track"
-                               name="track"
-                               class="form-control"
-                             >
-                    </div>
+
 
 
 
@@ -122,7 +115,7 @@
                         <div class="col-lg-4 mg-t-20 mg-lg-t-0">
 
                             <p class="mg-b-10" style="display: inline">Policy  download  </p>
-                            <a href=""  class="btn btn-primary btn-sm policy_attch"  style="display: none"> <i class="fa fa-download"></i></a>
+                            <a href=""  class="btn btn-primary btn-bg policy_attch"  style="display: none"> <i class="fa fa-download"></i></a>
 
                         </div>
                         <!-- col-4 -->

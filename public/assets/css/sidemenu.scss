@@ -73,7 +73,7 @@
 		margin-right: 13px !important;
 		margin-left: 0;
 	}
- 
+
 }
 
 .app-content {
@@ -547,7 +547,7 @@ slide is-expanded side-menu__item {
   }
 
   .side-menu__label, .side-menu__icon {
-    color: $primary;
+    color: #007e48;
   }
 }
 
@@ -569,20 +569,20 @@ slide is-expanded side-menu__item {
 
   &.active, &:hover, &:focus {
     text-decoration: none;
-    color: $primary;
+    color: #007e48;
   }
   &.active .side-menu__label{
-   color: $primary;
+   color: #007e48;
   }
   &.active .angle{
-   color: $primary;
+   color: #007e48;
   }
   &.active .side-menu__icon{
-   fill: $primary;
+   fill: #007e48;
   }
 
   &.active .side-menu__icon, &:hover .side-menu__icon, &:focus .side-menu__icon {
-    color: $primary;
+    color: #007e48;
   }
 }
 
@@ -610,14 +610,14 @@ slide is-expanded side-menu__item {
 .slide {
   &:hover {
     .side-menu__label, .angle , .side-menu__icon{
-      color: $primary !important;
-      fill: $primary !important;
+      color: #007e48 !important;
+      fill: #007e48 !important;
     }
   }
 
   &.is-expanded {
     .side-menu__label, .side-menu__icon, .angle {
-      color: $primary !important;
+      color: #007e48 !important;
     }
   }
 }
@@ -630,7 +630,7 @@ slide is-expanded side-menu__item {
 
   &.active, &:hover, &:focus {
     text-decoration: none;
-    color: $primary !important;
+    color: #007e48 !important;
   }
 }
 
@@ -711,13 +711,13 @@ slide is-expanded side-menu__item {
     line-height: 1;
     vertical-align: middle;
     font-weight: 400;
-	
+
 }
 .app-sidebar .slide .side-menu__item.active::before {
     content: '';
     width: 3px;
     height: 31px;
-    background: #005ee9;
+    background: #007e48;
     position: absolute;
     left: 0;
 }
@@ -857,7 +857,7 @@ slide is-expanded side-menu__item {
           visibility: visible;
         }
       }
-	  
+
 }
 
     .side-menu__label {
@@ -920,7 +920,7 @@ slide is-expanded side-menu__item {
       text-align: center;
       border-left: 0;
 
-     
+
     }
 
     .side-menu_label {
@@ -1149,7 +1149,7 @@ slide is-expanded side-menu__item {
       margin-right: 0;
     }
 
-     
+
   }
 
   .user-pic {
@@ -1299,7 +1299,7 @@ slide is-expanded side-menu__item {
   }
 
   .sub-side-menu__item {
-    color: $primary;
+    color: #007e48;
   }
 }
 
@@ -1328,16 +1328,16 @@ slide is-expanded side-menu__item {
 
   .slide {
     &.active .side-menu__icon, &.is-expanded .side-menu__icon {
-      fill: #277aec  !important;
+      fill: #007e48  !important;
     }
 
     &.active {
       .side-menu__icon {
-        fill: #277aec  !important;
+        fill: #007e48  !important;
       }
 
       .side-menu__item {
-        color: #277aec  !important;
+        color: #007e48  !important;
       }
     }
   }
@@ -1401,7 +1401,7 @@ slide is-expanded side-menu__item {
     font-size: 13px;
 }
 .app-sidebar .slide-menu a.active:before{
-	color: $primary;
+	color: #007e48;
 }
 
 
@@ -1452,7 +1452,7 @@ slide is-expanded side-menu__item {
 		line-height: 1;
 		vertical-align: middle;
 		font-weight: 400
-		
+
 	}
 	.app.sidebar-mini.sidenav-toggled-open .angle {
 		display: block;
@@ -1502,7 +1502,7 @@ slide is-expanded side-menu__item {
 		display: block !important;
 	}
 	.app.sidebar-mini.sidenav-toggled.sidenav-toggled-open .slide-menu{
-	    left: 0; 
+	    left: 0;
 	}
 	.sidebar-mini.sidenav-toggled.sidenav-toggled-open .slide.is-expanded .slide-menu {
 		max-height: 100vh;
@@ -1533,12 +1533,12 @@ slide is-expanded side-menu__item {
 		content: '';
 		width: 3px;
 		height: 31px;
-		background: #005ee9;
+		background: #007e48;
 		position: absolute;
 		left: 0;
 		display:block;
 	}
 }
 .dark-theme .side-menu__item.active .side-menu__icon{
-	fill:#106ef1;
+	fill:#007e48;
 }

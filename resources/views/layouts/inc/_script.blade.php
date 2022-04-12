@@ -78,7 +78,7 @@
         authEndpoint:'/broadcasting/auth'
     });
     function audio(){
-        new Audio('https://assets.mixkit.co/sfx/preview/mixkit-interface-option-select-2573.mp3').play();;
+        new Audio({{asset('assets/soud-notification.mp3')}}).play();
     }
 
     var channel = pusher.subscribe('private-App.Models.User.{{auth()->user()->id}}');

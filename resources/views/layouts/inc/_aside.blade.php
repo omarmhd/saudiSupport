@@ -11,7 +11,7 @@
         <div class="app-sidebar__user clearfix">
             <div class="dropdown user-pro-body">
                 <div class="">
-                    <img alt="user-img" class="avatar avatar-xl brround" src="https://cdn3.iconfinder.com/data/icons/data-science-set-01-2/65/20-512.png"><span class="avatar-status profile-status bg-green"></span>
+                    <img alt="user-img" class="avatar avatar-xl brround" src="{{asset('assets/businessman.png')}}"><span class="avatar-status profile-status bg-green"></span>
                 </div>
                 <div class="user-info">
                     <h4 class="font-weight-semibold mt-3 mb-0">{{auth()->user()->name}} </h4>
@@ -32,10 +32,11 @@
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M5 5h4v4H5zm10 10h4v4h-4zM5 15h4v4H5zM16.66 4.52l-2.83 2.82 2.83 2.83 2.83-2.83z" opacity=".3"></path><path d="M16.66 1.69L11 7.34 16.66 13l5.66-5.66-5.66-5.65zm-2.83 5.65l2.83-2.83 2.83 2.83-2.83 2.83-2.83-2.83zM3 3v8h8V3H3zm6 6H5V5h4v4zM3 21h8v-8H3v8zm2-6h4v4H5v-4zm8-2v8h8v-8h-8zm6 6h-4v-4h4v4z"></path></svg><span class="side-menu__label">Customer support</span><i class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
-                    <li><a class="slide-item" href="{{route('orders.index')}}">All order</a></li>
-                    <li><a class="slide-item" href="{{route('orders.indexTracking')}}">Tracking</a></li>
-                    <li><a class="slide-item" href="{{route('orders.indexPreview')}}">Preview </a></li>
-                    <li><a class="slide-item" href="{{route('orders.indexCompleted')}}">Completed</a></li>
+                    <li><a class="slide-item" href="{{route('orders.index')}}">All Orders</a></li>
+                    <li><a class="slide-item" href="{{route('orders.index',['journey'=>'new'])}}"> New Orders</a></li>
+                    <li><a class="slide-item" href="{{route('orders.indexTracking')}}">Processing Orders</a></li>
+                    <li><a class="slide-item" href="{{route('orders.indexPreview')}}">Preview Orders</a></li>
+                    <li><a class="slide-item" href="{{route('orders.indexCompleted')}}">Completed Orders</a></li>
 
 
 

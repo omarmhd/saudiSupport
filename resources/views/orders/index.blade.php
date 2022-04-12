@@ -19,29 +19,7 @@
             </div>
         </div>
         <div class="d-flex my-xl-auto right-content">
-{{--            <div class="pr-1 mb-3 mb-xl-0">--}}
-{{--                <button type="button" class="btn btn-info btn-icon ml-2"><i class="mdi mdi-filter-variant"></i></button>--}}
-{{--            </div>--}}
-{{--            <div class="pr-1 mb-3 mb-xl-0">--}}
-{{--                <button type="button" class="btn btn-danger btn-icon ml-2"><i class="mdi mdi-star"></i></button>--}}
-{{--            </div>--}}
-{{--            <div class="pr-1 mb-3 mb-xl-0">--}}
-{{--                <button type="button" class="btn btn-warning  btn-icon ml-2"><i class="mdi mdi-refresh"></i></button>--}}
-{{--            </div>--}}
-{{--            <div class="mb-3 mb-xl-0">--}}
-{{--                <div class="btn-group dropdown">--}}
-{{--                    <button type="button" class="btn btn-primary">14 Aug 2019</button>--}}
-{{--                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" id="dropdownMenuDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                        <span class="sr-only">Toggle Dropdown</span>--}}
-{{--                    </button>--}}
-{{--                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end">--}}
-{{--                        <a class="dropdown-item" href="#">2015</a>--}}
-{{--                        <a class="dropdown-item" href="#">2016</a>--}}
-{{--                        <a class="dropdown-item" href="#">2017</a>--}}
-{{--                        <a class="dropdown-item" href="#">2018</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+
         </div>
     </div>
     <!-- breadcrumb -->
@@ -56,7 +34,7 @@
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title mg-b-0">Orders Management</h4>
-                        <a href="{{route('orders.create')}}" class="btn btn-info" > <i class="fa fa-plus"></i>  Add Order</a>
+                        <a href="{{route('orders.create')}}" class='btn  ' style='background:#007e48 ; color: #FFFFFF'  > <i class="fa fa-plus"></i>  Add Order</a>
 
                     </div>
                     <p class="tx-12 tx-gray-500 mb-2"> <a href=""></a></p>
@@ -71,11 +49,9 @@
                                 <th class="wd-15p border-bottom-0" style="width: 10%">Phone  No</th>
                                 <th class="wd-15p border-bottom-0" style="width: 10%">date</th>
                                 <th class="wd-20p border-bottom-0" style="width: 10%">product name</th>
-                                <th class="wd-20p border-bottom-0" style="width: 10%">Track no</th>
                                 <th class="wd-20p border-bottom-0"style="width: 12%">order journey</th>
                                 <th class="wd-20p border-bottom-0"style="width: 10%">type order</th>
                                 <th class="wd-20p border-bottom-0"style="width: 10%">added by</th>
-
                                 <th class="wd-20p border-bottom-0" style="width: 30%">options</th>
                             </tr>
                             </thead>

@@ -113,7 +113,7 @@
                 processing: true,
                 serverSide: true,
                 responsive: true,
-                "order": [[ 0, 'DESC' ]],
+                "order": [[ 2, 'DESC' ]],
                 ajax: '{{ route('orders.indexPreview') }}',
                 columns: [
                     { data: 'order_no', name: 'order_no' },
