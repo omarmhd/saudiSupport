@@ -298,11 +298,8 @@ class OrderController extends Controller
 
         if ($order and $check_type) {
             $check_type = $typeOrder . "_Page";
-            $message="A order has been update of type ".$order->type_order."order number".$order->order_no;
 
-            $users=User::where('id', '!=', auth()->id())->get();
 
-            \Notification::send($users,new NewNotify($order,$message));
 
 
             return view('orders.edit', compact('order', 'check_type'));
@@ -322,10 +319,14 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id,FileService $fileService)
     {
+        $users=User::where('id', '!=', auth()->id())->get();
 
 
         $check_type = in_array($request->typeOrder, $this->typesOrder);
         $order = Order::findOrFail($id);
+
+        $message=$order->added_by." updated order #".$order->order_no." a page ".$order->type_order;
+
         $data=$request->except(['typeOrder','policy_attachment']);
         if ($request->hasFile('policy_attachment')) {
             $data['policy_attachment'] =  asset('upload_center').'/'.$fileService->upload_file($request->file('policy_attachment'), 'upload_center');
@@ -335,12 +336,13 @@ class OrderController extends Controller
 
 
 
-
         if ($order ) {
             $order->update($data);
 
             if ($request->typeOrder=="All_Page"){
+
                 return redirect()->route('orders.index')->with('success', 'The order has been successfully updated');
+
 
             }else if ($request->typeOrder=="Preview_Page"){
                 return redirect()->route('orders.indexPreview')->with('success', 'Preview journey in progress');
@@ -349,6 +351,8 @@ class OrderController extends Controller
                 return redirect()->route('orders.indexTracking')->with('success', 'Tracking journey in progress');
 
             }
+            \Notification::send($users,new NewNotify($order,$message));
+
         }
 
 

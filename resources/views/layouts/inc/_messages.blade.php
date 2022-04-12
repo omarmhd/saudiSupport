@@ -6,10 +6,10 @@
     toastr.options.progressBar = true;
 
     @if(session('success'))
-    toastr.success('success',"{{session('success')}}")
+    toastr.success("{{session('success')}}",'success')
     @endif
 
     @if(session('error'))
-    toastr.error('success',"{{session('error')}}")
+    toastr.error("{{session('error')}}")
     @endif
 </script>
