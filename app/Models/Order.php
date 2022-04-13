@@ -36,18 +36,18 @@ class Order extends Model
 
 
         if($data->order_journey=="0"){
-            return "<span class='p-1'  style='color: #98db7c'> New </span>";
+            return "<span class='p-1'  style='background: #98db7c'> New </span>";
         }elseif ($data->order_journey=="1"){
-            return "<span class='p-1' style='color: #bf8bff'> Processing </span>";
+            return "<span class='p-1' style='background: #bf8bff'> Processing </span>";
         }elseif ($data->order_journey=="2"){
-            return "<span class='p-1'  style='color: #FFE27a'> Preview </span>";
+            return "<span class='p-1'  style='background: #FFE27a'> Preview </span>";
 
         }elseif ($data->order_journey=="3") {
-            return "<span class='p-1'  style='color: #8bcaff'>  completed </span>";
+            return "<span class='p-1'  style='background: #8bcaff'>  completed </span>";
 
 
         }else{
-            return "<span class='p-1' style='color: #ff5757'> order canceled </span>";
+            return "<span class='p-1' style='background: #ff5757'> order canceled </span>";
 
         }
 

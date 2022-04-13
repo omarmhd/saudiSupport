@@ -48,7 +48,7 @@
                                 <th class="wd-15p border-bottom-0" style="width: 10%">order no </th>
                                 <th class="wd-15p border-bottom-0" style="width: 10%">Phone  No</th>
                                 <th class="wd-15p border-bottom-0" style="width: 10%">date</th>
-                                <th class="wd-20p border-bottom-0" style="width: 10%">product name</th>
+                                <th class="wd-20p border-bottom-0" style="width: 20%">product name</th>
                                 <th class="wd-20p border-bottom-0"style="width: 12%">order journey</th>
                                 <th class="wd-20p border-bottom-0"style="width: 10%">type order</th>
                                 <th class="wd-20p border-bottom-0"style="width: 10%">added by</th>
