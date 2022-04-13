@@ -25,10 +25,15 @@ class OrderController extends Controller
 
     public function index(Request $request, $journey = null)
     {
-        $data = Order::orderBy('created_at', 'DESC')->get();
 
-        if ($journey === "new") {
+
+
+        if ($journey=="new") {
             $data = Order::where('order_journey', '0')->latest()->get();
+
+
+        }else{
+            $data = Order::latest()->get();
 
         }
 

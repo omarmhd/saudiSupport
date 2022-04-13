@@ -2459,13 +2459,13 @@ a.btn.disabled, fieldset:disabled a.btn {
   border-color: #007e48; }
   .btn-primary:hover {
     color: #fff;
-    background-color: #045cd6;
-    border-color: #045cd6; }
+    background-color: #007e48 ;
+    border-color: #007e48; }
   .btn-primary:focus, .btn-primary.focus {
     box-shadow: 0 0 0 0.2rem rgba(1, 98, 232, 0.2); }
   .btn-primary.disabled, .btn-primary:disabled {
     color: #fff;
-    background-color: #007e48;
+    background-color: #007e48 ;
     border-color: #007e48; }
   .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active {
     color: #fff;
@@ -18317,7 +18317,7 @@ pre {
     border-radius: 50%;
     color: #007e48; }
     .main-header .input-group-btn .btn:hover i {
-      color: #2205bf; }
+      color: #007e48; }
   .main-header .input-group-btn .btn i {
     font-size: 16px;
     color: #3c4858; }

@@ -70,7 +70,7 @@
 
                                     </div>
                                     <div class="mr-3">
-                                        <h5 class="notification-label mb-1">{{$notification->data['message']}}</h5>
+                                        <h5 class="notification-label mb-1">{!! $notification->data['message'] !!}</h5>
                                         <div class="notification-subtext">{{$notification->created_at->diffForHumans()}}</div>
                                     </div>
                                     <div class="mr-auto" >

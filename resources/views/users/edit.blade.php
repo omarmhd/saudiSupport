@@ -70,8 +70,8 @@
                             </div>
                         </div>
                         @php
-                            $models=['users' ,'orders'];
-                            $maps=['create','update','read','delete']
+                            $models=['users' ];
+                                     $maps=['create','update','read','delete']
 
                         @endphp
 
@@ -122,7 +122,7 @@
 
                         <div class="form-group mb-0 mt-3 justify-content-end">
                             <div>
-                                <button type="submit" class="btn btn-primary">@lang('site.add')</button>
+                                <button type="submit" class="btn btn-primary">save</button>
                                 <button type="submit" class="btn btn-secondary">@lang('site.cancel')</button>
                             </div>
                         </div>
