@@ -259,7 +259,7 @@ class OrderController extends Controller
             $data['attachments'] = asset('upload_center') . '/' . $file->upload_file($request->file('attachments'), 'upload_center');
         }
         $order = Order::create($data);
-        $message = $order->added_by . "  added a new order number" . $order->order_no . " of type " . $order->typer_order;
+        $message ="<b style='color:#007E48'>". $order->added_by ."</b>". "  added a new order number #" . $order->order_no . " of type " . $order->typer_order;
 
         $users = User::where('id', '!=', auth()->id())->get();
 
@@ -319,7 +319,7 @@ class OrderController extends Controller
         $check_type = in_array($request->typeOrder, $this->typesOrder);
         $order = Order::findOrFail($id);
 
-        $message = $order->added_by . " updated order #" . $order->order_no . " a page " . $order->type_order;
+        $message ="<b style='color:#007E48'>". $order->added_by ."</b>". "  updated order #" . $order->order_no . " a page " . $order->type_order;
 
         $data = $request->except(['typeOrder', 'policy_attachment']);
         if ($request->hasFile('policy_attachment')) {

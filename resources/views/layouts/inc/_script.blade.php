@@ -78,13 +78,10 @@
         authEndpoint:'/broadcasting/auth'
     });
     function audio(){
-        new Audio("{{asset('assets/soud-notification.mp3')}}").play();
-    }
+        new Audio("{{asset('assets/soud-notification.mp3')}}").play();    }
 
     var channel = pusher.subscribe('private-App.Models.User.{{auth()->user()->id}}');
     channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
-
-
         audio()
         Swal.fire(
             '',
@@ -95,7 +92,7 @@
 
 
         $('.main-notification-list').prepend(`
-            <a class="d-flex p-3 border-bottom" href="">
+            <a class="d-flex p-3 border-bottom" href="`+data.action+`" style="background: #ECF0FA ">
                                     <div class="notifyimg bg-pink">
 
                                     </div>

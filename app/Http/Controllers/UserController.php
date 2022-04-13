@@ -15,6 +15,18 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
+    public function __construct()
+    {
+        $this->middleware(['permission:users-create'])->only('create');
+        $this->middleware(['permission:users-update'])->only('update');
+        $this->middleware(['permission:users-delete'])->only('destroy');
+        $this->middleware(['permission:users-read'])->only('index');
+
+
+
+    }
+
+
     public function index(Request $request)
     {
         $data = User::all();
@@ -30,11 +42,21 @@ class UserController extends Controller
                 })
                 ->addColumn('action', function ($data) {
 
-                    if (Auth::user()->hasPermission('edit')) {
-                        return "<a  class='btn btn-primary btn-sm' href=" . route('users.edit', $data->id) . " > <i class='fa fa-pen' ></i></a>
-                             <a href='' class='btn btn-sm' style='background: #a9a9a9'> <i class='fa fa-trash' ></i></a> ";
+                    if (Auth::user()->hasPermission('users-update')) {
+                        return "<a  class='btn  btn-sm' style='background: #007e48;color: #FFFFFF'  href=" . route('users.edit', $data->id) . " > <i class='fa fa-pen' ></i></a>
+                             <a href='javascript:void(0)' class='btn btn-sm' style='background: #a9a9a9;color: #FFFFFF'  onclick='event.preventDefault(); document.getElementById(\"delete-form\").submit();'> <i class='fa fa-trash' ></i></a>
+
+                              <form id='delete-form' action=". route('users.destroy',$data->id) ." method='POST' class='d-none'>
+                               ".csrf_field() ."
+                                  ".method_field('DELETE')."
+
+                        </form>
+
+                              ";
+
+
                     }else{
-                        return "<i class='fa-eye-slash'></i> hidden";
+                        return `<i class='fa-eye-slash'></i> hidden`;
                     }
                 })
                 ->rawColumns(['index','date', 'action'])
@@ -145,6 +167,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+
+        User::findOrFail($id)->delete();
+        return redirect()->back()->with('success','Deleted successfully');
 
 
 
