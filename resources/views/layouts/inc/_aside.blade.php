@@ -36,10 +36,10 @@
                 <ul class="slide-menu">
                     <li><a class="slide-item" href="{{route('orders.index')}}">All Orders</a></li>
                     <li><a class="slide-item" href="{{route('orders.index',['journey'=>'new'])}}"> New Orders</a></li>
-                    <li><a class="slide-item" href="{{route('orders.indexTracking')}}">Processing Orders</a></li>
-                    <li><a class="slide-item" href="{{route('orders.indexPreview')}}">Preview Orders</a></li>
-                    <li><a class="slide-item" href="{{route('orders.indexCompleted')}}">Completed Orders</a></li>
-
+                    <li><a class="slide-item" href="{{route('orders.indexTracking')}}">Processing </a></li>
+                    <li><a class="slide-item" href="{{route('orders.indexPreview')}}">Preview </a></li>
+                    <li><a class="slide-item" href="{{route('orders.indexCompleted')}}">Completed </a></li>
+س
 
 
                 </ul>      </li>
