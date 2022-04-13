@@ -2970,7 +2970,7 @@ a.btn.disabled, fieldset:disabled a.btn {
 
 .btn-sm, .btn-group-sm > .btn, .sp-container .btn-group-sm > button {
   padding: 0.25rem 0.5rem;
-  font-size: 0.76562rem;
+  font-size: 0.86562rem;
   line-height: 1.5;
   border-radius: 0.2rem; }
 
@@ -9779,7 +9779,7 @@ a.tag-addon {
 
 .btn-sm, .btn-group-sm > .btn {
   padding: .2rem .7rem;
-  font-size: .7rem; }
+  font-size: .9rem; }
 
 .coming-events .icon {
   height: 47px;
