@@ -63,7 +63,7 @@
 
                     <div class="col-lg-4 mg-t-20 mg-lg-t-0">
                         <p class="mg-b-10">Attachments</p>
-                        <a href=""  class="btn btn-primary btn-bg attachments"> <i class="fa fa-download"></i></a>
+                        <a href="" download   class="btn btn-primary btn-bg attachments"> <i class="fa fa-download"></i></a>
 
                     </div>
 
