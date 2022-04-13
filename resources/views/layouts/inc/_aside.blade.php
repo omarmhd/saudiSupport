@@ -39,7 +39,7 @@
                     <li><a class="slide-item" href="{{route('orders.indexTracking')}}">Processing </a></li>
                     <li><a class="slide-item" href="{{route('orders.indexPreview')}}">Preview </a></li>
                     <li><a class="slide-item" href="{{route('orders.indexCompleted')}}">Completed </a></li>
-س
+
 
 
                 </ul>      </li>
