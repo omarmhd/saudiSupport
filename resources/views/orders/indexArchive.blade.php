@@ -70,11 +70,9 @@
                                 <th class="wd-15p border-bottom-0" style="width: 10%">order no </th>
                                 <th class="wd-15p border-bottom-0" style="width: 10%">Phone  No</th>
                                 <th class="wd-15p border-bottom-0" style="width: 10%">date</th>
-                                <th class="wd-20p border-bottom-0" style="width: 10%">product name</th>
-                                <th class="wd-20p border-bottom-0" style="width: 10%">Track No</th>
+                                <th class="wd-20p border-bottom-0" style="width: 20%">product name</th>
                                 <th class="wd-20p border-bottom-0"style="width: 12%">order journey</th>
                                 <th class="wd-20p border-bottom-0"style="width: 10%">type order</th>
-
                                 <th class="wd-20p border-bottom-0" style="width: 30%">options</th>
                             </tr>
                             </thead>
@@ -129,7 +127,6 @@
                 { data: 'phone_no' ,name:'phone_no'},
                 { data: 'date', name: 'date' },
                 { data: 'product_name', name: 'product_name' },
-                {data:'track',name:'track'},
                 {data:'order_journey',name: 'order_journey' },
                 { data: 'type_order', name: 'type_order' },
 

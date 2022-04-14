@@ -1,12 +1,23 @@
 <script>
 
     $(function() {
+
+
+       var  route="{{ route('orders.index')}}";
+
+        let url =window.location.href;
+        let result = url.includes("new");
+        if (result){
+            route="{{ route('orders.index',['journey'=>'new']) }}";
+        }
+
+
         globalThis.table_orders=$('#example1_wrapper').DataTable({
             processing: true,
             serverSide: true,
             responsive: true,
             "order": [[ 2, 'DESC' ]],
-            ajax: '{{ route('orders.index') }}',
+            ajax: route,
             columns: [
                 { data: 'order_no', name: 'order_no' },
                 { data: 'phone_no' ,name:'phone_no'},

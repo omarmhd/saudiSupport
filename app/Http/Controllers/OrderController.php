@@ -26,18 +26,40 @@ class OrderController extends Controller
     public function index(Request $request, $journey = null)
     {
 
-
-
         if ($journey=="new") {
-            $data = Order::where('order_journey', '0')->latest()->get();
-
-
-        }else{
-            $data = Order::latest()->get();
+        $data = Order::where('order_journey', '0')->latest()->get();
+    }else{
+        $data = Order::latest()->get();
 
         }
 
+    if ($request->ajax()) {
 
+        return DataTables::of($data)
+            ->addIndexColumn()
+            ->addColumn('date', function ($data) {
+                return date($data->created_at->toDateString());
+            })->addColumn('order_journey', function ($data) {
+
+                return Order::color_journey($data);
+            })->addColumn('attachments', function ($data) {
+
+                return "<a href='$data->attachments'  target='_blank' class='btn btn-outline-dark'> <i class='fa fa-link'></i> </a>";
+            })
+            ->addColumn('action', function ($data) {
+
+                return "<a  class='btn btn-sm' style='background:#a9a9a9 ; color: #FFFFFF' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'All']) . " > <i class='fa fa-pen' ></i></a>" . $this->show_button($data) . "  <button type='button' data-id='$data->id' style='background:#000 ; color: #FFFFFF' class='btn btn-sm  archive'
+                                  > <i class='fa fa-trash' ></i></button>";
+            })
+            ->rawColumns(['attachments', 'date', 'order_journey', 'action'])
+            ->make(true);
+
+    }
+
+        return view('orders.index');}
+
+
+    public function indexNew( $request,$data ){
         if ($request->ajax()) {
 
             return DataTables::of($data)
@@ -60,9 +82,13 @@ class OrderController extends Controller
                 ->make(true);
 
         }
+
         return view('orders.index');
 
     }
+
+
+
 
     public function show_button($data)
     {
