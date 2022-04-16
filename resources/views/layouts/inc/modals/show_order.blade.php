@@ -32,7 +32,7 @@
                 <br>
                 <div class="row row-sm mg-b-20">
 
-                    <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                    <div class="col-lg-6 mg-t-20 mg-lg-t-0">
                         <p class="mg-b-10">Product Name</p>
                         <input type="text"
                                id="product_name"
@@ -40,7 +40,7 @@
                                class="form-control"
                                placeholder="product name">
                     </div>
-                    <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                    <div class="col-lg-6 mg-t-20 mg-lg-t-0">
                         <p class="mg-b-10">phone number</p>
 
                         <input type="text"
@@ -53,7 +53,7 @@
                 </div>
                 <div class="row row-sm mg-b-20">
 
-                    <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                    <div class="col-lg-6 mg-t-20 mg-lg-t-0">
                         <p class="mg-b-10">Alternative product</p>
                         <input type="text"
                                id="alternative_product"
@@ -61,7 +61,7 @@
                                class="form-control"
                              >                            </div>
 
-                    <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                    <div class="col-lg-6 mg-t-20 mg-lg-t-0">
                         <p class="mg-b-10">Attachments</p>
                         <a href="" download   class="btn btn-primary btn-bg attachments"> <i class="fa fa-download"></i></a>
 
@@ -171,14 +171,14 @@
                     <br>
                     <div class="row row-sm mg-b-20">
                         <div class="col-lg-6 mg-t-20 mg-lg-t-0">
-                            <p class="mg-b-10"> Note Warehouse Team</p>
+                            <p class="mg-b-10">Warehouse team notes</p>
 
                             <textarea class="form-control" name="note_warehouse" placeholder="note_warehouse" rows="3" spellcheck="false"></textarea>
 
                         </div>
 
                         <div class="col-lg-6 mg-t-20 mg-lg-t-0">
-                            <p class="mg-b-10"> Note saleh</p>
+                            <p class="mg-b-10">Management notes</p>
 
                             <textarea class="form-control" name="note_salah" placeholder="note_salah" rows="3" spellcheck="false"></textarea>
 

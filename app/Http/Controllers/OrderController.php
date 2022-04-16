@@ -330,7 +330,7 @@ class OrderController extends Controller
             return view('orders.edit', compact('order', 'check_type'));
 
         }
-        return redirect()->back()->with('error', 'error');
+        return redirect()->back()->with('error', 'This order cannot be modified');
 
 
     }
