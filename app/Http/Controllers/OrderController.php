@@ -316,7 +316,7 @@ class OrderController extends Controller
      * @param Order $order
      * @return Response
      */
-    public function edit($id, $typeOrder==null)
+    public function edit($id, $typeOrder=null)
     {
 
         $check_type = in_array($typeOrder, $this->typesOrder);
