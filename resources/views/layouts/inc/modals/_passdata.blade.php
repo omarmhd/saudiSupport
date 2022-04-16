@@ -58,7 +58,7 @@
          modal.find('textarea[name="note_tech"]').val(note_tech)
          modal.find('input[name="order_journey"]').val(order_journey)
         modal.find('input[name="track"]').val(track)
-        modal.find('.alternative_product').text(alternative_product)
+        modal.find('input[name="alternative_product"]').val(alternative_product)
         modal.find('.order_arrived').text(order_arrived)
         modal.find('.send_alternative').text(send_alternative)
         modal.find('textarea[name=bank_accounts]').val(bank_accounts)
