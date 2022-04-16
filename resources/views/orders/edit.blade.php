@@ -156,7 +156,7 @@
                                             New Order
                                         </option>
                                         <option value="1"  {{ old('order_journey',$order->order_journey) == '1' ? "selected" : "" }}>
-                                            Tracking
+                                            Processing
                                         </option>
                                         <option value="2" {{ old('order_journey',$order->order_journey) == '2' ? "selected" : "" }}>
                                             Preview
@@ -224,7 +224,7 @@
                                             New Order
                                         </option>
                                         <option value="1"  {{ old('order_journey',$order->order_journey) == '1' ? "selected" : "" }}>
-                                            Tracking
+                                            Processing
                                         </option>
                                         <option value="2" {{ old('order_journey',$order->order_journey) == '2' ? "selected" : "" }}>
                                             Preview
@@ -276,7 +276,7 @@
                                             New Order
                                         </option>
                                         <option value="1"  {{ old('order_journey',$order->order_journey) == '1' ? "selected" : "" }}>
-                                            Tracking
+                                            Processing
                                         </option>
                                         <option value="2" {{ old('order_journey',$order->order_journey) == '2' ? "selected" : "" }}>
                                             Preview
@@ -465,7 +465,7 @@
                                             New Order
                                         </option>
                                         <option value="1"  {{ old('order_journey',$order->order_journey) == '1' ? "selected" : "" }}>
-                                            Tracking
+                                            Processing
                                         </option>
                                         <option value="2" {{ old('order_journey',$order->order_journey) == '2' ? "selected" : "" }}>
                                             Preview

@@ -4,8 +4,6 @@
         var button = $(event.relatedTarget)
 
         var phone_no =  button.data('phone_no')
-
-
         var order_no =  button.data('order_no')
         var product_name =  button.data('product_name')
         var type_order =  button.data('type_order')
@@ -68,14 +66,15 @@
         modal.find('.done_cancel').text(done_cancel)
         modal.find('.done_valdiff').text(done_valdiff)
 
-        if(policy_attachment!=='null'){
-            $('.policy_attch').show()
-            modal.find('.policy_attch').attr('href',policy_attachment)
+        if(policy_attachment=='null'){
+            $('.policy_attch').hide()
         }
+        modal.find('.policy_attch').attr('href',policy_attachment)
 
 
 
-         modal.find('input[name="decision_taken"]').val(decision_taken)
+
+        modal.find('input[name="decision_taken"]').val(decision_taken)
          modal.find('textarea[name="note_warehouse"]').val(note_warehouse)
          modal.find('textarea[name="note_salah"]').val(note_salah)
     })
