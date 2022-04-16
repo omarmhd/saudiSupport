@@ -42,7 +42,7 @@
                             <div class="col-lg-4 mg-t-20 mg-lg-t-0">
 
                                 <p class="mg-b-10">Order type</p>
-                                <select class="form-control select2-no-search" name="type_order" >
+                                <select required  class="form-control select2-no-search" name="type_order" >
                                     <option selected disabled value=""> Please Select option</option>
                                     <option value="Exchange"  {{ old('order_type') == 'exchange' ? "selected" : "" }}>
                                         Exchange
@@ -71,6 +71,7 @@
                             <p class="mg-b-10">Order number</p>
 
                             <input type="text"
+                                   required
                                    id="order_no"
                                    name="order_no"
                                    class="form-control"
@@ -91,6 +92,7 @@
                         <div class="col-lg-4 mg-t-20 mg-lg-t-0">
                             <p class="mg-b-10">Product Name</p>
                             <input type="text"
+                                   required
                                    id="product_name"
                                    name="product_name"
                                    class="form-control"
