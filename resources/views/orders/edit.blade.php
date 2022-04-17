@@ -442,7 +442,7 @@
 
                                 <div class="col-lg-4 mg-t-20 mg-lg-t-0">
                                     <p class="mg-b-10">Problem Or Note</p>
-                                    <textarea class="form-control" name="note_tech"  placeholder="Please enter the problem   " rows="3" spellcheck="false"> {{old('note_tech',$order->note_tech)}}</textarea>
+                                    <textarea class="form-control" name="note_tech"  placeholder="Please enter the problem   " rows="7" spellcheck="false"> {{old('note_tech',$order->note_tech)}}</textarea>
 
                                 </div>
 
