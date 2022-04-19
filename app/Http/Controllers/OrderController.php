@@ -350,7 +350,6 @@ class OrderController extends Controller
         $check_type = in_array($request->typeOrder, $this->typesOrder);
         $order = Order::findOrFail($id);
 
-        $message ="<b style='color:#007E48'>". $order->added_by ."</b>". "  updated order #" . $order->order_no . " a page " . $order->type_order;
 
         $data = $request->except(['typeOrder', 'policy_attachment']);
         if ($request->hasFile('policy_attachment')) {
@@ -361,7 +360,10 @@ class OrderController extends Controller
 
 
         if ($order) {
+            $message ="<b style='color:#007E48'>". $order->added_by ."</b>". "  updated order #" . $order->order_no . " a page " . $order->type_order;
+
             $order->update($data);
+            Notification::send($users, new NewNotify($order, $message));
 
             if ($request->typeOrder == "All_Page") {
 
@@ -375,7 +377,6 @@ class OrderController extends Controller
                 return redirect()->route('orders.indexTracking')->with('success', 'Tracking journey in progress');
 
             }
-            Notification::send($users, new NewNotify($order, $message));
 
         }
 

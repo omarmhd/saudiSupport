@@ -79,7 +79,7 @@
 
                     <div class="col-lg-6 mg-t-20 mg-lg-t-0">
                         <p class="mg-b-10">Problem Or Note</p>
-                        <textarea class="form-control" name="note_tech"   rows="3" spellcheck="false"></textarea>
+                        <textarea class="form-control" name="note_tech"   rows="6" spellcheck="false"></textarea>
 
                     </div>
                     <div class="col-lg-6 mg-t-20 mg-lg-t-0">
