@@ -52516,3 +52516,17 @@ a.text-dark:hover, a.text-dark:focus {
   width: 100vw; }
 
 /*# sourceMappingURL=style.css.map */
+
+
+.btn-upload {
+    padding: 10px 20px;
+    margin-left: 10px;
+}
+
+.upload-input-group {
+    margin-bottom: 10px;
+}
+
+.input-group > .custom-select:not(:last-child), .input-group > .form-control:not(:last-child) {
+    height: 45px;
+}
