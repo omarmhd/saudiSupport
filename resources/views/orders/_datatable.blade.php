@@ -20,7 +20,7 @@
             ajax: route,
             columns: [
                 { data: 'order_no', name: 'order_no' },
-                { data: 'phone_no' ,name:'phone_no'},
+                // { data: 'phone_no' ,name:'phone_no'},
                 { data: 'date', name: 'date' },
                 { data: 'product_name', name: 'product_name' },
                 {data:'order_journey',name: 'order_journey' },
