@@ -79,8 +79,9 @@
                                 </a>
                             @endforeach
                         </div>
-
+                        <div class="bg-primary text-center p-2" ><a href="{{route('notifications.readAll')}}" style="color: #FFFFFF">I read all the notifications </a> </div>
                     </div>
+
                 </div>
 
                 <div class="nav-item full-screen fullscreen-button">

@@ -14,11 +14,20 @@ class NotificationController extends Controller
 
     }
     public function read($id){
-        $notification=auth()->user()->notifications()->findOrFail($id);
+        $notification=auth()->user()->notifications()->find($id);
+
         $notification->markAsRead();
         return redirect()->to($notification->data['action']);
 
+    }
+    public function readAll(){
+        $notifications=auth()->user()->notifications()->get();
+          foreach($notifications as $notification ) {
+              $notification->markAsRead();
+        }
+        return redirect()->back();
 
 
     }
+
 }

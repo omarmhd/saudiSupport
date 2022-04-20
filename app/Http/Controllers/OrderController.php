@@ -350,21 +350,18 @@ class OrderController extends Controller
     public function update(Request $request, $id, FileService $fileService)
     {
         $users = User::where('id', '!=', auth()->id())->get();
-
-
         $check_type = in_array($request->typeOrder, $this->typesOrder);
         $order = Order::findOrFail($id);
 
-
         $data = $request->except(['typeOrder', 'policy_attachment']);
+        $data['updated_by']= auth()->user()->name;
+
         if ($request->hasFile('policy_attachment')) {
             $data['policy_attachment'] = asset('upload_center') . '/' . $fileService->upload_file($request->file('policy_attachment'), 'upload_center');
-
-
         }
 
 
-        if ($order) {
+
             $message ="<b style='color:#007E48'>". $order->added_by ."</b>". "  updated order #" . $order->order_no . " a page " . $order->type_order;
 
             $order->update($data);
@@ -383,7 +380,7 @@ class OrderController extends Controller
 
             }
 
-        }
+
 
 
         return redirect()->back()->with('error', 'error');

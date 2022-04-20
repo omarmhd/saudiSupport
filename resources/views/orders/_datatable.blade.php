@@ -26,6 +26,7 @@
                 {data:'order_journey',name: 'order_journey' },
                 { data: 'type_order', name: 'type_order' },
                 { data: 'added_by', name: 'added_by' },
+                { data: 'updated_by', name: 'updated_by' },
 
 
 

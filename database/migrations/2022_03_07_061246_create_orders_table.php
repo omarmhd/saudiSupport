@@ -25,6 +25,7 @@ class CreateOrdersTable extends Migration
                 $table->text('note_tech')->nullable();
                 $table->string('track')->nullable();
                 $table->string('added_by')->nullable();
+                $table->string('updated_by')->nullable();
 
                 $table->text('attachments')->nullable();
 

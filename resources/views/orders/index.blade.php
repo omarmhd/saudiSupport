@@ -54,6 +54,7 @@
                                 <th class="wd-20p border-bottom-0"style="width: 12%">order journey</th>
                                 <th class="wd-20p border-bottom-0"style="width: 10%">type order</th>
                                 <th class="wd-20p border-bottom-0"style="width: 10%">added by</th>
+                                <th class="wd-20p border-bottom-0"style="width: 10%">Last update by</th>
                                 <th class="wd-20p border-bottom-0" style="width: 30%">options</th>
                             </tr>
                             </thead>
