@@ -27,6 +27,8 @@ Route::group([ 'prefix' => LaravelLocalization::setLocale(),'middleware'=>'auth'
     Route::resource('/orders',OrderController::class)->only([
         'edit','store','update','create','destroy'
     ]);;
+    Route::post('/attachments',[\App\Http\Controllers\Attachment::class,'attachments'])->name('attachments');
+
     Route::get('/orders/{journey?}', [OrderController::class,'index'])->name('orders.index');
 
     Route::prefix('order')->name('orders.')->group(function (){

@@ -20,7 +20,7 @@
                 <ul></ul>
             </div>
             <form method="post" enctype="multipart/form-data" class="form-horizontal" id="laravel-ajax-file-upload"
-                  action="javascript:void(0)">
+                  action="{{route('attachments','1')}}">
                 @csrf
 
                 <div class="modal-body">
@@ -74,7 +74,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <input type="submit" class="btn btn-primary" class="upload" value="Upload">
+                    <input type="submit" class="btn btn-primary"  value="Upload">
                 </div>
 
             </form>

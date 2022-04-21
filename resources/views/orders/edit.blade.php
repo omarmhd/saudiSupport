@@ -79,7 +79,7 @@
                                 <div class="col-lg-2 mg-t-20 mg-lg-t-0">
 
                                         <p class="mg-b-10">Policy  Upload </p>
-                                    <input type="file" name="policy_attachment" class="form-control" accept=".pdf">
+                                    <input type="file" name="policy_attachment" class="form-control" >
 
                                 </div>
                                 <div class="col-lg-2 mg-t-20 mg-lg-t-0">
