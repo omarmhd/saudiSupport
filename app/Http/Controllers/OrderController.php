@@ -363,9 +363,7 @@ class OrderController extends Controller
      if ($request->hasFile('attachments')) {
          $data['attachments'] = asset('upload_center') . '/' . $fileService->upload_file($request->file('attachments'), 'upload_center');
      }
-
-
-            $message ="<b style='color:#007E48'>". $order->added_by ."</b>". "  updated order #" . $order->order_no . " a page " . $order->type_order;
+            $message ="<b style='color:#007E48'>". $order->updated_by ."</b>". "  updated order #" . $order->order_no . " a page " . $order->type_order;
             Notification::send($users, new NewNotify($order, $message));
 
             $order->update($data);
