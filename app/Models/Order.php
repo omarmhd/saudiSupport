@@ -53,5 +53,10 @@ class Order extends Model
 
 
     }
+    public  function attachments (){
+        return $this->hasMany(\App\Models\Attachment::class);
+
+    }
+
 
 }
