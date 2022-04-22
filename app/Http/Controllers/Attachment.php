@@ -25,7 +25,7 @@ class Attachment extends Controller
 
         $attachments = [];
         foreach ($request->attachment as $key => $value) {
-            $attachments[$key]['attachment'] = $fileService->upload_file($request->attachment[$key], 'files');;
+            $attachments[$key]['attachment'] = $fileService->upload_file($request->attachment[$key], 'upload_center');;
         }
         $order->attachments()->createMany($attachments);
 
