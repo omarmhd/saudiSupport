@@ -92,4 +92,14 @@
         modal.find('div .preview-section').hide()
 
     })
+
+
+    $('#upload_file').on('show.bs.modal', function (event){
+        var button = $(event.relatedTarget)
+
+        button.data('')
+
+
+
+    });
 </script>

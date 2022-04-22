@@ -20,7 +20,7 @@ class Attachment extends Controller
             return response()->json(['error'=>'']);
         }
 
-    $order=Order::find(110);
+    $order=Order::findorfail($id);
 
 
         $attachments = [];

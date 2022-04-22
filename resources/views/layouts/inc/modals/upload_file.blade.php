@@ -112,11 +112,20 @@
                 }
             });
 
+            $('#upload_file').on('show.bs.modal', function (event){
 
             $('#laravel-ajax-file-upload').submit(function (e) {
+                var button = $(event.relatedTarget)
+                var modal=$(this)
+                modal.find('tbody').empty();
+
+
+                let id = button.data('id')
                 e.preventDefault();
                 var formData = new FormData(this);
-                var url ="{{route('attachments',['id'=>'110'])}}"
+
+                var url ="{{route('attachments',['id'=>':id'])}}"
+                url=url.replace(':id',id)
 
                 $.ajax({
 
@@ -202,8 +211,12 @@
 
 
             });
-        });
+        });  });
+            $('#upload_file').on('hide.bs.modal', function (event){
+                var modal = $(this)
+                modal.find('tbody').empty();
 
+         });
     </script>
 
 @endpush
