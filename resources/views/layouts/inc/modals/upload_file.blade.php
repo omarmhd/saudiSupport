@@ -34,7 +34,7 @@
                                 <div class="controls">
                                     <div class="entry input-group upload-input-group">
                                         <input class="form-control" name="attachment[]" type="file">
-                                        <button class="btn btn-upload btn-success btn-add" type="button">
+                                        <button class="btn btn-upload  btn-add" type="button" >
                                             <i class="fa fa-plus"></i>
                                         </button>
                                     </div>
@@ -73,7 +73,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary" style=""  data-bs-dismiss="modal">Cancel</button>
                     <input type="submit" class="btn btn-primary"  value="Upload">
                 </div>
 
