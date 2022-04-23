@@ -48,14 +48,14 @@
 
                         <div class="col-12">
                             <table
-                                class="table ">
+                                class="table text-md-nowrap  no-footer table-bordered" style="border: 1px" >
 
-                                <thead>
-                                <tr>
+
+                                <tr style="">
                                     <td>Attachment Name</td>
                                     <td>Download</td>
                                 </tr>
-                                </thead>
+
 
                                 <tbody class="statuses">
 
@@ -74,7 +74,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" style=""  data-bs-dismiss="modal">Cancel</button>
-                    <input type="submit" class="btn btn-primary"  value="Upload">
+                   <a href="javascript:viod(0)" class="btn btn-primary"   id="show-files"> Show attachments <i class="fa fa-eye"></i></a>
+                    <button type="submit" class="btn btn-primary"  > Upload <i class="fa fa-upload"></i></button>
                 </div>
 
             </form>
@@ -87,6 +88,7 @@
 
 
         $(function () {
+            var id = 0;
             $(document).on('click', '.btn-add', function (e) {
                 e.preventDefault();
 
@@ -112,111 +114,142 @@
                 }
             });
 
-            $('#upload_file').on('show.bs.modal', function (event){
-
-            $('#laravel-ajax-file-upload').submit(function (e) {
-                var button = $(event.relatedTarget)
-                var modal=$(this)
-                modal.find('tbody').empty();
-
-
-                let id = button.data('id')
-                e.preventDefault();
-                var formData = new FormData(this);
-
-                var url ="{{route('attachments',['id'=>':id'])}}"
-                url=url.replace(':id',id)
-
-                $.ajax({
-
-                    xhr: function () {
-                        $('.uploadImageLine').html(` <div class="progress-bar" role="progressbar" aria-valuenow=""
-                        aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-                            0%
-                        </div>`);
-                        var xhr = new window.XMLHttpRequest();
-                        xhr.upload.addEventListener("progress", function (evt) {
-                            if (evt.lengthComputable) {
-                                var percentComplete = (evt.loaded / evt.total) * 100;
-                                $('.progress-bar').text(Math.floor(percentComplete) + '%');
-                                $('.progress-bar').css('width', Math.floor(percentComplete) + '%');
-                                if (Math.floor(percentComplete) == 100) {
-                                    $('.progress-bar').text('Uploading files');
-                                }
-                            }
-                        }, false);
-                        return xhr;
-                    },
-                    type: 'POST',
-                    url: url,
-                    data: formData,
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    success: (data) => {
-
-                        this.reset();
-
-                        if (data.error) {
-
-                            $(".print-error-msg").find("ul").html('');
-                            $(".print-error-msg").css('display', 'block');
-
-                            $.each(data.error, function (key, value) {
-                                $(".print-error-msg").find("ul").append('<li>' + value + '</li>');
-                            });
-
-                            $('.progress-bar').text('فشلت عملية تحميل الملفات');
-                            $('.progress-bar').css('background-color', 'red');
-                            $('.statuses').css("display", "");
-                        } else if (!jQuery.isEmptyObject(data)) {
-
-                            $('.progress-bar').text('تم بنجاح');
-                            $('.progress-bar').css('background-color', 'green');
-                            $('.statuses').css("display", "");
-                            $(".print-error-msg").css('display', 'none');
-
-
-
-
-                            let upload_center="{{asset('upload_center')}}/";
-                            $.each(data.order, function (key, value) {
-
-                                    $('.statuses').append(`   <tr>
-                                    <td> ` + value.attachment + `</td>
-
-                                    <td>   <a href=`+upload_center+value.attachment+` download class="btn btn-primary btn-bg policy_attch"  > <i class="fa fa-download"></i></a> </td>
-                                </tr>`)
-
-
-
-
-                            });
-                        } else {
-
-                            $('.progress-bar').text('لم يتم تحميل أي ملفات');
-
-
-                        }
-                    },
-                });
-
-                $('.modal').on('hide.bs.modal', function () {
-                    $(".progress-bar").hide();
-                    $(".statuses").hide();
-                    $(".print-error-msg").hide();
-
-
-                });
 
 
             });
-        });  });
-            $('#upload_file').on('hide.bs.modal', function (event){
-                var modal = $(this)
-                modal.find('tbody').empty();
 
-         });
+        $('#show-files').click(function (){
+            $('.modal').find('tbody').empty();
+            let upload_center = "{{asset('upload_center')}}/";
+
+            var url = "{{route('getAttachments',['id'=>':id'])}}"
+            url = url.replace(':id', id)
+            $.ajax({
+                url: url,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: (data) => {
+
+                    $.each(data.order, function (key, value) {
+                        $('.statuses').append(`   <tr>
+                                    <td> ` + value.attachment + `</td>
+                                    <td>
+<a href=` + upload_center + value.attachment + ` download class="btn  btn-sm btn-primary btn-bg policy_attch"  > <i class="fa fa-download"></i></a>
+<button type="button" data-id="110" style="background:#000 ; color: #FFFFFF" class="btn btn-sm  archive"> <i class="fa fa-trash"></i></button>
+</td>
+
+                                </tr>`)
+
+
+                    });
+
+                },
+            });
+        })
+
+            $('#upload_file').on('show.bs.modal', function (event){
+                var button = $(event.relatedTarget)
+                var modal=$(this)
+
+                modal.find('tbody').empty();
+                id=button.data('id')
+                var url = "{{route('getAttachments',['id'=>':id'])}}"
+                url = url.replace(':id', id)
+
+
+            });
+        $('#laravel-ajax-file-upload').submit(function (e) {
+            // var id = button.data('id')
+            e.preventDefault();
+            // modal.find('tbody').empty();
+            var formData = new FormData(this);
+
+            var url = "{{route('attachments',['id'=>':id'])}}"
+            url = url.replace(':id', id)
+
+            $.ajax({
+
+                xhr: function () {
+                    $('.uploadImageLine').html(` <div class="progress-bar" role="progressbar" aria-valuenow=""
+                        aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                            0%
+                        </div>`);
+                    var xhr = new window.XMLHttpRequest();
+                    xhr.upload.addEventListener("progress", function (evt) {
+                        if (evt.lengthComputable) {
+                            var percentComplete = (evt.loaded / evt.total) * 100;
+                            $('.progress-bar').text(Math.floor(percentComplete) + '%');
+                            $('.progress-bar').css('width', Math.floor(percentComplete) + '%');
+                            if (Math.floor(percentComplete) == 100) {
+                                $('.progress-bar').text('Uploading files');
+                            }
+                        }
+                    }, false);
+                    return xhr;
+                },
+                type: 'POST',
+                url: url,
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: (data) => {
+
+                    this.reset();
+
+                    if (data.error) {
+
+                        $(".print-error-msg").find("ul").html('');
+                        $(".print-error-msg").css('display', 'block');
+
+                        $.each(data.error, function (key, value) {
+                            $(".print-error-msg").find("ul").append('<li>' + value + '</li>');
+                        });
+
+                        $('.progress-bar').text('فشلت عملية تحميل الملفات');
+                        $('.progress-bar').css('background-color', 'red');
+                        $('.statuses').css("display", "");
+                    } else if (!jQuery.isEmptyObject(data)) {
+
+                        $('.progress-bar').text('تم بنجاح');
+                        $('.progress-bar').css('background-color', 'green');
+                        $('.statuses').css("display", "");
+                        $(".print-error-msg").css('display', 'none');
+
+
+                        let upload_center = "{{asset('upload_center')}}/";
+                        $.each(data.order, function (key, value) {
+
+                            $('.statuses').append(`   <tr>
+                                    <td> ` + value.attachment + `</td>
+
+                                    <td>   <a href=` + upload_center + value.attachment + ` download class="btn btn-primary btn-bg policy_attch"  > <i class="fa fa-download"></i></a> </td>
+                                </tr>`)
+
+
+                        });
+                    } else {
+
+                        $('.progress-bar').text('لم يتم تحميل أي ملفات');
+
+
+                    }
+                },
+            });
+
+        });
+
+        $('.modal').on('hide.bs.modal', function () {
+            $(".progress-bar").hide();
+
+            $(".print-error-msg").hide();
+
+
+        });
+
+
+
     </script>
 
 @endpush

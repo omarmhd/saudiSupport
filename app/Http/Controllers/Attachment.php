@@ -28,8 +28,16 @@ class Attachment extends Controller
             $attachments[$key]['attachment'] = $fileService->upload_file($request->attachment[$key], 'upload_center');;
         }
         $order->attachments()->createMany($attachments);
-
       return response()->json(['order'=>$order->attachments()->get()],200);
+
+    }
+
+    public  function  getAttachments($id){
+
+        $order=Order::findorfail($id);
+
+        return response()->json(['order'=>  $order->attachments()->get()],200);
+
 
     }
 }

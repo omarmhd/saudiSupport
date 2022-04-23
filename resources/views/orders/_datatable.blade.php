@@ -16,7 +16,7 @@
             processing: true,
             serverSide: true,
             responsive: true,
-            "order": [[ 2, 'DESC' ]],
+            "order": [[ 1, 'DESC' ]],
             ajax: route,
             columns: [
                 { data: 'order_no', name: 'order_no' },

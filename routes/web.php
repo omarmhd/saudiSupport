@@ -28,6 +28,7 @@ Route::group([ 'prefix' => LaravelLocalization::setLocale(),'middleware'=>'auth'
         'edit','store','update','create','destroy'
     ]);;
     Route::post('/attachments/{id}',[\App\Http\Controllers\Attachment::class,'attachments'])->name('attachments');
+    Route::get('/getAttachments/{id}',[\App\Http\Controllers\Attachment::class,'getAttachments'])->name('getAttachments');
 
     Route::get('/orders/{journey?}', [OrderController::class,'index'])->name('orders.index');
 
@@ -54,6 +55,7 @@ Route::group([ 'prefix' => LaravelLocalization::setLocale(),'middleware'=>'auth'
         //archive
         Route::get('/indexArchive',[OrderController::class,'indexArchive'])->name('indexArchive');
         //endArchive
+
 
     });
 
