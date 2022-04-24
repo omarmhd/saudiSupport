@@ -73,9 +73,9 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" style=""  data-bs-dismiss="modal">Cancel</button>
-                   <a href="javascript:viod(0)" class="btn btn-primary"   id="show-files"> Show attachments <i class="fa fa-eye"></i></a>
-                    <button type="submit" class="btn btn-primary"  > Upload <i class="fa fa-upload"></i></button>
+                    <button type="button" class="btn btn-secondary" style="background: #A9A9A9" data-bs-dismiss="modal">Cancel</button>
+                   <a href="javascript:viod(0)" class="btn btn-secondary"   id="show-files"> Show attachments <i class="fa fa-eye"></i></a>
+                    <button type="submit" class="btn btn-primary"  style="background: #007E48"> Upload <i class="fa fa-upload"></i></button>
                 </div>
 
             </form>
@@ -116,7 +116,6 @@
 
 
 
-            });
 
         $('#show-files').click(function (){
             $('.modal').find('tbody').empty();
@@ -134,24 +133,16 @@
                     $.each(data.order, function (key, value) {
                         $('.statuses').append(`   <tr>
                                     <td> ` + value.attachment + `</td>
-                                    <td>
-<a href=` + upload_center + value.attachment + ` download class="btn  btn-sm btn-primary btn-bg policy_attch"  > <i class="fa fa-download"></i></a>
-<button type="button" data-id="110" style="background:#000 ; color: #FFFFFF" class="btn btn-sm  archive"> <i class="fa fa-trash"></i></button>
-</td>
-
-                                </tr>`)
-
-
-                    });
-
-                },
+                                    <td> <a href=` + upload_center + value.attachment + ` download class="btn  btn-sm btn-primary btn-bg policy_attch"  > <i class="fa fa-download"></i></a>
+                                            <button type="button" data-id=`+value.id+` style="background:#000 ; color: #FFFFFF" class="btn btn-sm   btn-delete-attch"> <i class="fa fa-trash"></i></button>
+                                            </td></tr>`)});
+                    },
             });
         })
 
             $('#upload_file').on('show.bs.modal', function (event){
                 var button = $(event.relatedTarget)
                 var modal=$(this)
-
                 modal.find('tbody').empty();
                 id=button.data('id')
                 var url = "{{route('getAttachments',['id'=>':id'])}}"
@@ -197,6 +188,7 @@
                 success: (data) => {
 
                     this.reset();
+                    $('.modal').find('tbody').empty();
 
                     if (data.error) {
 
@@ -207,38 +199,52 @@
                             $(".print-error-msg").find("ul").append('<li>' + value + '</li>');
                         });
 
-                        $('.progress-bar').text('فشلت عملية تحميل الملفات');
+                        $('.progress-bar').text('File upload failed');
                         $('.progress-bar').css('background-color', 'red');
                         $('.statuses').css("display", "");
                     } else if (!jQuery.isEmptyObject(data)) {
 
-                        $('.progress-bar').text('تم بنجاح');
+                        $('.progress-bar').text('uploaded successfully');
                         $('.progress-bar').css('background-color', 'green');
                         $('.statuses').css("display", "");
                         $(".print-error-msg").css('display', 'none');
 
 
                         let upload_center = "{{asset('upload_center')}}/";
-                        $.each(data.order, function (key, value) {
 
+                        $.each(data.order, function (key, value) {
                             $('.statuses').append(`   <tr>
                                     <td> ` + value.attachment + `</td>
-
                                     <td>   <a href=` + upload_center + value.attachment + ` download class="btn btn-primary btn-bg policy_attch"  > <i class="fa fa-download"></i></a> </td>
                                 </tr>`)
-
-
                         });
                     } else {
-
-                        $('.progress-bar').text('لم يتم تحميل أي ملفات');
-
-
+                        $('.progress-bar').text('No files have been uploaded');
                     }
                 },
             });
 
         });
+            $(document).on('click','.btn-delete-attch',function (event){
+                 var button = $(this)
+                let id=button.data('id')
+            var url = "{{route('attachment.destroy',['id'=>':id'])}}"
+            url = url.replace(':id',id)
+            var token = $("meta[name='csrf-token']").attr("content");
+            $.ajax(
+                {
+                    url: url,
+                    type: 'DELETE',
+                    data: {
+                        "id": id,
+                        "_token": token,
+                    },
+                    success: function () {
+                        button.parent().parent().fadeOut()
+                    }
+                });
+
+        })
 
         $('.modal').on('hide.bs.modal', function () {
             $(".progress-bar").hide();
@@ -249,6 +255,7 @@
         });
 
 
+        });
 
     </script>
 

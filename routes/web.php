@@ -29,6 +29,7 @@ Route::group([ 'prefix' => LaravelLocalization::setLocale(),'middleware'=>'auth'
     ]);;
     Route::post('/attachments/{id}',[\App\Http\Controllers\Attachment::class,'attachments'])->name('attachments');
     Route::get('/getAttachments/{id}',[\App\Http\Controllers\Attachment::class,'getAttachments'])->name('getAttachments');
+    Route::delete('/attachments/{id}',[\App\Http\Controllers\Attachment::class,'destroy'])->name('attachment.destroy');
 
     Route::get('/orders/{journey?}', [OrderController::class,'index'])->name('orders.index');
 
