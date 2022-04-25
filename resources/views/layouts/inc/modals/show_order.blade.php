@@ -82,6 +82,12 @@
                         <textarea class="form-control" name="note_tech"   rows="6" spellcheck="false"></textarea>
 
                     </div>
+
+                    <div class="col-lg-6 mg-t-20 mg-lg-t-0">
+                        <p class="mg-b-10">Operations team notes</p>
+                        <textarea class="form-control" name="note_warehouse"   rows="6" spellcheck="false"></textarea>
+
+                    </div>
                     <div class="col-lg-6 mg-t-20 mg-lg-t-0">
                         <p class="mg-b-10">Bank accounts</p>
                         <textarea class="form-control" name="bank_accounts" rows="3" spellcheck="false"></textarea>

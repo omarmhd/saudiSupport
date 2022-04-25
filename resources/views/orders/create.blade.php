@@ -113,12 +113,12 @@
                                        placeholder="Please enter the alternative product
  ">
                             </div>
-                            <div class="col-lg-4 mg-t-20 mg-lg-t-0">
-                                <p class="mg-b-10">Attachments</p>
-                                <input type="file"
-                                       id="attachments"
-                                       name="attachments"
-                                       class="form-control">                            </div>
+{{--                            <div class="col-lg-4 mg-t-20 mg-lg-t-0">--}}
+{{--                                <p class="mg-b-10">Attachments</p>--}}
+{{--                                <input type="file"--}}
+{{--                                       id="attachments"--}}
+{{--                                       name="attachments"--}}
+{{--                                       class="form-control">                            </div>--}}
 {{--                            <div class="col-lg-4 mg-t-20 mg-lg-t-0">--}}
 {{--                                <p class="mg-b-10"> Tracking ID</p>--}}
 {{--                                <input type="text"--}}
@@ -137,6 +137,11 @@
                             <div class="col-lg-4 mg-t-20 mg-lg-t-0">
                                 <p class="mg-b-10">Problem Or Note</p>
                                 <textarea class="form-control" name="note_tech"  placeholder="Please enter the problem   " rows="3" spellcheck="false"></textarea>
+
+                            </div>
+                            <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                                <p class="mg-b-10"> Operations team notes</p>
+                                <textarea class="form-control" name="note_warehouse"  placeholder="Operations team notes" rows="3" spellcheck="false"></textarea>
 
                             </div>
 
