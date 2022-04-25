@@ -382,7 +382,7 @@
                                 <div class="col-lg-4">
                                     <p class="mg-b-10">Order number</p>
 
-                                    <input type="text"
+                                    <input type="number"
                                            id="order_no"
                                            name="order_no"
                                            class="form-control"
