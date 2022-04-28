@@ -5,7 +5,7 @@
 <div class="modal fade" id="upload_file" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header"  style="background: #007e48;color: #FFFFFF">
                 <h5 class="modal-title" id="exampleModalLabel">Upload attachments</h5>
                 <button type="button" class="close" style="color: #FFFFFF"  data-dismiss="modal" aria-label="Close">
                 </button>
@@ -73,7 +73,6 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" style="background: #A9A9A9" data-bs-dismiss="modal">Cancel</button>
                    <a href="javascript:viod(0)" class="btn btn-secondary"   id="show-files"> Show attachments <i class="fa fa-eye"></i></a>
                     <button type="submit" class="btn btn-primary"  style="background: #007E48"> Upload <i class="fa fa-upload"></i></button>
                 </div>
