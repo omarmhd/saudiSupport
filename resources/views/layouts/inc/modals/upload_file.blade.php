@@ -6,8 +6,9 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header"  style="background: #007e48;color: #FFFFFF">
-                <h5 class="modal-title" id="exampleModalLabel">Upload attachments</h5>
+                <h5 class="modal-title" style="color: #FFFFFF"  id="exampleModalLabel">Upload attachments</h5>
                 <button type="button" class="close" style="color: #FFFFFF"  data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
                 </button>
             </div>
 
