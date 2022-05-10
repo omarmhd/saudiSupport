@@ -39,20 +39,23 @@
                     <li><a class="slide-item" href="{{route('orders.indexTracking')}}">Processing </a></li>
                     <li><a class="slide-item" href="{{route('orders.indexPreview')}}">Preview </a></li>
                     <li><a class="slide-item" href="{{route('orders.indexCompleted')}}">Completed </a></li>
+                    <li><a class="slide-item" href="{{route('orders.indexArchive')}}">Archive</a></li>
 
 
 
                 </ul>      </li>
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M6 20h12V10H6v10zm6-7c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z" opacity=".3"></path><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"></path></svg><span class="side-menu__label">Archive</span><i class="angle fe fe-chevron-down"></i></a>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M5 5h15v3H5zm12 5h3v9h-3zm-7 0h5v9h-5zm-5 0h3v9H5z" opacity=".3"></path><path d="M20 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8 19H5v-9h3v9zm7 0h-5v-9h5v9zm5 0h-3v-9h3v9zm0-11H5V5h15v3z"></path></svg>
+                    <span class="side-menu__label">Products Management </span><i class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
-                    <li><a class="slide-item" href="{{route('orders.indexArchive')}}">Orders</a></li>
+{{--                    <li><a class="slide-item" href="{{route('orders.indexArchive')}}">Products management</a></li>--}}
 
 
 
 
                 </ul>      </li>
+        </ul>
     </div>
 </aside>
 <!-- main-sidebar -->

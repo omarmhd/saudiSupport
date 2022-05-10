@@ -367,6 +367,11 @@ class OrderController extends Controller
             Notification::send($users, new NewNotify($order, $message));
 
             $order->update($data);
+            if ($order->order_journey=="3"){
+                $order->deleteOrFail();
+
+            }
+
 
             if ($request->typeOrder == "All_Page") {
 
