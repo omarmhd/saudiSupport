@@ -48,13 +48,21 @@ class OrderController extends Controller
             })
             ->addColumn('action', function ($data) {
 
+                $chat_tag=$data->room->id ? "<a href=".route("room.show",$data->room->id)." style='background: #4c70ff; color: #FFFFFF' class='btn btn-sm upload-btn my-2'
+                                     data-id='$data->id'   > <i class='far fa-comments'></i>
+                                     </a>":'';
+
+
+
                 return "
                 <a  class='btn btn-sm' style='background:#a9a9a9 ; color: #FFFFFF' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'All']) . " > <i class='fa fa-pen' ></i></a>"
                     . $this->show_button($data) . "  <button type='button' data-id='$data->id' style='background:#000 ; color: #FFFFFF' class='btn btn-sm  archive'
                                   > <i class='fa fa-trash' ></i></button>
                                   <a href='' style='background: #d6a448; color: #FFFFFF' class='btn btn-sm upload-btn' data-toggle='modal'
                                      data-id='$data->id'   data-target='#upload_file'> <i class='fa fa-folder-open'></i></a>
-                                  ";
+
+
+                                  ".$chat_tag;
             })
             ->rawColumns(['attachments', 'date', 'order_journey', 'action'])
             ->make(true);

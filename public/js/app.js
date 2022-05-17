@@ -958,9 +958,9 @@ eval("\n\nvar bind = __webpack_require__(/*! ./helpers/bind */ \"./node_modules/
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
-eval("/**\n * First we will load all of this project's JavaScript dependencies which\n * includes Vue and other libraries. It is a great starting point when\n * building robust, powerful web applications using Vue and Laravel.\n */\n__webpack_require__(/*! ./bootstrap */ \"./resources/js/bootstrap.js\");\n\nwindow.Vue = (__webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.runtime.esm.js\")[\"default\"]);\n/**\n * The following block of code may be used to automatically register your\n * Vue components. It will recursively scan this directory for the Vue\n * components and automatically register them with their \"basename\".\n *\n * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>\n */\n// const files = require.context('./', true, /\\.vue$/i)\n// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))\n\nVue.component('example-component', (__webpack_require__(/*! ./components/ExampleComponent.vue */ \"./resources/js/components/ExampleComponent.vue\")[\"default\"]));\n/**\n * Next, we will create a fresh Vue application instance and attach it to\n * the page. Then, you may begin adding components to this application\n * or customize the JavaScript scaffolding to fit your unique needs.\n */\n\nvar app = new Vue({\n  el: '#app'\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYXBwLmpzLmpzIiwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQUEsbUJBQU8sQ0FBQyxnREFBRCxDQUFQOztBQUVBQyxNQUFNLENBQUNDLEdBQVAsR0FBYUYseUZBQWI7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBQ0E7O0FBRUFFLEdBQUcsQ0FBQ0MsU0FBSixDQUFjLG1CQUFkLEVBQW1DSCwySEFBbkM7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBLElBQU1JLEdBQUcsR0FBRyxJQUFJRixHQUFKLENBQVE7QUFDaEJHLEVBQUFBLEVBQUUsRUFBRTtBQURZLENBQVIsQ0FBWiIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3Jlc291cmNlcy9qcy9hcHAuanM/Y2VkNiJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEZpcnN0IHdlIHdpbGwgbG9hZCBhbGwgb2YgdGhpcyBwcm9qZWN0J3MgSmF2YVNjcmlwdCBkZXBlbmRlbmNpZXMgd2hpY2hcbiAqIGluY2x1ZGVzIFZ1ZSBhbmQgb3RoZXIgbGlicmFyaWVzLiBJdCBpcyBhIGdyZWF0IHN0YXJ0aW5nIHBvaW50IHdoZW5cbiAqIGJ1aWxkaW5nIHJvYnVzdCwgcG93ZXJmdWwgd2ViIGFwcGxpY2F0aW9ucyB1c2luZyBWdWUgYW5kIExhcmF2ZWwuXG4gKi9cblxucmVxdWlyZSgnLi9ib290c3RyYXAnKTtcblxud2luZG93LlZ1ZSA9IHJlcXVpcmUoJ3Z1ZScpLmRlZmF1bHQ7XG5cbi8qKlxuICogVGhlIGZvbGxvd2luZyBibG9jayBvZiBjb2RlIG1heSBiZSB1c2VkIHRvIGF1dG9tYXRpY2FsbHkgcmVnaXN0ZXIgeW91clxuICogVnVlIGNvbXBvbmVudHMuIEl0IHdpbGwgcmVjdXJzaXZlbHkgc2NhbiB0aGlzIGRpcmVjdG9yeSBmb3IgdGhlIFZ1ZVxuICogY29tcG9uZW50cyBhbmQgYXV0b21hdGljYWxseSByZWdpc3RlciB0aGVtIHdpdGggdGhlaXIgXCJiYXNlbmFtZVwiLlxuICpcbiAqIEVnLiAuL2NvbXBvbmVudHMvRXhhbXBsZUNvbXBvbmVudC52dWUgLT4gPGV4YW1wbGUtY29tcG9uZW50PjwvZXhhbXBsZS1jb21wb25lbnQ+XG4gKi9cblxuLy8gY29uc3QgZmlsZXMgPSByZXF1aXJlLmNvbnRleHQoJy4vJywgdHJ1ZSwgL1xcLnZ1ZSQvaSlcbi8vIGZpbGVzLmtleXMoKS5tYXAoa2V5ID0+IFZ1ZS5jb21wb25lbnQoa2V5LnNwbGl0KCcvJykucG9wKCkuc3BsaXQoJy4nKVswXSwgZmlsZXMoa2V5KS5kZWZhdWx0KSlcblxuVnVlLmNvbXBvbmVudCgnZXhhbXBsZS1jb21wb25lbnQnLCByZXF1aXJlKCcuL2NvbXBvbmVudHMvRXhhbXBsZUNvbXBvbmVudC52dWUnKS5kZWZhdWx0KTtcblxuLyoqXG4gKiBOZXh0LCB3ZSB3aWxsIGNyZWF0ZSBhIGZyZXNoIFZ1ZSBhcHBsaWNhdGlvbiBpbnN0YW5jZSBhbmQgYXR0YWNoIGl0IHRvXG4gKiB0aGUgcGFnZS4gVGhlbiwgeW91IG1heSBiZWdpbiBhZGRpbmcgY29tcG9uZW50cyB0byB0aGlzIGFwcGxpY2F0aW9uXG4gKiBvciBjdXN0b21pemUgdGhlIEphdmFTY3JpcHQgc2NhZmZvbGRpbmcgdG8gZml0IHlvdXIgdW5pcXVlIG5lZWRzLlxuICovXG5cbmNvbnN0IGFwcCA9IG5ldyBWdWUoe1xuICAgIGVsOiAnI2FwcCcsXG59KTtcbiJdLCJuYW1lcyI6WyJyZXF1aXJlIiwid2luZG93IiwiVnVlIiwiY29tcG9uZW50IiwiYXBwIiwiZWwiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/app.js\n");
+eval("var _this = this;\n\n/**\n * First we will load all of this project's JavaScript dependencies which\n * includes Vue and other libraries. It is a great starting point when\n * building robust, powerful web applications using Vue and Laravel.\n */\n__webpack_require__(/*! ./bootstrap */ \"./resources/js/bootstrap.js\");\n\nwindow.Vue = (__webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.runtime.esm.js\")[\"default\"]);\n/**\n * The following block of code may be used to automatically register your\n * Vue components. It will recursively scan this directory for the Vue\n * components and automatically register them with their \"basename\".\n *\n * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>\n */\n// const files = require.context('./', true, /\\.vue$/i)\n// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))\n\nVue.component('example-component', (__webpack_require__(/*! ./components/ExampleComponent.vue */ \"./resources/js/components/ExampleComponent.vue\")[\"default\"]));\n/**\n * Next, we will create a fresh Vue application instance and attach it to\n * the page. Then, you may begin adding components to this application\n * or customize the JavaScript scaffolding to fit your unique needs.\n */\n\nvar app = new Vue({\n  el: '#app'\n});\nvar http = window.axios;\nvar Echo = window.Echo;\nvar message = document.getElementsByClassName('.message');\nvar btn = document.getElementsByClassName('.btn');\nbtn.addEventListener('click', function (e) {\n  e.preventDefault();\n\n  if (message.value == \"\") {} else {\n    http.post(\"{{url('message')}}\", {\n      'message': message.value,\n      'user_id': \"{{auth()->user()->id}}\",\n      'room_id': \"1\"\n    }).then(function () {\n      message.value;\n    });\n  }\n});\nEcho[\"private\"]('chat').listen('.MessageSent', function (e) {\n  alert('d');\n\n  _this.messages.push({\n    message: e.message.message,\n    user: e.user\n  });\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYXBwLmpzLmpzIiwibWFwcGluZ3MiOiI7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBQSxtQkFBTyxDQUFDLGdEQUFELENBQVA7O0FBRUFDLE1BQU0sQ0FBQ0MsR0FBUCxHQUFhRix5RkFBYjtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBRUE7QUFDQTs7QUFFQUUsR0FBRyxDQUFDQyxTQUFKLENBQWMsbUJBQWQsRUFBbUNILDJIQUFuQztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUEsSUFBTUksR0FBRyxHQUFHLElBQUlGLEdBQUosQ0FBUTtBQUNoQkcsRUFBQUEsRUFBRSxFQUFFO0FBRFksQ0FBUixDQUFaO0FBS0EsSUFBTUMsSUFBSSxHQUFFTCxNQUFNLENBQUNNLEtBQW5CO0FBQ0EsSUFBTUMsSUFBSSxHQUFDUCxNQUFNLENBQUNPLElBQWxCO0FBQ0EsSUFBTUMsT0FBTyxHQUFDQyxRQUFRLENBQUNDLHNCQUFULENBQWdDLFVBQWhDLENBQWQ7QUFDQSxJQUFNQyxHQUFHLEdBQUNGLFFBQVEsQ0FBQ0Msc0JBQVQsQ0FBZ0MsTUFBaEMsQ0FBVjtBQUdBQyxHQUFHLENBQUNDLGdCQUFKLENBQXFCLE9BQXJCLEVBQTZCLFVBQVNDLENBQVQsRUFBVztBQUNwQ0EsRUFBQUEsQ0FBQyxDQUFDQyxjQUFGOztBQUNBLE1BQUdOLE9BQU8sQ0FBQ08sS0FBUixJQUFlLEVBQWxCLEVBQXFCLENBRXBCLENBRkQsTUFFSztBQUNEVixJQUFBQSxJQUFJLENBQUNXLElBQUwsQ0FBVSxvQkFBVixFQUErQjtBQUMzQixpQkFBVVIsT0FBTyxDQUFDTyxLQURTO0FBRTNCLGlCQUFVLHdCQUZpQjtBQUczQixpQkFBVTtBQUhpQixLQUEvQixFQUlHRSxJQUpILENBSVEsWUFBSTtBQUNSVCxNQUFBQSxPQUFPLENBQUNPLEtBQVI7QUFDSCxLQU5EO0FBT0g7QUFDSixDQWJEO0FBZUFSLElBQUksV0FBSixDQUFhLE1BQWIsRUFDS1csTUFETCxDQUNZLGNBRFosRUFDNEIsVUFBQ0wsQ0FBRCxFQUFPO0FBQzdCTSxFQUFBQSxLQUFLLENBQUMsR0FBRCxDQUFMOztBQUNFLE9BQUksQ0FBQ0MsUUFBTCxDQUFjQyxJQUFkLENBQW1CO0FBQ2ZiLElBQUFBLE9BQU8sRUFBRUssQ0FBQyxDQUFDTCxPQUFGLENBQVVBLE9BREo7QUFFZmMsSUFBQUEsSUFBSSxFQUFFVCxDQUFDLENBQUNTO0FBRk8sR0FBbkI7QUFJSCxDQVBMIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL2pzL2FwcC5qcz9jZWQ2Il0sInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogRmlyc3Qgd2Ugd2lsbCBsb2FkIGFsbCBvZiB0aGlzIHByb2plY3QncyBKYXZhU2NyaXB0IGRlcGVuZGVuY2llcyB3aGljaFxuICogaW5jbHVkZXMgVnVlIGFuZCBvdGhlciBsaWJyYXJpZXMuIEl0IGlzIGEgZ3JlYXQgc3RhcnRpbmcgcG9pbnQgd2hlblxuICogYnVpbGRpbmcgcm9idXN0LCBwb3dlcmZ1bCB3ZWIgYXBwbGljYXRpb25zIHVzaW5nIFZ1ZSBhbmQgTGFyYXZlbC5cbiAqL1xuXG5yZXF1aXJlKCcuL2Jvb3RzdHJhcCcpO1xuXG53aW5kb3cuVnVlID0gcmVxdWlyZSgndnVlJykuZGVmYXVsdDtcblxuLyoqXG4gKiBUaGUgZm9sbG93aW5nIGJsb2NrIG9mIGNvZGUgbWF5IGJlIHVzZWQgdG8gYXV0b21hdGljYWxseSByZWdpc3RlciB5b3VyXG4gKiBWdWUgY29tcG9uZW50cy4gSXQgd2lsbCByZWN1cnNpdmVseSBzY2FuIHRoaXMgZGlyZWN0b3J5IGZvciB0aGUgVnVlXG4gKiBjb21wb25lbnRzIGFuZCBhdXRvbWF0aWNhbGx5IHJlZ2lzdGVyIHRoZW0gd2l0aCB0aGVpciBcImJhc2VuYW1lXCIuXG4gKlxuICogRWcuIC4vY29tcG9uZW50cy9FeGFtcGxlQ29tcG9uZW50LnZ1ZSAtPiA8ZXhhbXBsZS1jb21wb25lbnQ+PC9leGFtcGxlLWNvbXBvbmVudD5cbiAqL1xuXG4vLyBjb25zdCBmaWxlcyA9IHJlcXVpcmUuY29udGV4dCgnLi8nLCB0cnVlLCAvXFwudnVlJC9pKVxuLy8gZmlsZXMua2V5cygpLm1hcChrZXkgPT4gVnVlLmNvbXBvbmVudChrZXkuc3BsaXQoJy8nKS5wb3AoKS5zcGxpdCgnLicpWzBdLCBmaWxlcyhrZXkpLmRlZmF1bHQpKVxuXG5WdWUuY29tcG9uZW50KCdleGFtcGxlLWNvbXBvbmVudCcsIHJlcXVpcmUoJy4vY29tcG9uZW50cy9FeGFtcGxlQ29tcG9uZW50LnZ1ZScpLmRlZmF1bHQpO1xuXG4vKipcbiAqIE5leHQsIHdlIHdpbGwgY3JlYXRlIGEgZnJlc2ggVnVlIGFwcGxpY2F0aW9uIGluc3RhbmNlIGFuZCBhdHRhY2ggaXQgdG9cbiAqIHRoZSBwYWdlLiBUaGVuLCB5b3UgbWF5IGJlZ2luIGFkZGluZyBjb21wb25lbnRzIHRvIHRoaXMgYXBwbGljYXRpb25cbiAqIG9yIGN1c3RvbWl6ZSB0aGUgSmF2YVNjcmlwdCBzY2FmZm9sZGluZyB0byBmaXQgeW91ciB1bmlxdWUgbmVlZHMuXG4gKi9cblxuY29uc3QgYXBwID0gbmV3IFZ1ZSh7XG4gICAgZWw6ICcjYXBwJyxcbn0pO1xuXG5cbmNvbnN0IGh0dHAgPXdpbmRvdy5heGlvcztcbmNvbnN0IEVjaG89d2luZG93LkVjaG87XG5jb25zdCBtZXNzYWdlPWRvY3VtZW50LmdldEVsZW1lbnRzQnlDbGFzc05hbWUoJy5tZXNzYWdlJyk7XG5jb25zdCBidG49ZG9jdW1lbnQuZ2V0RWxlbWVudHNCeUNsYXNzTmFtZSgnLmJ0bicpO1xuXG5cbmJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsZnVuY3Rpb24oZSl7XG4gICAgZS5wcmV2ZW50RGVmYXVsdCgpXG4gICAgaWYobWVzc2FnZS52YWx1ZT09XCJcIil7XG5cbiAgICB9ZWxzZXtcbiAgICAgICAgaHR0cC5wb3N0KFwie3t1cmwoJ21lc3NhZ2UnKX19XCIse1xuICAgICAgICAgICAgJ21lc3NhZ2UnOm1lc3NhZ2UudmFsdWUsXG4gICAgICAgICAgICAndXNlcl9pZCc6XCJ7e2F1dGgoKS0+dXNlcigpLT5pZH19XCIsXG4gICAgICAgICAgICAncm9vbV9pZCc6XCIxXCJcbiAgICAgICAgfSkudGhlbigoKT0+e1xuICAgICAgICAgICAgbWVzc2FnZS52YWx1ZTtcbiAgICAgICAgfSk7XG4gICAgfVxufSk7XG5cbkVjaG8ucHJpdmF0ZSgnY2hhdCcpXG4gICAgLmxpc3RlbignLk1lc3NhZ2VTZW50JywgKGUpID0+IHtcbiAgICAgIGFsZXJ0KCdkJylcbiAgICAgICAgdGhpcy5tZXNzYWdlcy5wdXNoKHtcbiAgICAgICAgICAgIG1lc3NhZ2U6IGUubWVzc2FnZS5tZXNzYWdlLFxuICAgICAgICAgICAgdXNlcjogZS51c2VyXG4gICAgICAgIH0pO1xuICAgIH0pO1xuIl0sIm5hbWVzIjpbInJlcXVpcmUiLCJ3aW5kb3ciLCJWdWUiLCJjb21wb25lbnQiLCJhcHAiLCJlbCIsImh0dHAiLCJheGlvcyIsIkVjaG8iLCJtZXNzYWdlIiwiZG9jdW1lbnQiLCJnZXRFbGVtZW50c0J5Q2xhc3NOYW1lIiwiYnRuIiwiYWRkRXZlbnRMaXN0ZW5lciIsImUiLCJwcmV2ZW50RGVmYXVsdCIsInZhbHVlIiwicG9zdCIsInRoZW4iLCJsaXN0ZW4iLCJhbGVydCIsIm1lc3NhZ2VzIiwicHVzaCIsInVzZXIiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/app.js\n");
 
 /***/ }),
 
@@ -1055,7 +1055,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************************************************/
 /***/ (() => {
 
-throw new Error("Module parse failed: Unexpected token (1:0)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n> <template>\n|     <div class=\"container\">\n|         <div class=\"row justify-content-center\">");
+eval("<!--<template>-->\n<!--    <div class=\"container\">-->\n<!--        <div class=\"row justify-content-center\">-->\n<!--            <div class=\"col-md-8\">-->\n<!--                <div class=\"card\">-->\n<!--                    <div class=\"card-header\">Example Component</div>-->\n\n<!--                    <div class=\"card-body\">-->\n<!--                        I'm an example component.-->\n<!--                    </div>-->\n<!--                </div>-->\n<!--            </div>-->\n<!--        </div>-->\n<!--    </div>-->\n<!--</template>-->\n\n<!--<script>-->\n<!--    export default {-->\n<!--        mounted() {-->\n<!--            console.log('Component mounted.')-->\n<!--        }-->\n<!--    }-->\n<!--</script>-->\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvY29tcG9uZW50cy9FeGFtcGxlQ29tcG9uZW50LnZ1ZS5qcyIsIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBLHdCQUF3QjtBQUN4Qix1QkFBdUI7QUFDdkI7QUFDQSxhQUFhO0FBQ2IsU0FBUztBQUNUIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL2pzL2NvbXBvbmVudHMvRXhhbXBsZUNvbXBvbmVudC52dWU/ZmYzMiJdLCJzb3VyY2VzQ29udGVudCI6WyI8IS0tPHRlbXBsYXRlPi0tPlxuPCEtLSAgICA8ZGl2IGNsYXNzPVwiY29udGFpbmVyXCI+LS0+XG48IS0tICAgICAgICA8ZGl2IGNsYXNzPVwicm93IGp1c3RpZnktY29udGVudC1jZW50ZXJcIj4tLT5cbjwhLS0gICAgICAgICAgICA8ZGl2IGNsYXNzPVwiY29sLW1kLThcIj4tLT5cbjwhLS0gICAgICAgICAgICAgICAgPGRpdiBjbGFzcz1cImNhcmRcIj4tLT5cbjwhLS0gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJjYXJkLWhlYWRlclwiPkV4YW1wbGUgQ29tcG9uZW50PC9kaXY+LS0+XG5cbjwhLS0gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJjYXJkLWJvZHlcIj4tLT5cbjwhLS0gICAgICAgICAgICAgICAgICAgICAgICBJJ20gYW4gZXhhbXBsZSBjb21wb25lbnQuLS0+XG48IS0tICAgICAgICAgICAgICAgICAgICA8L2Rpdj4tLT5cbjwhLS0gICAgICAgICAgICAgICAgPC9kaXY+LS0+XG48IS0tICAgICAgICAgICAgPC9kaXY+LS0+XG48IS0tICAgICAgICA8L2Rpdj4tLT5cbjwhLS0gICAgPC9kaXY+LS0+XG48IS0tPC90ZW1wbGF0ZT4tLT5cblxuPCEtLTxzY3JpcHQ+LS0+XG48IS0tICAgIGV4cG9ydCBkZWZhdWx0IHstLT5cbjwhLS0gICAgICAgIG1vdW50ZWQoKSB7LS0+XG48IS0tICAgICAgICAgICAgY29uc29sZS5sb2coJ0NvbXBvbmVudCBtb3VudGVkLicpLS0+XG48IS0tICAgICAgICB9LS0+XG48IS0tICAgIH0tLT5cbjwhLS08L3NjcmlwdD4tLT5cbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/js/components/ExampleComponent.vue\n");
 
 /***/ }),
 
@@ -1066,7 +1066,7 @@ throw new Error("Module parse failed: Unexpected token (1:0)\nYou may need an ap
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21","name":"axios","escapedName":"axios","rawSpec":"^0.21","saveSpec":null,"fetchSpec":"^0.21"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21","_where":"F:\\\\2022\\\\شركة افاق الخليج\\\\سعودي قيمرز\\\\saudiGamersMangment","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21","name":"axios","escapedName":"axios","rawSpec":"^0.21","saveSpec":null,"fetchSpec":"^0.21"},"_requiredBy":["#DEV:/","#USER"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21","_where":"F:\\\\2022\\\\شركة افاق الخليج\\\\سعودي قيمرز\\\\saudiGamersMangment","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
@@ -1074,7 +1074,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -1088,20 +1088,20 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = __webpack_modules__;
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/chunk loaded */
 /******/ 	(() => {
@@ -1134,7 +1134,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			return result;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -1146,7 +1146,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -1158,12 +1158,12 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -1174,7 +1174,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -1183,11 +1183,11 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
-/******/
+/******/ 		
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
@@ -1195,19 +1195,19 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0
 /******/ 		};
-/******/
+/******/ 		
 /******/ 		// no chunk on demand loading
-/******/
+/******/ 		
 /******/ 		// no prefetching
-/******/
+/******/ 		
 /******/ 		// no preloaded
-/******/
+/******/ 		
 /******/ 		// no HMR
-/******/
+/******/ 		
 /******/ 		// no HMR manifest
-/******/
+/******/ 		
 /******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/
+/******/ 		
 /******/ 		// install a JSONP callback for chunk loading
 /******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
 /******/ 			var [chunkIds, moreModules, runtime] = data;
@@ -1232,20 +1232,20 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 			}
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
-/******/
+/******/ 		
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
-/******/
+/******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/
+/******/ 	
 /******/ })()
 ;

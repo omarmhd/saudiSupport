@@ -57,6 +57,11 @@ class Order extends Model
         return $this->hasMany(\App\Models\Attachment::class);
 
     }
+    public function room(){
+
+        return $this->hasOne(Room::class,'order_id','id')->withDefault();
+    }
+
 
 
 }

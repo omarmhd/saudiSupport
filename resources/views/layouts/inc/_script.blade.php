@@ -109,5 +109,97 @@
 
 
     });
+
+
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+    $(function () {
+
+        const http =window.axios;
+        const Echo=window.Echo;
+        const message=$(".message");
+        const room_id=$(".room_id").val();
+
+
+        $('.btn-chat').click(function(e){
+            e.preventDefault()
+
+
+            if(message.val()==""){
+                message.addClass('is-invalid')
+            }else{
+                http.post("{{url('message')}}",{
+                    'message':message.val(),
+                    'user_id':"{{auth()->user()->id}}",
+                    'room_id':room_id
+                }).then(()=>{
+                    message.val('');
+                });
+            }
+
+
+        });
+
+
+        var channel1 = pusher.subscribe('private-chat.{{auth()->user()->id}}');
+        channel1.bind('private-chat-event', function(data) {
+            var current_user="{{auth()->user()->id}}";
+            var user_sent=data.user.id;
+
+            var class_show=current_user==user_sent ? 'media flex-row-reverse'  : 'media'
+
+
+            $('.content-inner').append( `<div class="`+class_show+`">
+                {{--                            <div class="main-img-user online"><img alt="" src="{{URL::asset('assets/img/faces/9.jpg')}}"></div>--}}
+                <div class="media-body">
+
+                <div class="main-msg-wrapper right">
+                    <B STYLE="display: block">`+data.user.name+`</B>
+                    `+data.message.message+`
+
+                </div>
+
+                <div>
+                    <span>`+data.time+`</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
+                </div>
+
+                </div>
+            </div>`);
+            $(".main-chat-body").scrollTop($(".main-chat-body")[0].scrollHeight);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        });
+
+        {{--window.Echo.private('chat.{{auth()->user()->id}}').listen('private-chat-event', (e) => {--}}
+        {{--        $('.main-chat-list').append(`    <div class="media new">--}}
+        {{--                    sssssssssssssssss--}}
+        {{--            </div>`)--}}
+
+        {{--        this.messages.push({--}}
+        {{--            message: e.message.message,--}}
+        {{--            user: e.user--}}
+        {{--        });--}}
+        {{--    });--}}
+
+
+    })
+</script>
+
+<script>
+
 </script>
 @endauth

@@ -30,3 +30,34 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+
+const http =window.axios;
+const Echo=window.Echo;
+const message=document.getElementsByClassName('.message');
+const btn=document.getElementsByClassName('.btn');
+
+
+btn.addEventListener('click',function(e){
+    e.preventDefault()
+    if(message.val()==""){
+        message.addClass('is-invalid')
+    }else{
+        http.post("{{url('message')}}",{
+            'message':message.val(),
+            'user_id':"{{auth()->user()->id}}",
+            'room_id':"1"
+        }).then(()=>{
+            message.val('');
+        });
+    }
+});
+
+Echo.private('chat')
+    .listen('MessageSent', (e) => {
+      alert('d')
+        this.messages.push({
+            message: e.message.message,
+            user: e.user
+        });
+    });

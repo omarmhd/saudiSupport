@@ -27,6 +27,15 @@ Route::group([ 'prefix' => LaravelLocalization::setLocale(),'middleware'=>'auth'
     Route::resource('/orders',OrderController::class)->only([
         'edit','store','update','create','destroy'
     ]);;
+    Route::get('/chat',function (){
+        $rooms=\App\Models\Room::get();
+        $orders=\App\Models\Order::get();
+        return view('chat.index',compact('rooms','orders'));
+    });
+
+    Route::resource('/room',\App\Http\Controllers\RoomController::class);
+    Route::resource('/message',\App\Http\Controllers\MessageController::class);
+
     Route::post('/attachments/{id}',[\App\Http\Controllers\Attachment::class,'attachments'])->name('attachments');
     Route::get('/getAttachments/{id}',[\App\Http\Controllers\Attachment::class,'getAttachments'])->name('getAttachments');
     Route::delete('/attachments/{id}',[\App\Http\Controllers\Attachment::class,'destroy'])->name('attachment.destroy');

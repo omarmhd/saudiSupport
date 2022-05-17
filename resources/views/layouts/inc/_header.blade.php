@@ -50,6 +50,12 @@
                         </div>
                     </form>
                 </div>
+                <div class=" main-header-notification">
+                    <a  class="new nav-link" href="{{url('chat')}}">
+                        <i class="far fa-comments"></i>
+                    </a>
+
+                </div>
 
                 <div class="dropdown nav-item main-header-notification">
                     <a class="new nav-link" href="#">
