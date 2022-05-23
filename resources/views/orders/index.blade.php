@@ -52,9 +52,9 @@
                                 <th class="wd-15p border-bottom-0" style="width: 10%">date</th>
                                 <th class="wd-20p border-bottom-0" style="width: 20%">product name</th>
                                 <th class="wd-20p border-bottom-0"style="width: 12%">order journey</th>
-                                <th class="wd-20p border-bottom-0"style="width: 10%">type order</th>
-                                <th class="wd-20p border-bottom-0"style="width: 10%">added by</th>
-                                <th class="wd-20p border-bottom-0"style="width: 10%">Last update by</th>
+                                <th class="wd-20p border-bottom-0"style="width: 5%">type order</th>
+                                <th class="wd-20p border-bottom-0"style="width: 5%">added by</th>
+                                <th class="wd-20p border-bottom-0"style="width: 5%">Last update by</th>
                                 <th class="wd-20p border-bottom-0" style="width: 30%">options</th>
                             </tr>
                             </thead>
@@ -162,6 +162,14 @@
 
         })
     </script>
+
+
+@endsection
+@section('js')
+    <!--Internal  lightslider js -->
+    <script src="{{URL::asset('assets/plugins/lightslider/js/lightslider.min.js')}}"></script>
+    <!--Internal  Chat js -->
+    <script src="{{URL::asset('assets/js/chat.js')}}"></script>
 
 
 @endsection
