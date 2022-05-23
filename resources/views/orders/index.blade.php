@@ -28,6 +28,7 @@
 @section('content')
     @include('layouts.inc.modals.show_order')
     @include('layouts.inc.modals.upload_file')
+    @include('layouts.inc.modals.chat')
 
 
     <div class="row row-sm">
