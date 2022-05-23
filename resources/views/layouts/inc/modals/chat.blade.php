@@ -26,26 +26,41 @@
                                     </nav>
                                 </div><!-- main-    chat-header -->
                                 <div class="main-chat-body" id="ChatBody">
-                                    <div class="content-inner">
+                                    <div class="content-inner" style=" height:300px!important; /*Height of bottom frame div*/
+    overflow: scroll;">
 
 
                                             {{--                        <label class="main-chat-time"><span>3 days ago</span></label>--}}
-                                            <div class="">
-                                                {{--                            <div class="main-img-user online"><img alt="" src="{{URL::asset('assets/img/faces/9.jpg')}}"></div>--}}
-                                                <div class="media-body">
+                                        <div class="media flex-row-reverse">
 
-                                                    <div class="main-msg-wrapper right " >
-                                                        <B STYLE="display: block"></B>
+                                            <div class="media-body">
 
-                                                    </div>
-
-                                                    <div>
-                                                        <span></span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
-                                                    </div>
-
+                                                <div class="main-msg-wrapper right ">
+                                                    <b style="display: block">omar98</b>
+                                                    fdsfdsfsdsd
                                                 </div>
-                                            </div>
 
+                                                <div>
+                                                    <span>22 hours from now</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="media ">
+
+                                            <div class="media-body">
+
+                                                <div class="main-msg-wrapper right ">
+                                                    <b style="display: block">omar98</b>
+                                                    fdsfdsfsdsd
+                                                </div>
+
+                                                <div>
+                                                    <span>22 hours from now</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
+                                                </div>
+
+                                            </div>
+                                        </div>
 
                                     </div>
                                 </div>
