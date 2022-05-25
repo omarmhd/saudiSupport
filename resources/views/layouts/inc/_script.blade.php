@@ -112,35 +112,11 @@
 
 
 </script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <script>
     $(function () {
 
-        const http =window.axios;
-        const Echo=window.Echo;
-        const message=$(".message");
-        const room_id=$(".room_id").val();
 
-
-        $('.btn-chat').click(function(e){
-            e.preventDefault()
-
-
-            if(message.val()==""){
-                message.addClass('is-invalid')
-            }else{
-                http.post("{{url('message')}}",{
-                    'message':message.val(),
-                    'user_id':"{{auth()->user()->id}}",
-                    'room_id':room_id
-                }).then(()=>{
-                    message.val('');
-                });
-            }
-
-
-        });
 
 
         var channel1 = pusher.subscribe('private-chat.{{auth()->user()->id}}');

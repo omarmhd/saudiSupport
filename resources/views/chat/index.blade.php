@@ -257,7 +257,7 @@
                 </nav>
 
                 <input class="form-control message" name="message"  placeholder="Type your message here..." type="text"> <button class="main-msg-send btn btn-chat" ><i class="far fa-paper-plane"></i></button>
-                    <input type="hidden"  class="room_id" name="room_id"  value="{{$roomMessage->id}}">
+                                <input type="hidden"  class="room_id" name="room_id"  value="{{$roomMessage->id}}">
 
             </div>
 

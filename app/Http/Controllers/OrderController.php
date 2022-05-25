@@ -61,7 +61,7 @@ class OrderController extends Controller
                                   <a href='' style='background: #d6a448; color: #FFFFFF' class='btn btn-sm upload-btn' data-toggle='modal'
                                      data-id='$data->id'   data-target='#upload_file'> <i class='fa fa-folder-open'></i></a>
 
-                                        <a href='' class='btn btn-sm' data-toggle='modal' data-target='#add-chat' style='background: #FF5757;color: #ffff'   ><i class='far fa-comments'> </i></a>
+                                        <a href='' data-id='$data->id' class='btn btn-sm add-chat-btn' data-toggle='modal' data-target='#add-chat' style='background: #FF5757;color: #ffff'   ><i class='far fa-comments'> </i></a>
 
                                   ";
             })

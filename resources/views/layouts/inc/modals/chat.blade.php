@@ -26,6 +26,7 @@
                                     </nav>
                                 </div><!-- main-    chat-header -->
                                 <div class="main-chat-body" id="ChatBody">
+                                    <div class="text-center chat-loading" disabled=""> <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading... </div>
                                     <div class="content-inner" style=" height:300px!important; /*Height of bottom frame div*/
     overflow: scroll;">
 
@@ -72,7 +73,7 @@
                                 </nav>
 
                                 <input class="form-control message" name="message"  placeholder="Type your message here..." type="text"> <button class="main-msg-send btn btn-chat" ><i class="far fa-paper-plane"></i></button>
-                                <input type="hidden"  class="room_id" name="room_id"  value="">
+                                <input type="hidden"  class="order" name="order_id"  value="">
 
                             </div>
 
@@ -91,4 +92,100 @@
     </div>
 </div>
 <!-- Small modal -->
+@push('js')
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+    <script>
+
+       $(function () {
+           var order_id=0;
+
+
+
+            // $(document).on('show.bs.modal','#add-chat',(function (e) {
+                $('#add-chat').bind('show.bs.modal',(function (event) {
+                let button = $(event.relatedTarget)
+                let modal=$(this)
+                modal.find('.content-inner').empty();
+                        order_id=button.data('id');
+
+                let url = "{{route('message.show',['message'=>':id'])}}"
+                url = url.replace(':id', order_id);
+                $.ajax({
+
+                    url: url,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    beforeSend: function(){
+                        $('.chat-loading').show();
+                    },
+                    complete: function(){
+                        $('.chat-loading').hide();
+                    },
+                    success: (data) => {
+                        $.each(data.message, function (key, value) {
+
+                            $('.content-inner').append(`
+                        <div class="media flex-row-reverse">
+
+                                            <div class="media-body">
+
+                                                <div class="main-msg-wrapper right ">
+                                                    <b style="display: block">omar98</b>
+                                                    fdsfdsfsdsd
+                                                </div>
+
+                                                <div>
+                                                    <span>22 hours from now</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                            `);
+
+                        });
+                    },
+                });
+
+
+ })
+
+
+                );
+           const http =window.axios;
+           const Echo=window.Echo;
+           const message=$(".message");
+
+           $('.btn-chat').click(function(e){
+               e.preventDefault()
+
+
+
+               if(message.val()==""){
+                   message.addClass('is-invalid')
+               }else{
+                   http.post("{{url('message')}}",{
+                       'message':message.val(),
+                       'user_id':"{{auth()->user()->id}}",
+                       'room_id':1,
+                       'order_id':order_id
+                   }).then(()=>{
+                       message.val('');
+                   });
+               }
+
+
+           });
+            $(document).on('hide.bs.modal','#add-chat', function (e){
+                $(this).removeData();
+
+
+
+
+            });
+
+        })
+    </script>
+@endpush

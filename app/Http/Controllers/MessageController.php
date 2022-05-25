@@ -6,6 +6,7 @@ use App\Events\MessageSent;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class MessageController extends Controller
 {
@@ -20,6 +21,16 @@ class MessageController extends Controller
 //        broadcast(new MessageSent($user,$message))->toOthers();
 
         return ['status' => 'Message Sent!'];
+
+    }
+
+    public function show($id){
+
+        $messages=Message::where('order_id',$id)->get();
+
+        return response()->json(['message'=>  $messages],200);
+
+
 
     }
 
