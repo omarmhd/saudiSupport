@@ -13,7 +13,8 @@ class MessageController extends Controller
     public function store(Request $request){
        $data=$request->all();
         $user=Auth::user();
-       $data['user_id']=auth()->user()->id;
+         $data['user_id']=auth()->user()->id;
+        $data['user_name']=auth()->user()->name;
 
         $message= Message::create($data);
 

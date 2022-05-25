@@ -127,9 +127,10 @@
             var class_show=current_user==user_sent ? 'media flex-row-reverse'  : 'media'
 
 
-            $('.content-inner').append( `<div class="`+class_show+`">
+            $('.content-inner'+data.message.order_id).append( `<div class="`+class_show+`">
                 {{--                            <div class="main-img-user online"><img alt="" src="{{URL::asset('assets/img/faces/9.jpg')}}"></div>--}}
-                <div class="media-body">
+
+            <div class="media-body">
 
                 <div class="main-msg-wrapper right">
                     <B STYLE="display: block">`+data.user.name+`</B>
@@ -143,7 +144,7 @@
 
                 </div>
             </div>`);
-            $(".main-chat-body").scrollTop($(".main-chat-body")[0].scrollHeight);
+            $(".content-inner ").scrollTop($(".content-inner ")[0].scrollHeight);
 
 
 
@@ -175,7 +176,108 @@
     })
 </script>
 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <script>
 
+    $(document).ready(function() {
+        var order_id=0;
+
+
+
+        // $(document).on('show.bs.modal','#add-chat',(function (e) {
+        $('#add-chat').bind('show.bs.modal',(function (e) {
+
+            let button = $(e.relatedTarget)
+            let modal=$(this)
+            modal.find('.content-inner').empty();
+
+            order_id=button.data('id');
+            let order_number=button.data('order-number')
+            modal.find('.order-number').text(order_number)
+            let url = "{{route('message.show',['message'=>':id'])}}"
+            url = url.replace(':id', order_id);
+            $('.content-inner').addClass('content-inner'+order_id);
+            $.ajax({
+
+                url: url,
+                cache: false,
+                contentType: false,
+                processData: false,
+                beforeSend: function(){
+                    $('.chat-loading').show();
+                },
+                complete: function(){
+                    $('.chat-loading').hide();
+                },
+                success: (data) => {
+                    $.each(data.message, function (key, value) {
+
+                        $('.content-inner').append(`
+                        <div class="media flex-row-reverse">
+
+                                            <div class="media-body">
+
+                                                <div class="main-msg-wrapper right ">
+                                                    <b style="display: block">`+value.user_name+`</b>
+                                                    `+value.message+`
+                                                </div>
+
+                                                <div>
+                                                    <span>22 hours from now</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                            `);
+
+                    });
+                },
+            });
+
+
+        }));
+        $('#add-chat').bind('hide.bs.modal',(function (e) {
+
+            $('.content-inner').removeClass('content-inner'+order_id);
+
+
+
+        }));
+
+        const http =window.axios;
+        const Echo=window.Echo;
+        const message=$(".message");
+
+        $('.btn-chat').click(function(e){
+            e.preventDefault()
+
+
+
+            if(message.val()==""){
+                message.addClass('is-invalid')
+            }else{
+                http.post("{{url('message')}}",{
+                    'message':message.val(),
+                    'user_id':"{{auth()->user()->id}}",
+                    'room_id':1,
+                    'order_id':order_id
+                }).then(()=>{
+                    message.val('');
+                });
+            }
+
+
+        });
+        $(document).on('hide.bs.modal','#add-chat', function (e){
+            $(this).removeData();
+
+
+
+
+        });
+
+    })
 </script>
 @endauth
