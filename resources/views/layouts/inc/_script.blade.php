@@ -224,7 +224,7 @@
                                                 </div>
 
                                                 <div>
-                                                    <span>22 hours from now</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
+                                                    <span>`+value.date+`</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
                                                 </div>
 
                                             </div>

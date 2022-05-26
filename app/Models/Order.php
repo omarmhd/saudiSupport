@@ -30,6 +30,7 @@ class Order extends Model
 //        'note_warehouse',
 //        'note_salah'
 //    ];
+
     protected $guarded=[];
 
     public  function color_journey($data){
@@ -61,6 +62,10 @@ class Order extends Model
 
         return $this->hasOne(Room::class,'order_id','id')->withDefault();
     }
+
+
+
+
 
 
 

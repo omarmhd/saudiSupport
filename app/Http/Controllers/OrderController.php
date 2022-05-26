@@ -26,6 +26,7 @@ class OrderController extends Controller
     public function index(Request $request, $journey = null)
     {
 
+
         if ($journey=="new") {
         $data = Order::where('order_journey', '0')->latest()->get();
     }else{
