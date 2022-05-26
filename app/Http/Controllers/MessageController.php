@@ -19,6 +19,7 @@ class MessageController extends Controller
         $message= Message::create($data);
 
         broadcast(new MessageSent($user, $message))->toOthers();
+
 //        broadcast(new MessageSent($user,$message))->toOthers();
 
         return ['status' => 'Message Sent!'];

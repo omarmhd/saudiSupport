@@ -24476,8 +24476,10 @@ input.parsley-error:focus, textarea.parsley-error:focus, input.parsley-success:f
     margin-right: 20px;
     align-items: flex-end; }
   .main-chat-body .media.flex-row-reverse .main-msg-wrapper {
-    background-color: #007e48;
-    color: #fff; }
+    background-color: #D9FDD3;
+    color: #000000;
+      padding: 9px;
+  }
   .main-chat-body .media-body {
     margin-left: 20px;
     display: flex;
