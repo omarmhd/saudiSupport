@@ -117,7 +117,7 @@
 
 
 
-                ajax: '{{ route('orders.indexTracking') }}',
+                ajax: '{{ route('orders.indexCompleted') }}',
                 columns: [
                     { data: 'order_no', name: 'order_no' },
                     { data: 'phone_no' ,name:'phone_no'},

@@ -86,7 +86,7 @@
         audio()
         Swal.fire(
             '',
-            'You have new notifications',
+            data.message,
             'info'
         )
 

@@ -217,7 +217,17 @@ class OrderController extends Controller
                 ->addIndexColumn()
                 ->addColumn('date', function ($data) {
                     return date($data->created_at->toDateString());
-                })->make(true);
+
+                         })->addColumn('attachments', function ($data) {
+
+        return "<a href='$data->attachments'  target='_blank' class='btn btn-outline-dark'> <i class='fa fa-link'></i> </a>";
+    })
+        ->addColumn('action', function ($data) {
+
+            return "<a  class='btn btn-sm' style='background:#a9a9a9 ; color: #FFFFFF'  href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'Preview']) . " > <i class='fa fa-pen' ></i></a> " .
+                $this->show_button($data);
+        })
+                ->make(true);
 
         }
 
