@@ -312,7 +312,7 @@ class OrderController extends Controller
 
         $data = $request->except(['attachments']);
         if ($request->hasFile('attachments')) {
-            $data['attachments'] = asset('upload_center') . '/' . $file->upload_file($request->file('attachments'), 'upload_center');
+            $data['attachments'] = asset('upload_center').'/'. $file->upload_file($request->file('attachments'), 'upload_center');
         }
         $order = Order::create($data);
         $message ="<b style='color:#007E48'>". $order->added_by ."</b>". "  added a new order number #" . $order->order_no . " of type " . $order->typer_order;
