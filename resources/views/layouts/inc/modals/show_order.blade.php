@@ -53,7 +53,7 @@
                 </div>
                 <div class="row row-sm mg-b-20">
 
-                    <div class="col-lg-6 mg-t-20 mg-lg-t-0">
+                    <div class="col-lg-12 mg-t-20 mg-lg-t-0">
                         <p class="mg-b-10">Alternative product</p>
                         <input type="text"
                                id="alternative_product"
@@ -61,11 +61,7 @@
                                class="form-control"
                              >                            </div>
 
-                    <div class="col-lg-6 mg-t-20 mg-lg-t-0">
-                        <p class="mg-b-10">Attachments</p>
-                        <a href="" download   class="btn btn-primary btn-bg attachments"> <i class="fa fa-download"></i></a>
 
-                    </div>
 
 
 
@@ -79,13 +75,13 @@
 
                     <div class="col-lg-6 mg-t-20 mg-lg-t-0">
                         <p class="mg-b-10">Problem Or Note</p>
-                        <textarea class="form-control" name="note_tech"   rows="6" spellcheck="false"></textarea>
+                        <textarea class="form-control" name="note_tech"   rows="8" spellcheck="false"></textarea>
 
                     </div>
 
                     <div class="col-lg-6 mg-t-20 mg-lg-t-0">
                         <p class="mg-b-10">Operations team notes</p>
-                        <textarea class="form-control" name="note_warehouse"   rows="6" spellcheck="false"></textarea>
+                        <textarea class="form-control" name="note_warehouse"   rows="8" spellcheck="false"></textarea>
 
                     </div>
                     <div class="col-lg-6 mg-t-20 mg-lg-t-0">
