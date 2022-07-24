@@ -1,6 +1,6 @@
 
 <div class="modal show-order fade bd-example-modal-lg" id="show-order" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog  modal-md" role="document">
+    <div class="modal-dialog  modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header" style="background: #007e48;color: #FFFFFF">
                 <h5 class="modal-title" id="exampleModalLabel" style="color: #FFFFFF" >order # <span class="order_no"></span></h5>
