@@ -11,6 +11,7 @@
 @section('page-header')
 
     @include('layouts.inc.modals.show_order')
+    @include('layouts.inc.modals.upload_file')
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">

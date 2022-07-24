@@ -117,10 +117,9 @@
                     processData: false,
                     success: (data) => {
                         $.each(data.order, function (key, value) {
-                           let path= upload_center+value.attachment;
                             $('.statuses').append(`   <tr>
                                     <td> ` + value.attachment + `</td>
-                                    <td> <a href=`+path+` download class="btn  btn-sm btn-primary btn-bg policy_attch"  > <i class="fa fa-download"></i></a>
+                                    <td> <a href=` + upload_center + value.attachment + ` download class="btn  btn-sm btn-primary btn-bg policy_attch"  > <i class="fa fa-download"></i></a>
                                             <button type="button" data-id=`+value.id+` style="background:#000 ; color: #FFFFFF" class="btn btn-sm   btn-delete-attch"> <i class="fa fa-trash"></i></button>
                                             </td></tr>`)});
                     },
@@ -144,7 +143,7 @@
                         $.each(data.order, function (key, value) {
                             $('.statuses').append(`   <tr>
                                     <td> ` + value.attachment + `</td>
-                                    <td> <a href=` + upload_center + value.attachment + ` download class="btn  btn-sm btn-primary btn-bg policy_attch"  > <i class="fa fa-download"></i></a>
+                                    <td> <a href="`+upload_center+value.attachment+`" download class="btn  btn-sm btn-primary btn-bg policy_attch"  > <i class="fa fa-download"></i></a>
                                             <button type="button" data-id=`+value.id+` style="background:#000 ; color: #FFFFFF" class="btn btn-sm   btn-delete-attch"> <i class="fa fa-trash"></i></button>
                                             </td></tr>`)});
                     },

@@ -286,8 +286,15 @@ class OrderController extends Controller
                     return "<a href='$data->attachments'  target='_blank' class='btn btn-outline-dark'> <i class='fa fa-link'></i> </a>";
                 })
                 ->addColumn('action', function ($data) {
+                    return "
+                <a  class='btn btn-sm' style='background:#a9a9a9 ; color: #FFFFFF' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'All']) . " > <i class='fa fa-pen' ></i></a>"
+                        . $this->show_button($data) . " 
+                                  <a href='' style='background: #d6a448; color: #FFFFFF' class='btn btn-sm upload-btn' data-toggle='modal'
+                                     data-id='$data->id'   data-target='#upload_file'> <i class='fa fa-folder-open'></i></a>
 
-                    return $this->show_button($data);
+                                        <a href='' data-id='$data->id' data-order-number='$data->order_no' class='btn btn-sm add-chat-btn' data-toggle='modal' data-target='#add-chat' style='background: #FF5757;color: #ffff'   ><i class='far fa-comments'> </i></a>
+
+                                  ";
                 })
                 ->rawColumns(['attachments', 'date', 'order_journey', 'action'])
                 ->make(true);
