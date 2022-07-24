@@ -72,7 +72,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <a href="javascript:viod(0)" class="btn btn-secondary"   id="show-files"> Show attachments <i class="fa fa-eye"></i></a>
+
                     <button type="submit" class="btn btn-primary"  style="background: #007E48"> Upload <i class="fa fa-upload"></i></button>
                 </div>
 
