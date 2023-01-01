@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Message::class);
     }
+
+    public  function  departments(){
+        return $this->belongsToMany(Department::class);
+    }
+
 }

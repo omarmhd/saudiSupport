@@ -16,6 +16,7 @@ class MessageController extends Controller
          $data['user_id']=auth()->user()->id;
         $data['user_name']=auth()->user()->name;
 
+
         $message= Message::create($data);
 
         broadcast(new MessageSent($user, $message))->toOthers();
@@ -29,6 +30,8 @@ class MessageController extends Controller
     public function show($id){
 
         $messages=Message::where('order_id',$id)->get();
+
+
 
         return response()->json(['message'=>  $messages],200);
 

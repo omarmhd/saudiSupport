@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\Order;
 use App\Models\User;
 use App\Notifications\NewNotify;
@@ -288,7 +289,7 @@ class OrderController extends Controller
                 ->addColumn('action', function ($data) {
                     return "
                 <a  class='btn btn-sm' style='background:#a9a9a9 ; color: #FFFFFF' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'All']) . " > <i class='fa fa-pen' ></i></a>"
-                        . $this->show_button($data) . " 
+                        . $this->show_button($data) . "
                                   <a href='' style='background: #d6a448; color: #FFFFFF' class='btn btn-sm upload-btn' data-toggle='modal'
                                      data-id='$data->id'   data-target='#upload_file'> <i class='fa fa-folder-open'></i></a>
 
@@ -305,9 +306,62 @@ class OrderController extends Controller
 
     }
 
+    public function search(Request $request){
+
+        $data=Order::where("order_no",$request->search)->latest()->first();
+
+
+        if (!$data){
+            return redirect()->back()->with("info","No result found");
+        }
+        $department=$data->department;
+        if ($request->ajax()) {
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('date', function ($data) {
+                    return date($data->created_at->toDateString());
+                })->addColumn('attachments', function ($data) {
+
+                    return "<a href='$data->attachments'  target='_blank' class='btn btn-outline-dark'> <i class='fa fa-link'></i> </a>";
+                })->addColumn('department', function ($data) {
+                    return $data->department->name;
+                })
+                ->addColumn('action', function ($data) {
+
+//                    $chat_tag=$data->room->id ? "<a href=".route("room.show",$data->room->id)." style='background: #4c70ff; color: #FFFFFF' class='btn btn-sm upload-btn my-2'
+//                                     data-id='$data->id'   > <i class='far fa-comments'></i>
+//                                     </a>":'';
+
+
+
+                    return "
+                <a  class='btn btn-sm' style='background:#a9a9a9 ; color: #FFFFFF' href=" . route('orders.edit', ['id' => $data->id, 'typeOrder' => 'All']) . " > <i class='fa fa-pen' ></i></a>
+                                                  <a href='' style='background: #d6a448; color: #FFFFFF' class='btn btn-sm upload-btn' data-toggle='modal'
+                                     data-id='$data->id'   data-target='#upload_file'> <i class='fa fa-folder-open'></i></a>
+                ";
+//                        . $this->show_button($data) . "  <button type='button' data-id='$data->id' style='background:#000 ; color: #FFFFFF' class='btn btn-sm  archive'
+//                                  > <i class='fa fa-trash' ></i></button>
+
+//
+//                                        <a href='' data-id='$data->id' data-order-number='$data->order_no' class='btn btn-sm add-chat-btn' data-toggle='modal' data-target='#add-chat' style='background: #FF5757;color: #ffff'   ><i class='far fa-comments'> </i></a>
+//
+//                                  ";
+                })
+                ->rawColumns(['attachments', 'date', 'order_journey', 'action'])
+                ->make(true);
+
+        }
+
+
+
+        return view('orders.index',compact('department'));
+
+    }
     public function create()
     {
-        return view('orders.create');
+        $departments=Department::all();
+        return view('orders.create',compact('departments'));
     }
 
 
@@ -322,13 +376,14 @@ class OrderController extends Controller
             $data['attachments'] = asset('upload_center').'/'. $file->upload_file($request->file('attachments'), 'upload_center');
         }
         $order = Order::create($data);
-        $message ="<b style='color:#007E48'>". $order->added_by ."</b>". "  added a new order number #" . $order->order_no . " of type " . $order->typer_order;
+        $department=$order->department;
+//        $message ="<b style='color:#007E48'>". $order->added_by ."</b>". "  added a new order number #" . $order->order_no . " of type " . $order->typer_order;
 
         $users = User::where('id', '!=', auth()->id())->get();
 
-        Notification::send($users, new NewNotify($order, $message));
+//        Notification::send($users, new NewNotify($order, $message));
 
-        return redirect()->route('orders.index')->with('success', 'The order has been successfully added');
+        return redirect()->route('departments.show',$department)->with('success', 'The order has been successfully added');
     }
 
     /**
@@ -352,6 +407,7 @@ class OrderController extends Controller
     {
 
         $check_type = in_array($typeOrder, $this->typesOrder);
+        $departments=Department::all();
         $order = Order::findOrFail($id);
 
 
@@ -359,7 +415,7 @@ class OrderController extends Controller
             $check_type = $typeOrder . "_Page";
 
 
-            return view('orders.edit', compact('order', 'check_type'));
+            return view('orders.edit', compact('order', 'check_type','departments'));
 
         }
         return redirect()->back()->with('error', 'This order cannot be modified');
@@ -383,35 +439,34 @@ class OrderController extends Controller
         $data = $request->except(['typeOrder', 'policy_attachment']);
         $data['updated_by']= auth()->user()->name;
 
-        if ($request->hasFile('policy_attachment')) {
-            $data['policy_attachment'] = asset('upload_center') . '/' . $fileService->upload_file($request->file('policy_attachment'), 'upload_center');
-        }
-
-     if ($request->hasFile('attachments')) {
-         $data['attachments'] = asset('upload_center') . '/' . $fileService->upload_file($request->file('attachments'), 'upload_center');
-     }
+//        if ($request->hasFile('policy_attachment')) {
+//            $data['policy_attachment'] = asset('upload_center') . '/' . $fileService->upload_file($request->file('policy_attachment'), 'upload_center');
+//        }
+//
+//     if ($request->hasFile('attachments')) {
+//         $data['attachments'] = asset('upload_center') . '/' . $fileService->upload_file($request->file('attachments'), 'upload_center');
+//     }
             $message ="<b style='color:#007E48'>". $order->updated_by ."</b>". "  updated order #" . $order->order_no . " a page " . $order->type_order;
-            Notification::send($users, new NewNotify($order, $message));
+//            Notification::send($users, new NewNotify($order, $message));
 
-            $order->update($data);
-            if ($order->order_journey=="3"){
-                $order->deleteOrFail();
+           $order_update= $order->update($data);
+//            if ($order->order_journey=="3"){
+//                $order->deleteOrFail();
+//
+//            }
+          $department=$order->department;
 
+            if ($order_update) {
+                return redirect()->route('departments.show',$department)->with('success', 'The order has been successfully updated');
             }
 
-
-            if ($request->typeOrder == "All_Page") {
-
-                return redirect()->route('orders.index')->with('success', 'The order has been successfully updated');
-
-
-            } else if ($request->typeOrder == "Preview_Page") {
-                return redirect()->route('orders.indexPreview')->with('success', 'Preview journey in progress');
-
-            } else {
-                return redirect()->route('orders.indexTracking')->with('success', 'Tracking journey in progress');
-
-            }
+//            } else if ($request->typeOrder == "Preview_Page") {
+//                return redirect()->route('orders.indexPreview')->with('success', 'Preview journey in progress');
+//
+//            } else {
+//                return redirect()->route('orders.indexTracking')->with('success', 'Tracking journey in progress');
+//
+//            }
 
 
 

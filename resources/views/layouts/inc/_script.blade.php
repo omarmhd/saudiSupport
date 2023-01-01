@@ -31,6 +31,7 @@
 <!-- Eva-icons js -->
 <script src="{{URL::asset('assets/js/eva-icons.min.js')}}"></script>
 @yield('js')
+
 <!-- Sticky js -->
 <script src="{{URL::asset('assets/js/sticky.js')}}"></script>
 <!-- custom js -->
@@ -180,104 +181,104 @@
 
 <script>
 
-    $(document).ready(function() {
-        var order_id=0;
+{{--    $(document).ready(function() {--}}
+{{--        var order_id=0;--}}
 
 
 
-        // $(document).on('show.bs.modal','#add-chat',(function (e) {
-        $('#add-chat').bind('show.bs.modal',(function (e) {
+{{--        // $(document).on('show.bs.modal','#add-chat',(function (e) {--}}
+{{--        $('#add-chat').bind('show.bs.modal',(function (e) {--}}
 
-            let button = $(e.relatedTarget)
-            let modal=$(this)
-            modal.find('.content-inner').empty();
+{{--            let button = $(e.relatedTarget)--}}
+{{--            let modal=$(this)--}}
+{{--            modal.find('.content-inner').empty();--}}
 
-            order_id=button.data('id');
-            let order_number=button.data('order-number')
-            modal.find('.order-number').text(order_number)
-            let url = "{{route('message.show',['message'=>':id'])}}"
-            url = url.replace(':id', order_id);
-            $('.content-inner').addClass('content-inner'+order_id);
-            $.ajax({
+{{--            order_id=button.data('id');--}}
+{{--            let order_number=button.data('order-number')--}}
+{{--            modal.find('.order-number').text(order_number)--}}
+{{--            let url = "{{route('message.show',['message'=>':id'])}}"--}}
+{{--            url = url.replace(':id', order_id);--}}
+{{--            $('.content-inner').addClass('content-inner'+order_id);--}}
+{{--            $.ajax({--}}
 
-                url: url,
-                cache: false,
-                contentType: false,
-                processData: false,
-                beforeSend: function(){
-                    $('.chat-loading').show();
-                },
-                complete: function(){
-                    $('.chat-loading').hide();
-                },
-                success: (data) => {
-                    $.each(data.message, function (key, value) {
+{{--                url: url,--}}
+{{--                cache: false,--}}
+{{--                contentType: false,--}}
+{{--                processData: false,--}}
+{{--                beforeSend: function(){--}}
+{{--                    $('.chat-loading').show();--}}
+{{--                },--}}
+{{--                complete: function(){--}}
+{{--                    $('.chat-loading').hide();--}}
+{{--                },--}}
+{{--                success: (data) => {--}}
+{{--                    $.each(data.message, function (key, value) {--}}
 
-                        $('.content-inner').append(`
-                        <div class="media flex-row-reverse">
+{{--                        $('.content-inner').append(`--}}
+{{--                        <div class="media flex-row-reverse">--}}
 
-                                            <div class="media-body">
+{{--                                            <div class="media-body">--}}
 
-                                                <div class="main-msg-wrapper right ">
-                                                    <b style="display: block">`+value.user_name+`</b>
-                                                    `+value.message+`
-                                                </div>
+{{--                                                <div class="main-msg-wrapper right ">--}}
+{{--                                                    <b style="display: block">`+value.user_name+`</b>--}}
+{{--                                                    `+value.message+`--}}
+{{--                                                </div>--}}
 
-                                                <div>
-                                                    <span>`+value.date+`</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
-                                                </div>
+{{--                                                <div>--}}
+{{--                                                    <span>`+value.date+`</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>--}}
+{{--                                                </div>--}}
 
-                                            </div>
-                                        </div>
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                            `);
+{{--                            `);--}}
 
-                    });
-                },
-            });
-
-
-        }));
-        $('#add-chat').bind('hide.bs.modal',(function (e) {
-
-            $('.content-inner').removeClass('content-inner'+order_id);
+{{--                    });--}}
+{{--                },--}}
+{{--            });--}}
 
 
+{{--        }));--}}
+{{--        $('#add-chat').bind('hide.bs.modal',(function (e) {--}}
 
-        }));
-
-        const http =window.axios;
-        const Echo=window.Echo;
-        const message=$(".message");
-
-        $('.btn-chat').click(function(e){
-            e.preventDefault()
+{{--            $('.content-inner').removeClass('content-inner'+order_id);--}}
 
 
 
-            if(message.val()==""){
-                message.addClass('is-invalid')
-            }else{
-                http.post("{{url('message')}}",{
-                    'message':message.val(),
-                    'user_id':"{{auth()->user()->id}}",
-                    'room_id':1,
-                    'order_id':order_id
-                }).then(()=>{
-                    message.val('');
-                });
-            }
+{{--        }));--}}
 
+{{--        const http =window.axios;--}}
+{{--        const Echo=window.Echo;--}}
+{{--        const message=$(".message");--}}
 
-        });
-        $(document).on('hide.bs.modal','#add-chat', function (e){
-            $(this).removeData();
+{{--        $('.btn-chat').click(function(e){--}}
+{{--            e.preventDefault()--}}
 
 
 
+{{--            if(message.val()==""){--}}
+{{--                message.addClass('is-invalid')--}}
+{{--            }else{--}}
+{{--                http.post("{{url('message')}}",{--}}
+{{--                    'message':message.val(),--}}
+{{--                    'user_id':"{{auth()->user()->id}}",--}}
+{{--                    'room_id':1,--}}
+{{--                    'order_id':order_id--}}
+{{--                }).then(()=>{--}}
+{{--                    message.val('');--}}
+{{--                });--}}
+{{--            }--}}
 
-        });
 
-    })
+{{--        });--}}
+{{--        $(document).on('hide.bs.modal','#add-chat', function (e){--}}
+{{--            $(this).removeData();--}}
+
+
+
+
+{{--        });--}}
+
+{{--    })--}}
 </script>
 @endauth

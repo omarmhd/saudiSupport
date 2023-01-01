@@ -63,6 +63,11 @@ class Order extends Model
         return $this->hasOne(Room::class,'order_id','id')->withDefault();
     }
 
+    public function department(){
+
+        return $this->belongsTo(Department::class,'department_id')->withDefault();
+    }
+
 
 
 

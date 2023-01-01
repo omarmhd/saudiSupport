@@ -12,4 +12,8 @@
     @if(session('error'))
     toastr.error("{{session('error')}}")
     @endif
+
+    @if(session('info'))
+    toastr.info("{{session('info')}}")
+    @endif
 </script>

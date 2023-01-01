@@ -20,13 +20,17 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::group([ 'prefix' => LaravelLocalization::setLocale(),'middleware'=>'auth'], function()
 {
-    Route::redirect('/','/orders');
-    /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
     Route::resource('/users',UserController::class);
 
     Route::resource('/orders',OrderController::class)->only([
         'edit','store','update','create','destroy'
     ]);;
+
+    route::get('/search',[OrderController::class,'search'])->name('search');
+
     Route::get('/chat',function (){
         $rooms=\App\Models\Room::get();
         $orders=\App\Models\Order::get();
@@ -41,6 +45,8 @@ Route::group([ 'prefix' => LaravelLocalization::setLocale(),'middleware'=>'auth'
     Route::delete('/attachments/{id}',[\App\Http\Controllers\Attachment::class,'destroy'])->name('attachment.destroy');
 
     Route::get('/orders/{journey?}', [OrderController::class,'index'])->name('orders.index');
+
+    Route::resource("departments",\App\Http\Controllers\DepartmentController::class);
 
     Route::prefix('order')->name('orders.')->group(function (){
 
@@ -77,4 +83,4 @@ Route::get('/notifications/{id}',[\App\Http\Controllers\NotificationController::
 Route::get('/notificationsReadAll',[\App\Http\Controllers\NotificationController::class,'readAll'])->name('notifications.readAll');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
